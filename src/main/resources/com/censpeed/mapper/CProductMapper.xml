@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.censpeed.shop.mapper.CProductMapper" >
+  <resultMap id="BaseResultMap" type="com.censpeed.shop.entity.CProduct" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="ICON" property="icon" jdbcType="VARCHAR" />
+    <result column="TAG" property="tag" jdbcType="VARCHAR" />
+    <result column="BRIEF_INTRODUCTION" property="briefIntroduction" jdbcType="VARCHAR" />
+    <result column="VIDEO" property="video" jdbcType="VARCHAR" />
+    <result column="IS_NEW" property="isNew" jdbcType="VARCHAR" />
+    <result column="IS_HOT" property="isHot" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="SORT" property="sort" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+  </resultMap>
+
+  <resultMap id="BaseResultMap2" type="com.censpeed.shop.entity.CProduct" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="ICON" property="icon" jdbcType="VARCHAR" />
+    <result column="TAG" property="tag" jdbcType="VARCHAR" />
+    <result column="BRIEF_INTRODUCTION" property="briefIntroduction" jdbcType="VARCHAR" />
+    <result column="VIDEO" property="video" jdbcType="VARCHAR" />
+    <result column="IS_NEW" property="isNew" jdbcType="VARCHAR" />
+    <result column="IS_HOT" property="isHot" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="SORT" property="sort" jdbcType="VARCHAR" />
+    <result column="BACKGROUND" property="sort" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <association property="cProductDetails" column="ID"
+                 select="com.censpeed.shop.mapper.CProductDetailsMapper.selectByPrimaryKey"
+                 javaType="com.censpeed.shop.entity.CProductDetails"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, ICON, TAG, BRIEF_INTRODUCTION, VIDEO, IS_NEW, IS_HOT, CREATE_TIME, SORT, BACKGROUND,
+    STATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap2" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_product
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAllCProductByStatus" resultMap="BaseResultMap2" resultType="com.censpeed.shop.entity.CProduct">
+    select
+    <include refid="Base_Column_List" />
+    from c_product
+    where STATUS = #{status,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from c_product
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.censpeed.shop.entity.CProduct" >
+    insert into c_product (ID, NAME, ICON, 
+      TAG, BRIEF_INTRODUCTION, VIDEO, 
+      IS_NEW, IS_HOT, CREATE_TIME, 
+      SORT, STATUS)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
+      #{tag,jdbcType=VARCHAR}, #{briefIntroduction,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR}, 
+      #{isNew,jdbcType=VARCHAR}, #{isHot,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{sort,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CProduct" >
+    insert into c_product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="icon != null" >
+        ICON,
+      </if>
+      <if test="tag != null" >
+        TAG,
+      </if>
+      <if test="briefIntroduction != null" >
+        BRIEF_INTRODUCTION,
+      </if>
+      <if test="video != null" >
+        VIDEO,
+      </if>
+      <if test="isNew != null" >
+        IS_NEW,
+      </if>
+      <if test="isHot != null" >
+        IS_HOT,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="sort != null" >
+        SORT,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="briefIntroduction != null" >
+        #{briefIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="video != null" >
+        #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="isNew != null" >
+        #{isNew,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null" >
+        #{isHot,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.censpeed.shop.entity.CProduct" >
+    update c_product
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null" >
+        ICON = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        TAG = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="briefIntroduction != null" >
+        BRIEF_INTRODUCTION = #{briefIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="video != null" >
+        VIDEO = #{video,jdbcType=VARCHAR},
+      </if>
+      <if test="isNew != null" >
+        IS_NEW = #{isNew,jdbcType=VARCHAR},
+      </if>
+      <if test="isHot != null" >
+        IS_HOT = #{isHot,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sort != null" >
+        SORT = #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.censpeed.shop.entity.CProduct" >
+    update c_product
+    set NAME = #{name,jdbcType=VARCHAR},
+      ICON = #{icon,jdbcType=VARCHAR},
+      TAG = #{tag,jdbcType=VARCHAR},
+      BRIEF_INTRODUCTION = #{briefIntroduction,jdbcType=VARCHAR},
+      VIDEO = #{video,jdbcType=VARCHAR},
+      IS_NEW = #{isNew,jdbcType=VARCHAR},
+      IS_HOT = #{isHot,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      SORT = #{sort,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

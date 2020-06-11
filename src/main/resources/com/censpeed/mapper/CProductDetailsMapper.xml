@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.censpeed.shop.mapper.CProductDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.censpeed.shop.entity.CProductDetails" >
+    <id column="C_PRODUCT_ID" property="cProductId" jdbcType="INTEGER" />
+    <result column="PRODUCT_CONTENT" property="productContent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    C_PRODUCT_ID, PRODUCT_CONTENT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_product_details
+    where C_PRODUCT_ID = #{cProductId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from c_product_details
+    where C_PRODUCT_ID = #{cProductId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.censpeed.shop.entity.CProductDetails" >
+    insert into c_product_details (C_PRODUCT_ID, PRODUCT_CONTENT)
+    values (#{cProductId,jdbcType=INTEGER}, #{productContent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CProductDetails" >
+    insert into c_product_details
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cProductId != null" >
+        C_PRODUCT_ID,
+      </if>
+      <if test="productContent != null" >
+        PRODUCT_CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cProductId != null" >
+        #{cProductId,jdbcType=INTEGER},
+      </if>
+      <if test="productContent != null" >
+        #{productContent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.censpeed.shop.entity.CProductDetails" >
+    update c_product_details
+    <set >
+      <if test="productContent != null" >
+        PRODUCT_CONTENT = #{productContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where C_PRODUCT_ID = #{cProductId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.censpeed.shop.entity.CProductDetails" >
+    update c_product_details
+    set PRODUCT_CONTENT = #{productContent,jdbcType=VARCHAR}
+    where C_PRODUCT_ID = #{cProductId,jdbcType=INTEGER}
+  </update>
+</mapper>

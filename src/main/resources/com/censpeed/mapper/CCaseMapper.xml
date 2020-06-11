@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.censpeed.shop.mapper.CCaseMapper" >
+  <resultMap id="BaseResultMap" type="com.censpeed.shop.entity.CCase" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+    <result column="COMPANY_INTRODUCT" property="companyIntroduct" jdbcType="VARCHAR" />
+    <result column="COMPANY_LOGO" property="companyLogo" jdbcType="VARCHAR" />
+    <result column="BACKGROUND_IMAGE" property="backgroundImage" jdbcType="VARCHAR" />
+    <result column="C_ITEM_DETAILS_ID" property="cItemDetailsId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, COMPANY_NAME, COMPANY_INTRODUCT, COMPANY_LOGO, BACKGROUND_IMAGE, C_ITEM_DETAILS_ID
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_case
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from c_case
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.censpeed.shop.entity.CCase" >
+    insert into c_case (ID, COMPANY_NAME, COMPANY_INTRODUCT, 
+      COMPANY_LOGO, BACKGROUND_IMAGE, C_ITEM_DETAILS_ID
+      )
+    values (#{id,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{companyIntroduct,jdbcType=VARCHAR}, 
+      #{companyLogo,jdbcType=VARCHAR}, #{backgroundImage,jdbcType=VARCHAR}, #{cItemDetailsId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CCase" >
+    insert into c_case
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="companyName != null" >
+        COMPANY_NAME,
+      </if>
+      <if test="companyIntroduct != null" >
+        COMPANY_INTRODUCT,
+      </if>
+      <if test="companyLogo != null" >
+        COMPANY_LOGO,
+      </if>
+      <if test="backgroundImage != null" >
+        BACKGROUND_IMAGE,
+      </if>
+      <if test="cItemDetailsId != null" >
+        C_ITEM_DETAILS_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="companyName != null" >
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyIntroduct != null" >
+        #{companyIntroduct,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLogo != null" >
+        #{companyLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="backgroundImage != null" >
+        #{backgroundImage,jdbcType=VARCHAR},
+      </if>
+      <if test="cItemDetailsId != null" >
+        #{cItemDetailsId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.censpeed.shop.entity.CCase" >
+    update c_case
+    <set >
+      <if test="companyName != null" >
+        COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyIntroduct != null" >
+        COMPANY_INTRODUCT = #{companyIntroduct,jdbcType=VARCHAR},
+      </if>
+      <if test="companyLogo != null" >
+        COMPANY_LOGO = #{companyLogo,jdbcType=VARCHAR},
+      </if>
+      <if test="backgroundImage != null" >
+        BACKGROUND_IMAGE = #{backgroundImage,jdbcType=VARCHAR},
+      </if>
+      <if test="cItemDetailsId != null" >
+        C_ITEM_DETAILS_ID = #{cItemDetailsId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.censpeed.shop.entity.CCase" >
+    update c_case
+    set COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      COMPANY_INTRODUCT = #{companyIntroduct,jdbcType=VARCHAR},
+      COMPANY_LOGO = #{companyLogo,jdbcType=VARCHAR},
+      BACKGROUND_IMAGE = #{backgroundImage,jdbcType=VARCHAR},
+      C_ITEM_DETAILS_ID = #{cItemDetailsId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

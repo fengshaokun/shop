@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+                "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!-- location填本地mysql-connector-java-5.1.40.jar的路径 -->
+    <classPathEntry
+            location="D:/software/maven/maven-repository/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar" />
+    <context id="context1" targetRuntime="MyBatis3">
+        <!-- 去注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/censpeed_product" userId="root"
+                        password="1234" />
+
+        <!-- 实体层 -->
+        <javaModelGenerator targetPackage="com.censpeed.shop.entity"
+                            targetProject="src/main/java" />
+
+        <!-- DAO层 -->
+        <sqlMapGenerator targetPackage="com.censpeed.shop.mapper"
+                         targetProject="src/main/java" />
+
+        <!-- Mappering.xml -->
+        <javaClientGenerator targetPackage="com.censpeed.shop.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER" />
+
+        <!-- schema填数据库名 tableName填需要生成代码的表名 若要一次性多张表就将下面的代码多复制，修改表名即可-->
+       <table schema="censpeed_product" tableName="c_case"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+        <table schema="censpeed_product" tableName="c_product"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+        <table schema="censpeed_product" tableName="c_user_sonsult"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+        <table schema="censpeed_product" tableName="c_item_details"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+
+        <table schema="censpeed_product" tableName="c_product_details"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+        <table schema="censpeed_product" tableName="c_menu"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+
+
+    </context>
+</generatorConfiguration>
