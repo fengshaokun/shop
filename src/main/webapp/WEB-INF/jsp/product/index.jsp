@@ -69,63 +69,28 @@
                                     <c:forEach items="${productList}" var="itemDto">
                                         <tr>
                                             <td class="text-center">${itemDto.name}</td>
-                                            <td class="text-center">${itemDto.icon}</td>
+                                            <td>
+                                                <img width="54" height="54" src=" ${ fn:split(itemDto.icon, ',')[0] } "
+                                                     style="float: left;">
+                                            </td>
                                             <td class="text-center">${itemDto.tag}</td>
-                                            <td class="text-center">${itemDto.background}</td>
+                                            <td>
+                                                <img width="54" height="54" src=" ${ fn:split(itemDto.background, ',')[0] } "
+                                                     style="float: left;">
+                                            </td>
                                             <td class="text-center">${itemDto.briefIntroduction}</td>
-                                            <td class="text-center">${itemDto.isHot}</td>
-                                            <td class="text-center">${itemDto.isNew}</td>
+                                            <td class="text-center">
+                                                    <c:if test="${itemDto.isHot==0}">否</c:if>
+                                                    <c:if test="${itemDto.isHot==1}">是</c:if>
+                                                    </td>
+                                            <td class="text-center">
+                                                <c:if test="${itemDto.isNew==0}">否</c:if>
+                                                <c:if test="${itemDto.isNew==1}">是</c:if></td>
                                             <td class="text-center">${itemDto.createTime.toLocaleString()}</td>
                                             <td class="text-center">${itemDto.cProductDetails.productContent}</td>
                                         </tr>
                                     </c:forEach>
                                 </table>
-
-
-                                <%--分页--%>
-                                <script type="text/javascript">
-                                    var if_firstime = true;
-                                    function doItemSearchForm() {
-                                        $("#itemSearchForm").submit();
-                                        /*var newhref = $(".on a")[0].href + "&" + $("#itemSearchForm").serialize();
-                                        window.location.href = newhref;*/
-                                    }
-
-                                    window.onload = function () {
-                                        $('.pagination').jqPaginator({
-                                            totalPages: ${pageInfo.pages},
-                                            visiblePages: 10,
-                                            currentPage: ${pageInfo.pageNum},
-
-                                            first: '<li class="first"><a href="javascript:void(0);">第一页</a></li>',
-                                            prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
-                                            next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
-                                            last: '<li class="last"><a href="javascript:void(0);">最末页 </a></li>',
-                                            page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
-
-                                            onPageChange: function (num) {
-                                                if (if_firstime) {
-                                                    if_firstime = false;
-                                                } else if (!if_firstime) {
-                                                    changePage(num);
-                                                }
-
-                                            }
-                                        });
-                                    }
-                                    function changePage(num) {
-                                       /* var newhref = $(".on a")[0].href + "&" + $("#itemSearchForm").serialize() + "&pageNum=" + num;
-                                        window.location.href = newhref;*/
-                                        location.href="/seller/toGoodsManagement?"+$("#itemSearchForm").serialize()+ "&pageNum=" + num;
-                                    }
-                                </script>
-                                <div class="pagination-layout">
-                                    <div class="pagination">
-                                        <ul class="pagination" total-items="pageInfo.totalRows" max-size="10" boundary-links="true">
-
-                                        </ul>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                 </div>

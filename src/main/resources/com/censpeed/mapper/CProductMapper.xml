@@ -26,15 +26,15 @@
     <result column="IS_HOT" property="isHot" jdbcType="VARCHAR" />
     <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
     <result column="SORT" property="sort" jdbcType="VARCHAR" />
-    <result column="BACKGROUND" property="sort" jdbcType="VARCHAR" />
+    <result column="BACKGROUND" property="background" jdbcType="VARCHAR" />
     <result column="STATUS" property="status" jdbcType="INTEGER" />
     <association property="cProductDetails" column="ID"
                  select="com.censpeed.shop.mapper.CProductDetailsMapper.selectByPrimaryKey"
                  javaType="com.censpeed.shop.entity.CProductDetails"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, NAME, ICON, TAG, BRIEF_INTRODUCTION, VIDEO, IS_NEW, IS_HOT, CREATE_TIME, SORT, BACKGROUND,
-    STATUS
+    ID, NAME, ICON, TAG, BRIEF_INTRODUCTION, VIDEO, IS_NEW, IS_HOT, CREATE_TIME, SORT,
+    STATUS,BACKGROUND
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap2" parameterType="java.lang.Integer" >
     select 
@@ -53,17 +53,17 @@
     delete from c_product
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.censpeed.shop.entity.CProduct" >
+  <insert id="insert" parameterType="com.censpeed.shop.entity.CProduct"  useGeneratedKeys="true" keyProperty="id">
     insert into c_product (ID, NAME, ICON, 
       TAG, BRIEF_INTRODUCTION, VIDEO, 
-      IS_NEW, IS_HOT, CREATE_TIME, 
-      SORT, STATUS)
+      IS_NEW, IS_HOT, CREATE_TIME,
+      SORT, STATUS, BACKGROUND)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
       #{tag,jdbcType=VARCHAR}, #{briefIntroduction,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR}, 
       #{isNew,jdbcType=VARCHAR}, #{isHot,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{sort,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER})
+      #{sort,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},#{background,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CProduct" >
+  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CProduct"  >
     insert into c_product
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

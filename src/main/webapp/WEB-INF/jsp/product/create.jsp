@@ -42,16 +42,14 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">产品菜单：</label>
-                                <div class="col-sm-6">
-                                    <input class="filter-input-filed" id="cid" type="hidden" name="cid">
-                                    <input class="filter-input-filed form-control" placeholder="请选择产品菜单" readonly id="productType"
-                                           data-toggle="modal" data-target="#myModal" type="text">
+                                <label class="col-sm-2 control-label">产品图标：</label>
+                                <div class="col-sm-6" >
+                                    <input type="hidden" id="txtIconurl" name="icon" />
+                                    <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()"/>
+                                    <textarea id="uploadIconEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">标签：</label>
                                 <div class="col-sm-6">
@@ -66,39 +64,50 @@
                                            type="text" name="briefIntroduction">
                                 </div>
                             </div>
-
-
-                       <%--     <div class="form-group">
-                                <label class="col-sm-2 control-label">价格：</label>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">是否热卖：</label>
                                 <div class="col-sm-6">
-                                    <div class="input-group">
-                                        <div class="input-group-addon">￥</div>
-                                        <input type="text" class="form-control" placeholder="请输入价格" id="showPrice" name="showPrice">
-                                        <input type="hidden" id="price" name="price">
-                                        <div class="input-group-addon">元</div>
-                                    </div>
+                                    <label><input  type="radio" name="isHot" value="0">是</label>
+                                    <label><input  type="radio" name="isHot" value="1">否</label>
                                 </div>
-                            </div>--%>
+                            </div>
 
 
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">是否新品：</label>
+                                <div class="col-sm-6">
+                                    <label><input  type="radio" name="isNew" value="0">是</label>
+                                    <label><input  type="radio" name="isNew" value="1">否</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">绑定菜单：</label>
+                                <div class="col-sm-6">
+                                    <select class="filter-input-filed form-control" name="menuId" id="menuId">
+                                        <option value="0" >无</option>
+                                        <c:forEach items="${menus}" var="itemDto">
+                                            <option value="${itemDto.id}">${itemDto.sort}--------->${itemDto.principal}</option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">背景图片：</label>
                                 <div class="col-sm-6" >
-                                    <input type="hidden" id="background" name="background" />
+                                    <input type="hidden" id="txtImgurl" name="background" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()"/>
-                                    <textarea id="uploadEditor" style="display: none;"></textarea>
+                                   <textarea id="uploadEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">视频：</label>
                                 <div class="col-sm-6" >
-                                    <input type="hidden" id="video" name="video" />
+                                    <input type="hidden" id="txtVideourl" name="video" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnVideoUpLoader" value="上传视频" onclick="upVideo()"/>
-                                    <textarea id="uploadVidoEditor" style="display: none;"></textarea>
+                                    <textarea id="uploadVideoEditor" style="display: none;"></textarea>
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">上架时间：</label>
                                 <div class="col-sm-6">
@@ -106,15 +115,14 @@
                                            type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" >
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">产品详情：</label>
                                 <div class="col-sm-6">
-                                    <textarea id="editor" type="text/plain" style="width:664px;height:500px;"></textarea>
+                                    <textarea id="editor" name="productContent" type="text/plain" style="width:664px;height:500px;"></textarea>
                                 </div>
                             </div>
 
-
-                            <input type="hidden" id="eleAttrs" name="eleAttrs" readonly>
 
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">
@@ -124,34 +132,16 @@
                                 </label>
                             </div>
 
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                                    aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title">请选择商品类型</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <%-- <div id="treeview12" class="test" style="height:300px; overflow:scroll;"></div>--%>
-                                            <ul id="category" class="ztree" style="height:400px; overflow:scroll;"></ul>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
 
 
                             <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
                             <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.js"></script>
                             <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
                             <script type="text/javascript" src="/js/fwb.js"></script>
-
                             <script type="text/javascript">
+
                                 // 实例化编辑器，这里注意配置项隐藏编辑器并禁用默认的基础功能。
-                                var uploadEditor = UE.getEditor("uploadEditor"                                                  );
+                                var uploadEditor = UE.getEditor("uploadEditor");
 
                                 uploadEditor.ready(function() {
                                     uploadEditor.setDisabled();
@@ -167,6 +157,24 @@
                                         $("#txtImgurl").attr("value", res);
                                     });
                                 });
+                                var uploadIconEditor = UE.getEditor("uploadIconEditor");
+
+                                uploadIconEditor.ready(function() {
+                                    uploadIconEditor.setDisabled();
+                                    uploadIconEditor.hide();
+                                    uploadIconEditor.addListener('beforeInsertImage', function(t, arg) {
+                                        //因为可以上传多张,所以就用arg[0]
+                                        var res = [];
+                                        for (var i = 0; i < arg.length; i++) {
+                                            res.push(arg[i].src);
+                                            $("#btnIconUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
+                                            $("#btnIconUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                        }
+                                        $("#txtIconurl").attr("value", res);
+                                    });
+                                });
+
+                                var uploadVideoEditor = UE.getEditor("uploadVideoEditor");
 
                                 function upImage() {
                                     var m;
@@ -174,10 +182,16 @@
                                     m.render();
                                     m.open();
                                 }
+                                function upIcon() {
+                                    var m;
+                                    m = uploadIconEditor.getDialog("insertimage");
+                                    m.render();
+                                    m.open();
+                                }
 
                                 function upVideo() {
                                     var m;
-                                    m = uploadEditor.getDialog("insertvideo");
+                                    m = uploadVideoEditor.getDialog("insertvideo");
                                     m.render();
                                     m.open();
                                 }
@@ -191,11 +205,18 @@
                                             return false;
                                         }
                                     })
+                                    $("#frm input[type='redio']").each(function (i, obj) {
+                                        if (null == this.value ||"" == this.value || undefined==this.value) {
+                                            toastr.error($(obj).prop("placeholder"))
+                                            flag=false;
+                                            return false;
+                                        }
+                                    })
                                     return flag;
                                 }
 
                                 function upload() {
-                                    $("#frm").attr("action","/seller/uploadGood");
+                                    $("#frm").attr("action","/product/uploadGood");
                                     with($("#frm").get(0)){
                                         if(checkForm())
                                             submit();

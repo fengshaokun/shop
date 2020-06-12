@@ -33,19 +33,22 @@
 		<div class="bg_color percent-seller percent-seller-goods" id="searchCondition">
 		<table class="table table-bordered table-striped">
 		<tr>
-		<th>菜单名</th>
-		<th>图标</th>
-		<th>上一级</th>
+		<th>id</th>
+		<th>主标题</th>
+		<th>副标题</th>
+		<th>Url</th>
+		<th>排序</th>
+		<th>上一级菜单</th>
 		<th>操作</th>
 		</tr>
-		<c:forEach items="${pageInfo.list}" var="itemDto">
+		<c:forEach items="${menus}" var="itemDto">
 			<tr>
-			<td class="text-center"><fmt:formatNumber value="${itemDto.price/100}"
-													  type="CURRENCY"></fmt:formatNumber></td>
-			</td>
-			<td class="text-center">${itemDto.stock}</td>
-			<td class="text-center">${itemDto.onTime.toLocaleString()}</td>
-			<td class="text-center"><a href="/seller/xiajia?itemId=${itemDto.id}" class="delete-good">下架</a>
+			<td class="text-center">${itemDto.id}</td>
+			<td class="text-center">${itemDto.principal}</td>
+			<td class="text-center">${itemDto.subordinate}</td>
+			<td class="text-center">${itemDto.url}</td>
+			<td class="text-center">${itemDto.sort}</td>
+			<td class="text-center">${itemDto.pid}</td>
 			</td>
 			</tr>
 		</c:forEach>

@@ -7,6 +7,8 @@ public class CMenu {
 
     private String subordinate;
 
+    private String url;
+
     private String sort;
 
     private Integer pid;
@@ -33,6 +35,14 @@ public class CMenu {
 
     public void setSubordinate(String subordinate) {
         this.subordinate = subordinate;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getSort() {

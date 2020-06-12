@@ -10,5 +10,6 @@ public interface CProductServiceI {
 
     List<CProduct> selectAllCProductByStatus(Integer status);
 
-    int insert(CProduct record);
+    //新增产品返回产品主键
+    int insert(CProduct record,String productContent,Integer menuId);
 }

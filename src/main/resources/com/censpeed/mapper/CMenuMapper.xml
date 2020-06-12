@@ -5,11 +5,12 @@
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="PRINCIPAL" property="principal" jdbcType="VARCHAR" />
     <result column="SUBORDINATE" property="subordinate" jdbcType="VARCHAR" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
     <result column="SORT" property="sort" jdbcType="VARCHAR" />
     <result column="PID" property="pid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, PRINCIPAL, SUBORDINATE, SORT, PID
+    ID, PRINCIPAL, SUBORDINATE, URL, SORT, PID
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -17,15 +18,20 @@
     from c_menu
     where ID = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultType="com.censpeed.shop.entity.CMenu">
+    select
+    <include refid="Base_Column_List" />
+    from c_menu
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_menu
     where ID = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.censpeed.shop.entity.CMenu" >
-    insert into c_menu (ID, PRINCIPAL, SUBORDINATE, 
-      SORT, PID)
-    values (#{id,jdbcType=INTEGER}, #{principal,jdbcType=VARCHAR}, #{subordinate,jdbcType=VARCHAR}, 
-      #{sort,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER})
+    insert into c_menu (ID, PRINCIPAL, SUBORDINATE,
+      URL, SORT, PID)
+    values (null , #{principal,jdbcType=VARCHAR}, #{subordinate,jdbcType=VARCHAR},
+      #{url,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CMenu" >
     insert into c_menu
@@ -38,6 +44,9 @@
       </if>
       <if test="subordinate != null" >
         SUBORDINATE,
+      </if>
+      <if test="url != null" >
+        URL,
       </if>
       <if test="sort != null" >
         SORT,
@@ -56,6 +65,9 @@
       <if test="subordinate != null" >
         #{subordinate,jdbcType=VARCHAR},
       </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
       <if test="sort != null" >
         #{sort,jdbcType=VARCHAR},
       </if>
@@ -73,6 +85,9 @@
       <if test="subordinate != null" >
         SUBORDINATE = #{subordinate,jdbcType=VARCHAR},
       </if>
+      <if test="url != null" >
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
       <if test="sort != null" >
         SORT = #{sort,jdbcType=VARCHAR},
       </if>
@@ -86,6 +101,7 @@
     update c_menu
     set PRINCIPAL = #{principal,jdbcType=VARCHAR},
       SUBORDINATE = #{subordinate,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
       SORT = #{sort,jdbcType=VARCHAR},
       PID = #{pid,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}

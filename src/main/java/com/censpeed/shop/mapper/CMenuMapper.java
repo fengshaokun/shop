@@ -1,6 +1,9 @@
 package com.censpeed.shop.mapper;
 
 import com.censpeed.shop.entity.CMenu;
+import org.apache.catalina.LifecycleState;
+
+import java.util.List;
 
 public interface CMenuMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +17,6 @@ public interface CMenuMapper {
     int updateByPrimaryKeySelective(CMenu record);
 
     int updateByPrimaryKey(CMenu record);
+
+    List<CMenu> selectAll();
 }
