@@ -10,8 +10,21 @@ public class CaseController {
 
     @RequestMapping("toMain")
     public String toMain() {
-        return "portal/jsp/main";
+        return "menu/index";
     }
+
+
+    @RequestMapping("update")
+    public String update() {
+        return "menu/update";
+    }
+
+
+    @RequestMapping("create")
+    public String create() {
+        return "menu/create";
+    }
+
 
 
     @RequestMapping("toMarketMenu")
@@ -22,7 +35,7 @@ public class CaseController {
     @RequestMapping("toSellerUploadGoods")
     public String toSellerUploadGoods(Map map) {
 
-        return "/seller/sellerUploadGoods";
+        return "seller/create";
     }
     @RequestMapping("sellerUploadProducts")
     public String sellerUploadProducts(Map map) {
@@ -36,6 +49,6 @@ public class CaseController {
 
     @RequestMapping("toGoodsManagement")
     public String toGoodsManagement(Map map) {
-        return "/seller/goodsManagement";
+        return "seller/index";
     }
 }
