@@ -23,4 +23,9 @@ private CProductMapper cProductMapper;
     public List<CProduct> selectAllCProductByStatus(Integer status) {
         return cProductMapper.selectAllCProductByStatus(status);
     }
+
+    @Override
+    public int insert(CProduct record) {
+        return cProductMapper.insert(record);
+    }
 }

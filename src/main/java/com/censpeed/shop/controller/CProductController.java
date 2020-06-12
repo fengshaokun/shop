@@ -30,6 +30,11 @@ public class CProductController {
         return "product/index";
 
     }
+    @RequestMapping("uploadGood")
+    public String uploadGood(CProduct cProduct) {
+        cProductServiceI.insert(cProduct);
+        return "redirect:/product/index";
+    }
 
 
 

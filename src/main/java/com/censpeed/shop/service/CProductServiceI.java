@@ -9,4 +9,6 @@ public interface CProductServiceI {
     CProduct getCProductById(Integer cProductId);
 
     List<CProduct> selectAllCProductByStatus(Integer status);
+
+    int insert(CProduct record);
 }
