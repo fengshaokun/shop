@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.censpeed.shop.mapper.CProductMenuLinkMapper" >
+  <resultMap id="BaseResultMap" type="com.censpeed.shop.entity.CProductMenuLink" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="C_PRODUCT_ID" property="cProductId" jdbcType="INTEGER" />
+    <result column="C_MENU_ID" property="cMenuId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, C_PRODUCT_ID, C_MENU_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_product_menu_link
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from c_product_menu_link
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.censpeed.shop.entity.CProductMenuLink" >
+    insert into c_product_menu_link (ID, C_PRODUCT_ID, C_MENU_ID
+      )
+    values (null , #{cProductId,jdbcType=INTEGER}, #{cMenuId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CProductMenuLink" >
+    insert into c_product_menu_link
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="cProductId != null" >
+        C_PRODUCT_ID,
+      </if>
+      <if test="cMenuId != null" >
+        C_MENU_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cProductId != null" >
+        #{cProductId,jdbcType=INTEGER},
+      </if>
+      <if test="cMenuId != null" >
+        #{cMenuId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.censpeed.shop.entity.CProductMenuLink" >
+    update c_product_menu_link
+    <set >
+      <if test="cProductId != null" >
+        C_PRODUCT_ID = #{cProductId,jdbcType=INTEGER},
+      </if>
+      <if test="cMenuId != null" >
+        C_MENU_ID = #{cMenuId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.censpeed.shop.entity.CProductMenuLink" >
+    update c_product_menu_link
+    set C_PRODUCT_ID = #{cProductId,jdbcType=INTEGER},
+      C_MENU_ID = #{cMenuId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
