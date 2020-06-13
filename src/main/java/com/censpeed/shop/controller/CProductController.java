@@ -25,6 +25,8 @@ public class CProductController {
 
     @Autowired
     private CMenuServiceI cMenuServiceI;
+
+
     @RequestMapping("create")
     public String createProduct(Map map) {
         List<CMenu> cMenus = cMenuServiceI.selectAll();
@@ -32,21 +34,62 @@ public class CProductController {
         return "product/create";
     }
 
+    //产品管理
     @RequestMapping("index")
     public String toProduct(@RequestParam(defaultValue = "1") Integer status, Map map){
         List<CProduct> cProducts = cProductServiceI.selectAllCProductByStatus(status);
-        cProducts.get(0).getcProductDetails();
         map.put("productList",cProducts);
         return "product/index";
 
     }
+
+    //创建产品
     @PostMapping("uploadGood")
     public String uploadGood(CProduct cProduct,String productContent,String onTime,Integer menuId) {
+        if (cProduct.getVideo().equals("")){
+            cProduct.setVideo(null);
+        }
         cProduct.setStatus(1);
         cProduct.setCreateTime(stringToDate(onTime));
       int Pid = cProductServiceI.insert(cProduct,productContent,menuId);
         return "redirect:/product/index";
     }
+
+
+    //修改产品
+    @PostMapping("updateGoods")
+    public String updateGoods(CProduct cProduct,String productContent,String onTime,Integer menuId) {
+        if (cProduct.getVideo().equals("")){
+            cProduct.setVideo(null);
+        }
+        cProduct.setCreateTime(stringToDate(onTime));
+      int Pid = cProductServiceI.update(cProduct,productContent,menuId);
+        return "redirect:/product/index";
+    }
+
+    //修改页面回显
+    @RequestMapping("update")
+    public String update(Integer id,Map map) {
+        CProduct cProductById = cProductServiceI.getCProductById(id);
+        map.put("product",cProductById);
+        return "product/update";
+    }
+    //删除/恢复产品
+    @RequestMapping("updateStatus")
+    public String updateStatus(Integer id,Integer status,Map map) {
+        if (status==1){
+            CProduct cProductById = cProductServiceI.getCProductById(id);
+            cProductById.setStatus(2);
+            cProductServiceI.updateByPrimaryKeySelective(cProductById);
+            return "redirect:/product/index";
+        }else {
+            CProduct cProductById = cProductServiceI.getCProductById(id);
+            cProductById.setStatus(1);
+            cProductServiceI.updateByPrimaryKeySelective(cProductById);
+            return "redirect:/product/index";
+        }
+    }
+
 
 
 

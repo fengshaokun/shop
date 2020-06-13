@@ -27,10 +27,6 @@
                     <%--左边菜单开始-----------------------------------------------------%>
                     <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
                     <%--左边菜单结束-----------------------------------------------------%>
-                        <script id="template1" type="text/x-jquery-tmpl">
-        <label class="control-label" style="background: no-repeat;">${'${'}$data}</label>:
-        <input type="text"  class="wlong goods-title form-control"/>
-</script>
 
                         <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/seller/uploadGood" method="post"  onsubmit="return false">
                             <h2>商品基本信息</h2>
@@ -105,7 +101,7 @@
                                 <div class="col-sm-6" >
                                     <input type="hidden" id="txtVideourl" name="video" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnVideoUpLoader" value="上传视频" onclick="upVideo()"/>
-                                    <textarea id="uploadVideoEditor" style="display: none;"></textarea>
+                                    <textarea id="uploadVideoEditor" style="display: block;" ></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -137,6 +133,7 @@
                             <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
                             <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.js"></script>
                             <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+
                             <script type="text/javascript" src="/js/fwb.js"></script>
                             <script type="text/javascript">
 
@@ -148,6 +145,7 @@
                                     uploadEditor.hide();
                                     uploadEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
+
                                         var res = [];
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
@@ -175,6 +173,25 @@
                                 });
 
                                 var uploadVideoEditor = UE.getEditor("uploadVideoEditor");
+                                    uploadVideoEditor.ready(function() {
+                                   uploadVideoEditor.setDisabled();
+                                    uploadVideoEditor.hide();
+                                        uploadVideoEditor.addListener('myinsertvideo', function(t, arg) {
+                                            //因为可以上传多张,所以就用arg[0]
+                                            var res = [];
+                                            for (var i = 0; i < arg.length; i++) {
+                                                alert(arg[i].url)
+                                                console.log(arg[i].url)
+                                                res.push(arg[i].url);
+                                                $("#btnVideoUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
+                                                $("#btnVideoUpLoader").after("<video class=\"edui-upload-video video-js vjs-default-skin video-js\" controls=\"\" preload=\"none\" width=\"420\" height=\"280\" src='"+arg[i].url+"' data-setup=\"{}\">\n" +
+                                                    "        <source src='"+arg[i].url+"' type=\"video/mp4\"/>\n" +
+                                                    "    </video>");
+                                            }
+                                            $("#txtVideourl").attr("value", res);
+                                        });
+
+                                    });
 
                                 function upImage() {
                                     var m;

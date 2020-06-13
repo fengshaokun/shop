@@ -47,4 +47,30 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
         cProductMenuLinkMapper.insert(cProductMenuLink);
         return record.getId();
     }
+
+    @Override
+    public int update(CProduct record, String productContent, Integer menuId) {
+        cProductMapper.updateByPrimaryKeySelective(record);
+        Integer id = record.getId();
+        CProductMenuLink cProductMenuLink = cProductMenuLinkMapper.selectByPrimaryKey(record.getId());
+        if (cProductMenuLink==null){
+            cProductMenuLink=new CProductMenuLink();
+            cProductMenuLink.setcProductId(id);
+        }
+        cProductMenuLink.setcMenuId(menuId);
+        cProductMenuLinkMapper.updateByPrimaryKey(cProductMenuLink);
+        CProductDetails cProductDetails = cProductDetailsMapper.selectByPrimaryKey(record.getId());
+        if (cProductDetails==null){
+            cProductDetails=new CProductDetails();
+            cProductDetails.setcProductId(id);
+       }
+        cProductDetails.setProductContent(productContent);
+        cProductDetailsMapper.updateByPrimaryKeySelective(cProductDetails);
+        return record.getId();
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective(CProduct record) {
+        return  cProductMapper.updateByPrimaryKeySelective(record);
+    }
 }

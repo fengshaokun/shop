@@ -12,4 +12,8 @@ public interface CProductServiceI {
 
     //新增产品返回产品主键
     int insert(CProduct record,String productContent,Integer menuId);
+
+    int update(CProduct record,String productContent,Integer menuId);
+
+    int updateByPrimaryKeySelective(CProduct record);
 }

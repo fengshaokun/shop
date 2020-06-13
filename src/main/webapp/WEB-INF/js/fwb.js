@@ -44,7 +44,7 @@ function getContent() {
         return;
     }
 
-    $.ajax({
+    /*$.ajax({
         url:'/seller/uploadProduct',
         data:{name:name,desc:desc},
         type:'post',
@@ -60,8 +60,32 @@ function getContent() {
             toastr.error("发布货品失败");
         }
 
-    })
+    })*/
 
+        $(".delete-good").click(function(){
+
+        });
+
+
+
+    $(".delete-good").on("click",function(event){
+        event.preventDefault();
+        var id = event.attr('id');
+        alert(id);//使a自带的方法失效，即无法调整到href中的URL(http://www.baidu.com)
+        $.ajax({
+            type: "POST",
+            url: "/product/update",
+            contentType:"application/json",
+            data: JSON.stringify({id:id}),//参数列表
+            dataType:"json",
+            success: function(result){
+                //请求正确之后的操作
+            },
+            error: function(result) {
+                //请求失败之后的操作
+            }
+        });
+    });
 
 
 

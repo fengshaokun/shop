@@ -27,11 +27,6 @@
         <%--左边菜单开始-----------------------------------------------------%>
         <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
         <%--左边菜单结束-----------------------------------------------------%>
-        <script id="template1" type="text/x-jquery-tmpl">
-        <label class="control-label" style="background: no-repeat;">${'${'}$data}</label>:
-        <input type="text" class="wlong goods-title form-control"/>
-        </script>
-
         <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/menu/uploadGood"
         method="post" onsubmit="return false">
         <h2>创建菜单</h2>
