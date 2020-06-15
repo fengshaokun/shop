@@ -7,31 +7,48 @@
     <result column="COMPANY_INTRODUCT" property="companyIntroduct" jdbcType="VARCHAR" />
     <result column="COMPANY_LOGO" property="companyLogo" jdbcType="VARCHAR" />
     <result column="BACKGROUND_IMAGE" property="backgroundImage" jdbcType="VARCHAR" />
-    <result column="C_ITEM_DETAILS_ID" property="cItemDetailsId" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="SORT" property="sort" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="BaseResultMap2" type="com.censpeed.shop.entity.CCase" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+    <result column="COMPANY_INTRODUCT" property="companyIntroduct" jdbcType="VARCHAR" />
+    <result column="COMPANY_LOGO" property="companyLogo" jdbcType="VARCHAR" />
+    <result column="BACKGROUND_IMAGE" property="backgroundImage" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="SORT" property="sort" jdbcType="VARCHAR" />
+    <association property="cItemDetails" column="ID"
+                 select="com.censpeed.shop.mapper.CItemDetailsMapper.selectByPrimaryKey"
+                 javaType="com.censpeed.shop.entity.CItemDetails"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, COMPANY_NAME, COMPANY_INTRODUCT, COMPANY_LOGO, BACKGROUND_IMAGE, C_ITEM_DETAILS_ID
+    ID, COMPANY_NAME, COMPANY_INTRODUCT, COMPANY_LOGO, BACKGROUND_IMAGE, NAME,SORT
   </sql>
-
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from c_case
     where ID = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap2">
 
-
-
+    select
+    <include refid="Base_Column_List" />
+    from c_case
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_case
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.censpeed.shop.entity.CCase" >
+  <insert id="insert" parameterType="com.censpeed.shop.entity.CCase" useGeneratedKeys="true" keyProperty="id" >
     insert into c_case (ID, COMPANY_NAME, COMPANY_INTRODUCT, 
-      COMPANY_LOGO, BACKGROUND_IMAGE, C_ITEM_DETAILS_ID
+      COMPANY_LOGO, BACKGROUND_IMAGE, NAME,SORT
       )
     values (#{id,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{companyIntroduct,jdbcType=VARCHAR}, 
-      #{companyLogo,jdbcType=VARCHAR}, #{backgroundImage,jdbcType=VARCHAR}, #{cItemDetailsId,jdbcType=INTEGER}
+      #{companyLogo,jdbcType=VARCHAR}, #{backgroundImage,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+      #{sort,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CCase" >
@@ -52,8 +69,11 @@
       <if test="backgroundImage != null" >
         BACKGROUND_IMAGE,
       </if>
-      <if test="cItemDetailsId != null" >
-        C_ITEM_DETAILS_ID,
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="sort != null" >
+        SORT,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -72,8 +92,11 @@
       <if test="backgroundImage != null" >
         #{backgroundImage,jdbcType=VARCHAR},
       </if>
-      <if test="cItemDetailsId != null" >
-        #{cItemDetailsId,jdbcType=INTEGER},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -89,11 +112,14 @@
       <if test="companyLogo != null" >
         COMPANY_LOGO = #{companyLogo,jdbcType=VARCHAR},
       </if>
-      <if test="backgroundImage != null" >
+      <if test="backgroundImage != null " >
         BACKGROUND_IMAGE = #{backgroundImage,jdbcType=VARCHAR},
       </if>
-      <if test="cItemDetailsId != null" >
-        C_ITEM_DETAILS_ID = #{cItemDetailsId,jdbcType=INTEGER},
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        NAME = #{sort,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
@@ -104,7 +130,8 @@
       COMPANY_INTRODUCT = #{companyIntroduct,jdbcType=VARCHAR},
       COMPANY_LOGO = #{companyLogo,jdbcType=VARCHAR},
       BACKGROUND_IMAGE = #{backgroundImage,jdbcType=VARCHAR},
-      C_ITEM_DETAILS_ID = #{cItemDetailsId,jdbcType=INTEGER}
+      NAME = #{name,jdbcType=VARCHAR},
+      SORT = #{sort,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

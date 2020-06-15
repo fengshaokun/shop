@@ -1,3 +1,4 @@
+/*
 $(function () {
     function getCookie(name) {
         var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
@@ -35,3 +36,4 @@ function loginOut() {
     });
 }
 
+*/

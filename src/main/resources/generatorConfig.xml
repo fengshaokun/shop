@@ -29,36 +29,42 @@
                              targetProject="src/main/java" type="XMLMAPPER" />
 
         <!-- schema填数据库名 tableName填需要生成代码的表名 若要一次性多张表就将下面的代码多复制，修改表名即可-->
-<!--       <table schema="censpeed_product" tableName="c_case"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false" />
-        <table schema="censpeed_product" tableName="c_product"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false" />
-        <table schema="censpeed_product" tableName="c_user_sonsult"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false" />
-        <table schema="censpeed_product" tableName="c_item_details"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false" />
-
-        <table schema="censpeed_product" tableName="c_product_details"
+       <!--<table schema="censpeed_product" tableName="c_case"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />-->
+        <table schema="censpeed_product" tableName="c_user"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+        <!-- <table schema="censpeed_product" tableName="c_product"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false" />
+         <table schema="censpeed_product" tableName="c_user_sonsult"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false" />
+         <table schema="censpeed_product" tableName="c_item_details"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false" />
+
+         <table schema="censpeed_product" tableName="c_product_details"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false" />-->
       <!--  <table schema="censpeed_product" tableName="c_menu"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />-->
 
+<!--
         <table schema="censpeed_product" tableName="c_product_menu_link"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />
+-->
 
 
 

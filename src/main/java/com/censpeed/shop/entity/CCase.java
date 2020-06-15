@@ -11,7 +11,19 @@ public class CCase {
 
     private String backgroundImage;
 
-    private Integer cItemDetailsId;
+    private String name;
+
+    private String sort;
+
+    private CItemDetails cItemDetails;
+
+    public CItemDetails getcItemDetails() {
+        return cItemDetails;
+    }
+
+    public void setcItemDetails(CItemDetails cItemDetails) {
+        this.cItemDetails = cItemDetails;
+    }
 
     public Integer getId() {
         return id;
@@ -53,11 +65,18 @@ public class CCase {
         this.backgroundImage = backgroundImage;
     }
 
-    public Integer getcItemDetailsId() {
-        return cItemDetailsId;
+    public String getName() {
+        return name;
     }
 
-    public void setcItemDetailsId(Integer cItemDetailsId) {
-        this.cItemDetailsId = cItemDetailsId;
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
     }
 }

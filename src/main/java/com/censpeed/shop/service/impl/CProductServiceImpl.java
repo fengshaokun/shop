@@ -52,13 +52,12 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
     public int update(CProduct record, String productContent, Integer menuId) {
         cProductMapper.updateByPrimaryKeySelective(record);
         Integer id = record.getId();
-        CProductMenuLink cProductMenuLink = cProductMenuLinkMapper.selectByPrimaryKey(record.getId());
-        if (cProductMenuLink==null){
-            cProductMenuLink=new CProductMenuLink();
-            cProductMenuLink.setcProductId(id);
-        }
+        CProductMenuLink cProductMenuLink = new CProductMenuLink();
+        cProductMenuLink.setcProductId(id);
         cProductMenuLink.setcMenuId(menuId);
-        cProductMenuLinkMapper.updateByPrimaryKey(cProductMenuLink);
+        cProductMenuLinkMapper.deleteByProductKey(id);
+        cProductMenuLinkMapper.insert(cProductMenuLink);
+
         CProductDetails cProductDetails = cProductDetailsMapper.selectByPrimaryKey(record.getId());
         if (cProductDetails==null){
             cProductDetails=new CProductDetails();
@@ -71,6 +70,7 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
 
     @Override
     public int updateByPrimaryKeySelective(CProduct record) {
+        cProductMenuLinkMapper.deleteByProductKey(record.getId());
         return  cProductMapper.updateByPrimaryKeySelective(record);
     }
 }

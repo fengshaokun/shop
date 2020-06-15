@@ -14,9 +14,12 @@ public interface CMenuMapper {
 
     CMenu selectByPrimaryKey(Integer id);
 
+    CMenu selectPMenuByPid(Integer id);
+
     int updateByPrimaryKeySelective(CMenu record);
 
     int updateByPrimaryKey(CMenu record);
 
     List<CMenu> selectAll();
+
 }

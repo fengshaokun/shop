@@ -28,20 +28,20 @@
                     <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
                     <%--左边菜单结束-----------------------------------------------------%>
 
-                        <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/seller/uploadGood" method="post"  onsubmit="return false">
+                        <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/case/upload" method="post"  onsubmit="return false">
                             <h2>案例信息</h2>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">公司名称：</label>
                                 <div class="col-sm-6">
-                                    <input class="filter-input-filed form-control" id="name" placeholder="请输入名称"
-                                           type="text" name="name">
+                                    <input class="filter-input-filed form-control" id="companyName" placeholder="请输入名称"
+                                           type="text" name="companyName">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">客户LOGO：</label>
                                 <div class="col-sm-6" >
-                                    <input type="hidden" id="txtIconurl" name="icon" />
+                                    <input type="hidden" id="txtIconurl" name="companyLogo" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()"/>
                                     <textarea id="uploadIconEditor" style="display: block;"></textarea>
                                 </div>
@@ -50,41 +50,34 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">简介：</label>
                                 <div class="col-sm-6">
-                                    <input class="filter-input-filed form-control" id="briefIntroduction" placeholder="请输入简介"
-                                           type="text" name="briefIntroduction">
+                                    <input class="filter-input-filed form-control" id="companyIntroduct" placeholder="请输入简介"
+                                           type="text" name="companyIntroduct">
                                 </div>
                             </div>
+
 
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">背景图片：</label>
                                 <div class="col-sm-6" >
-                                    <input type="hidden" id="txtImgurl" name="background" />
+                                    <input type="hidden" id="txtImgurl" name="backgroundImage" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()"/>
                                    <textarea id="uploadEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">视频：</label>
-                                <div class="col-sm-6" >
-                                    <input type="hidden" id="txtVideourl" name="video" />
-                                    <input type="button"  class="btn btn-primary btn-lg" id="btnVideoUpLoader" value="上传视频" onclick="upVideo()"/>
-                                    <textarea id="uploadVideoEditor" style="display: block;" ></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label">上架时间：</label>
+                                <label class="col-sm-2 control-label">案例名称：</label>
                                 <div class="col-sm-6">
-                                    <input class="filter-input-filed form-control" placeholder="请选择上架时间" readonly id="onTime" name="onTime"
-                                           type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" >
+                                    <input class="filter-input-filed form-control" id="name" placeholder="请输入案例名称"
+                                           type="text" name="name">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">产品详情：</label>
+                                <label class="col-sm-2 control-label">案例详情：</label>
                                 <div class="col-sm-6">
-                                    <textarea id="editor" name="productContent" type="text/plain" style="width:664px;height:500px;"></textarea>
+                                    <textarea id="editor" name="caseContent" type="text/plain" style="width:664px;height:500px;"></textarea>
                                 </div>
                             </div>
 
@@ -108,13 +101,11 @@
 
                                 // 实例化编辑器，这里注意配置项隐藏编辑器并禁用默认的基础功能。
                                 var uploadEditor = UE.getEditor("uploadEditor");
-
                                 uploadEditor.ready(function() {
                                     uploadEditor.setDisabled();
                                     uploadEditor.hide();
                                     uploadEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
-
                                         var res = [];
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
@@ -141,27 +132,6 @@
                                     });
                                 });
 
-                                var uploadVideoEditor = UE.getEditor("uploadVideoEditor");
-                                    uploadVideoEditor.ready(function() {
-                                   uploadVideoEditor.setDisabled();
-                                    uploadVideoEditor.hide();
-                                        uploadVideoEditor.addListener('myinsertvideo', function(t, arg) {
-                                            //因为可以上传多张,所以就用arg[0]
-                                            var res = [];
-                                            for (var i = 0; i < arg.length; i++) {
-                                                alert(arg[i].url)
-                                                console.log(arg[i].url)
-                                                res.push(arg[i].url);
-                                                $("#btnVideoUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                                $("#btnVideoUpLoader").after("<video class=\"edui-upload-video video-js vjs-default-skin video-js\" controls=\"\" preload=\"none\" width=\"420\" height=\"280\" src='"+arg[i].url+"' data-setup=\"{}\">\n" +
-                                                    "        <source src='"+arg[i].url+"' type=\"video/mp4\"/>\n" +
-                                                    "    </video>");
-                                            }
-                                            $("#txtVideourl").attr("value", res);
-                                        });
-
-                                    });
-
                                 function upImage() {
                                     var m;
                                     m = uploadEditor.getDialog("insertimage");
@@ -171,13 +141,6 @@
                                 function upIcon() {
                                     var m;
                                     m = uploadIconEditor.getDialog("insertimage");
-                                    m.render();
-                                    m.open();
-                                }
-
-                                function upVideo() {
-                                    var m;
-                                    m = uploadVideoEditor.getDialog("insertvideo");
                                     m.render();
                                     m.open();
                                 }
@@ -202,7 +165,7 @@
                                 }
 
                                 function upload() {
-                                    $("#frm").attr("action","/product/uploadGood");
+                                    $("#frm").attr("action","/case/upload");
                                     with($("#frm").get(0)){
                                         if(checkForm())
                                             submit();
@@ -210,13 +173,6 @@
                                     }
                                 }
 
-
-                                $(function () {
-                                    $("#showPrice").blur(function(){
-                                        //把价格转成分存储
-                                        $("#price").val($("#showPrice").val()*100);
-                                    })
-                                })
 
                             </script>
                         </form>

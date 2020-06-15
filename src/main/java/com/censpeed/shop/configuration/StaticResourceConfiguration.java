@@ -14,12 +14,9 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/css/**").addResourceLocations("/WEB-INF/css/");
         registry.addResourceHandler("/fonts/**").addResourceLocations("/WEB-INF/fonts/");
         registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/img/");
-        registry.addResourceHandler("/portal/img/**").addResourceLocations("/WEB-INF/jsp/portal/img/");
-        registry.addResourceHandler("/portal/js/**").addResourceLocations("/WEB-INF/jsp/portal/js/");
-        registry.addResourceHandler("/portal/css/**").addResourceLocations("/WEB-INF/jsp/portal/css/");
-        registry.addResourceHandler("/portal/files/**").addResourceLocations("/WEB-INF/jsp/portal/files/");
-        registry.addResourceHandler("/portal/fonts/**").addResourceLocations("/WEB-INF/jsp/portal/fonts/");
-        registry.addResourceHandler("/portal/tempFiles/**").addResourceLocations("/WEB-INF/jsp/portal/tempFiles/");
+        registry.addResourceHandler("/portal/assets/images/**").addResourceLocations("/WEB-INF/jsp/portal/assets/images/");
+        registry.addResourceHandler("/portal/assets/js/**").addResourceLocations("/WEB-INF/jsp/portal/assets/js/");
+        registry.addResourceHandler("/portal/assets/css/**").addResourceLocations("/WEB-INF/jsp/portal/assets/css/");
         super.addResourceHandlers(registry);
     }
 }

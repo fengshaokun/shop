@@ -2,6 +2,8 @@ package com.censpeed.shop.mapper;
 
 import com.censpeed.shop.entity.CProductMenuLink;
 
+import java.util.List;
+
 public interface CProductMenuLinkMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -14,4 +16,9 @@ public interface CProductMenuLinkMapper {
     int updateByPrimaryKeySelective(CProductMenuLink record);
 
     int updateByPrimaryKey(CProductMenuLink record);
+
+    List<CProductMenuLink> selectLinkByMenuId(Integer id);
+
+
+    int deleteByProductKey(Integer id);
 }

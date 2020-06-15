@@ -23,7 +23,15 @@
     <include refid="Base_Column_List" />
     from c_menu
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectPMenuByPid" resultType="com.censpeed.shop.entity.CMenu">
+
+      select
+      <include refid="Base_Column_List" />
+      from c_menu
+      where PID = #{id,jdbcType=INTEGER}
+
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_menu
     where ID = #{id,jdbcType=INTEGER}
   </delete>

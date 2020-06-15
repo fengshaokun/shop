@@ -15,9 +15,21 @@
     from c_product_menu_link
     where ID = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectLinkByMenuId" resultMap="BaseResultMap">
+
+      select
+      <include refid="Base_Column_List" />
+      from c_product_menu_link
+      where C_MENU_ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_product_menu_link
     where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByProductKey">
+    delete from c_product_menu_link
+    where C_PRODUCT_ID = #{id,jdbcType=INTEGER}
+
   </delete>
   <insert id="insert" parameterType="com.censpeed.shop.entity.CProductMenuLink" >
     insert into c_product_menu_link (ID, C_PRODUCT_ID, C_MENU_ID

@@ -38,7 +38,7 @@
                             <!-- 登录 start -->
                             <div class="mod_box lo_mod_box">
                                 <div class="ui-sign-item ui-name-item lg_item lg_name">
-                                    <input id="username" type="text" maxlength="32" class="ui-input pwd_text" name="username"
+                                    <input id="name" type="text" maxlength="32" class="ui-input pwd_text" name="c"
                                            placeholder="用户名">
                                 </div>
                                 <div class="ui-sign-item ui-sign-common-item lg_item lg_pass">
@@ -69,7 +69,7 @@
 <script>
     //没有账号，去注册页面
      function toRegister(){
-        window.location.href="${ctx}/user/toRegister";
+        window.location.href="/user/toRegister";
      }
 
 
@@ -78,30 +78,28 @@
     $(function(){
             // 登录前验证
         $("#toLoginCheck").click(function(){
-            var username=$("#username").val()
+            var name=$("#name").val()
             var password=$("#password").val()
-            if(username=='' || username==undefined || password=='' || password==undefined){
+            if(name=='' || name==undefined || password=='' || password==undefined){
                 alert("用户名或者密码不能为空")
             }else{
                 var data={}
-                data.username=username
+                data.name=name
                 data.password=password
                $.ajax({
                    type:"post",
-                   url:"${ctx}/user/login",
+                   url:"/user/login",
                    data:data,
                    dataType:"json",
                    success:function(result){
                        if(result.status==200){
                             toastr.success("登录成功");
-                           window.location.href="http://localhost:8087/portal/toMain"
+                            window.location.href="/product/index"
                        }else if(result.status==400){
-                           toastr.error(result.msg)
+                           window.location.href="/user/index"
                        }
                    },
-                   error:function(){
-                       toastr.error("请求失败404")
-                   }
+
                })
             }
         })

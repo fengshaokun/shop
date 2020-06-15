@@ -4,9 +4,13 @@ package com.censpeed.shop.controller;
 import com.censpeed.shop.entity.CMenu;
 import com.censpeed.shop.entity.CProduct;
 import com.censpeed.shop.service.CMenuServiceI;
+import com.censpeed.shop.utils.ShopResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
@@ -42,6 +46,22 @@ private CMenuServiceI cMenuServiceI;
         cMenuServiceI.insert(cMenu);
         return "redirect:/menu/index";
     }
+
+
+    @RequestMapping("delete")
+    @ResponseBody
+    public ShopResult delete(Integer id) {
+
+        return cMenuServiceI.selectPMenuByPid(id);
+
+    }
+
+    @RequestMapping("toDelete")
+    public  String toDelete(Integer id){
+        cMenuServiceI.deleteMenuById(id);
+        return "redirect:/menu/index";
+    }
+
 
 
 

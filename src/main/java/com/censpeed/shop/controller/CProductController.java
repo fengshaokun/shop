@@ -71,6 +71,8 @@ public class CProductController {
     @RequestMapping("update")
     public String update(Integer id,Map map) {
         CProduct cProductById = cProductServiceI.getCProductById(id);
+        List<CMenu> cMenus = cMenuServiceI.selectAll();
+        map.put("menus",cMenus);
         map.put("product",cProductById);
         return "product/update";
     }

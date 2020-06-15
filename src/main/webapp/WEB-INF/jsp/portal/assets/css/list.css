@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li,
+ol {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.list {
+  width: 1200px;
+  margin: 0 auto;
+}
+.list ul {
+  display: inline-block;
+}
+.list li.listli {
+  margin: 20px;
+  width: 255px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.list li.listli:hover {
+  box-shadow: -1px -1px 10px #ddd;
+  border: 1px solid #e6e6e6;
+  margin-bottom: -2px;
+}
+.list li.listli a {
+  display: block;
+}
+.list li.listli .mask {
+  display: none;
+  background: #000;
+  opacity: 0.5;
+  padding: 100px;
+}
+.list li.listli:hover .mask {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+.list li.listli img {
+  width: 255px;
+  height: 255px;
+}
+.list li.listli .video {
+  display: none;
+  opacity: 1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 10;
+}
+.list li.listli .video video {
+  background: #000;
+}
+.list li.listli img.play {
+  width: 50px;
+  height: 50px;
+}
+.list li.listli .listdetail {
+  padding: 10px;
+}
+.list li.listli .listdetail .detailtt {
+  font-size: 18px;
+  font-weight: bold;
+}
+.list li.listli .listdetail .detaillabel {
+  display: inline-block;
+  vertical-align: top;
+}
+.list li.listli .listdetail .detaillabel .labeltt {
+  display: inline-block;
+  vertical-align: top;
+  width: 80px;
+  background: transparent;
+  color: #000;
+}
+.list li.listli .listdetail .detaillabel li {
+  float: left;
+  margin-right: 3px;
+  margin-bottom: 5px;
+  background: #e9e9e9;
+  color: #333;
+  padding: 3px 5px;
+  border-radius: 3px;
+}
+.list li.listli .listdetail .detailinstruction {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.pagebox {
+  width: 100%;
+  text-align: center;
+}
+.pagebox > div {
+  display: inline-block;
+}

@@ -9,13 +9,19 @@
                 <a href="/product/index">产品管理</a>
             </li>
             <li>
-                <a href="/product/create" >发布产品</a>
+                <a href="/product/create" >创建产品</a>
             </li>
             <li>
                 <a href="/menu/index" >菜单管理</a>
             </li>
             <li>
                 <a href="/menu/create" >创建菜单</a>
+            </li>
+            <li>
+                <a href="/case/index" >案例管理</a>
+            </li>
+            <li>
+                <a href="/case/create" >创建案例</a>
             </li>
         </ul>
 

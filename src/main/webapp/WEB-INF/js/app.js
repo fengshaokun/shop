@@ -1,3 +1,4 @@
+/*
 //改变金额为星
 function changeStar(obj, assets) {
     var $preObj = $(obj).prev();
@@ -197,7 +198,7 @@ as.each(function (i, val) {
 // uediotr开始============================================================
 //实例化编辑器
 //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
-/*var ue = UE.getEditor('editor');
+/!*var ue = UE.getEditor('editor');
 
  var myEditor = new UE.ui.Editor;
  myEditor.render('btnFileUpLoader');
@@ -228,7 +229,7 @@ as.each(function (i, val) {
  f = myEditor.getDialog("attachment");
  f.render();
  f.open();
- }*/
+ }*!/
 //在使用ueditor单独附件上传功能的时候点击"上传"按钮时不会出现 文件上传对话框,
 //Uncaught TypeError: Cannot read property 'render' of undefined 这是因为在ueditor.config.js
 //中对toolbars 配置是把 'attachment' 工具去掉了,只要添加上去就可以了
@@ -238,3 +239,4 @@ as.each(function (i, val) {
 
 
 
+*/

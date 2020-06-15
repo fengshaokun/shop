@@ -11,7 +11,7 @@ public class CHomeController {
     @RequestMapping("index")
     public String toMain(){
 
-        return "portal/jsp/main";
+        return "portal/list";
     }
 
 
