@@ -1,7 +1,10 @@
 package com.censpeed.shop;
 
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+
 
 public class ServletInitializer extends SpringBootServletInitializer {
 

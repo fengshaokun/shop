@@ -54,4 +54,9 @@ public class CCaseServiceImpl implements CCaseServiceI {
         cCaseMapper.deleteByPrimaryKey(id);
         cItemDetailsMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public CItemDetails selectCaseDetailsByCaId(Integer id) {
+        return cItemDetailsMapper.selectByPrimaryKey(id);
+    }
 }

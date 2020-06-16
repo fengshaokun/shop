@@ -5,8 +5,8 @@
 <html>
 
 <head>
-    <title>发布商品</title>
-    <meta name="menu" content="toSellerUploadGoods"/>
+    <title>创建产品</title>
+    <meta name="product" content="create"/>
     <%-- 页面头部样式开始----------------------------------------------------------%>
     <jsp:include page="/decorator/sellerHead.jsp"/>
     <%-- 页面头部样式结束---------------------------------------------------------%>
@@ -145,12 +145,12 @@
                                     uploadEditor.hide();
                                     uploadEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
-
                                         var res = [];
+                                        $("#img").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnImageUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnImageUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnImageUpLoader").after("<img  id='img' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
                                         }
                                         $("#txtImgurl").attr("value", res);
                                     });
@@ -163,10 +163,11 @@
                                     uploadIconEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
+                                        $("#icon").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnIconUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnIconUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnIconUpLoader").after("<img id='icon' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
                                         }
                                         $("#txtIconurl").attr("value", res);
                                     });

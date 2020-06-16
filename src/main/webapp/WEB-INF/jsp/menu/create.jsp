@@ -5,8 +5,8 @@
         <html>
 
         <head>
-        <title>发布商品</title>
-        <meta name="menu" content="toSellerUploadGoods"/>
+        <title>创建菜单</title>
+        <meta name="menu" content="create"/>
         <%-- 页面头部样式开始----------------------------------------------------------%>
         <jsp:include page="/decorator/sellerHead.jsp"/>
         <%-- 页面头部样式结束---------------------------------------------------------%>
@@ -51,14 +51,14 @@
             <div class="form-group">
             <label class="col-sm-2 control-label">url：</label>
             <div class="col-sm-6">
-            <input class="filter-input-filed form-control" id="url" placeholder="请输入副标题"
+            <input class="filter-input-filed form-control" id="url" placeholder="请输入url"
             type="text" name="url">
             </div>
             </div>
             <div class="form-group">
             <label class="col-sm-2 control-label">排序：</label>
             <div class="col-sm-6">
-            <input class="filter-input-filed form-control" id="sort" placeholder="请输入副标题"
+            <input class="filter-input-filed form-control" id="sort" placeholder="请输入排序"
             type="text" name="sort">
             </div>
             </div>

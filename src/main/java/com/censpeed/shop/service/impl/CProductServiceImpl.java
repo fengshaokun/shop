@@ -7,7 +7,10 @@ import com.censpeed.shop.mapper.CProductDetailsMapper;
 import com.censpeed.shop.mapper.CProductMapper;
 import com.censpeed.shop.mapper.CProductMenuLinkMapper;
 import com.censpeed.shop.service.CProductServiceI;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.beans.Transient;
@@ -22,6 +25,8 @@ private CProductMapper cProductMapper;
 private CProductDetailsMapper cProductDetailsMapper;
 @Autowired
 private CProductMenuLinkMapper cProductMenuLinkMapper;
+    @Value("${pageSize}")
+    private Integer pageSize;
 
     @Override
     public CProduct getCProductById(Integer cProductId) {
@@ -29,8 +34,11 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
     }
 
     @Override
-    public List<CProduct> selectAllCProductByStatus(Integer status) {
-        return cProductMapper.selectAllCProductByStatus(status);
+    public PageInfo<CProduct> selectAllCProductByStatus(Integer status, Integer pageNum) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<CProduct> cProducts = cProductMapper.selectAllCProductByStatus(status);
+        PageInfo<CProduct> pageInfo = new PageInfo<CProduct>(cProducts);
+        return pageInfo;
     }
 
     @Override
@@ -72,5 +80,10 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
     public int updateByPrimaryKeySelective(CProduct record) {
         cProductMenuLinkMapper.deleteByProductKey(record.getId());
         return  cProductMapper.updateByPrimaryKeySelective(record);
+    }
+
+    @Override
+    public CProductDetails selectProductDetailsByProId(Integer id) {
+        return cProductDetailsMapper.selectByPrimaryKey(id);
     }
 }

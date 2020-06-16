@@ -37,7 +37,11 @@ private CMenuServiceI cMenuServiceI;
     }
 
     @RequestMapping("update")
-    public String update() {
+    public String update(Integer id,Map map) {
+        CMenu cMenu = cMenuServiceI.selectByPrimaryKey(id);
+        map.put("cMenu",cMenu);
+        List<CMenu> cMenus = cMenuServiceI.selectAll();
+        map.put("pMenu",cMenus);
         return "menu/update";
     }
 

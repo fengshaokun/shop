@@ -6,11 +6,11 @@
 <html>
 
 <head>
-    <title>商品管理</title>
+    <title>产品管理</title>
     <%-- 页面头部样式开始----------------------------------------------------------%>
     <jsp:include page="/decorator/sellerHead.jsp"/>
     <%-- 页面头部样式结束---------------------------------------------------------%>
-    <meta name="menu" content="toGoodsManagement"/>
+    <meta name="product" content="index"/>
 
 </head>
 
@@ -42,6 +42,7 @@
                                         <a href="/product/index?status=2">已删除产品</a>
                                     </li>
                                 </ul>
+                                <input  id="status" value="${status}" type="text" hidden/>
                             </div>
 
                             <table class="table table-bordered table-striped">
@@ -58,7 +59,8 @@
                                     <th>视频</th>
                                     <th>操作</th>
                                 </tr>
-                                <c:forEach items="${productList}" var="itemDto">
+                                <c:forEach items="${pageInfo.list}" var="itemDto">
+
                                     <tr>
                                         <td class="text-center">${itemDto.name}</td>
                                         <td>
@@ -73,14 +75,16 @@
                                         </td>
                                         <td class="text-center">${itemDto.briefIntroduction}</td>
                                         <td class="text-center">
-                                            <c:if test="${itemDto.isHot==0}">否</c:if>
-                                            <c:if test="${itemDto.isHot==1}">是</c:if>
+                                            <c:if test="${itemDto.isHot==0}">是</c:if>
+                                            <c:if test="${itemDto.isHot==1}">否</c:if>
                                         </td>
                                         <td class="text-center">
-                                            <c:if test="${itemDto.isNew==0}">否</c:if>
-                                            <c:if test="${itemDto.isNew==1}">是</c:if></td>
+                                            <c:if test="${itemDto.isNew==0}">是</c:if>
+                                            <c:if test="${itemDto.isNew==1}">否</c:if></td>
                                         <td class="text-center">${itemDto.createTime.toLocaleString()}</td>
-                                        <td class="text-center">${itemDto.cProductDetails.productContent}</td>
+                                        <td class="text-center">   <a href="/product/detail?id=${itemDto.id}"
+                                                                       class="delete-good"
+                                                                      target="_blank" style="text-decoration:underline;">查看详情</a></td>
                                         <td class="text-center">
                                             <c:if test="${itemDto.video!=null}">
                                                 <video class="edui-upload-video video-js vjs-default-skin video-js"
@@ -112,6 +116,47 @@
                                     </tr>
                                 </c:forEach>
                             </table>
+                            <%--分页--%>
+                            <script type="text/javascript">
+                                var if_firstime = true;
+
+
+                                window.onload = function () {
+                                    $('.pagination').jqPaginator({
+                                        totalPages: ${pageInfo.pages},
+                                        visiblePages: 10,
+                                        currentPage: ${pageInfo.pageNum},
+
+                                        first: '<li class="first"><a href="javascript:void(0);">第一页</a></li>',
+                                        prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
+                                        next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+                                        last: '<li class="last"><a href="javascript:void(0);">最末页 </a></li>',
+                                        page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
+
+                                        onPageChange: function (num) {
+                                            if (if_firstime) {
+                                                if_firstime = false;
+                                            } else if (!if_firstime) {
+                                                changePage(num);
+                                            }
+
+                                        }
+                                    });
+                                }
+                                function changePage(num) {
+                                    /* var newhref = $(".on a")[0].href + "&" + $("#itemSearchForm").serialize() + "&pageNum=" + num;
+                                     window.location.href = newhref;*/
+                                    var status = $("#status").val();
+                                    location.href="/product/index?&status="+status+ "&pageNum=" + num;
+                                }
+                            </script>
+                            <div class="pagination-layout">
+                                <div class="pagination">
+                                    <ul class="pagination" total-items="pageInfo.totalRows" max-size="10" boundary-links="true">
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

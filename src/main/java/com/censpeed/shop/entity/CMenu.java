@@ -13,6 +13,16 @@ public class CMenu {
 
     private Integer pid;
 
+    private CMenu cMenu;
+
+    public CMenu getcMenu() {
+        return cMenu;
+    }
+
+    public void setcMenu(CMenu cMenu) {
+        this.cMenu = cMenu;
+    }
+
     public Integer getId() {
         return id;
     }

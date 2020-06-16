@@ -5,8 +5,8 @@
 <html>
 
 <head>
-    <title>发布商品</title>
-    <meta name="menu" content="toSellerUploadGoods"/>
+    <title>创建产品</title>
+    <meta name="product" content="create"/>
     <%-- 页面头部样式开始----------------------------------------------------------%>
     <jsp:include page="/decorator/sellerHead.jsp"/>
     <%-- 页面头部样式结束---------------------------------------------------------%>
@@ -27,10 +27,6 @@
                     <%--左边菜单开始-----------------------------------------------------%>
                     <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
                     <%--左边菜单结束-----------------------------------------------------%>
-                        <script id="template1" type="text/x-jquery-tmpl">
-        <label class="control-label" style="background: no-repeat;">${'${'}$data}</label>:
-        <input type="text"  class="wlong goods-title form-control"/>
-</script>
 
                         <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/seller/uploadGood" method="post"  onsubmit="return false">
                             <h2>商品基本信息</h2>
@@ -52,8 +48,9 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">产品图标：</label>
                                 <div class="col-sm-6" >
-                                    <input type="hidden" id="txtIconurl" name="icon" />
+                                    <input type="hidden" id="txtIconurl" name="icon" value="${product.icon}"/>
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()"/>
+                                    <img id='icon' style='margin: 10px' src='${product.icon}' width='100' height='100' >
                                     <textarea id="uploadIconEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
@@ -74,44 +71,26 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">是否热卖：</label>
                                 <div class="col-sm-6">
-                                    <c:if test="${product.isHot==0}">
-                                        <label><input checked  type="radio" name="isHot" value="0">是</label>
-                                        <label><input  type="radio" name="isHot" value="1">否</label>
-                                    </c:if>
-                                    <c:if test="${product.isHot==1}">
-                                        <label><input  type="radio" name="isHot" value="0">是</label>
-                                        <label><input   checked type="radio" name="isHot" value="1">否</label>
-                                    </c:if>
-                                    <c:if test="${product.isHot!=1&&product.isHot!=0}">
-                                        <label><input  type="radio" name="isHot" value="0">是</label>
-                                        <label><input  type="radio" name="isHot" value="1">否</label>
-                                    </c:if>
+                                    <label><input  type="radio" <c:if test="${product.isHot==0}"> checked</c:if> name="isHot" value="0">是</label>
+                                    <label><input  type="radio" <c:if test="${product.isHot==1}"> checked</c:if> name="isHot" value="1">否</label>
                                 </div>
                             </div>
+
+
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">是否新品：</label>
                                 <div class="col-sm-6">
-                                  <c:if test="${product.isNew==0}">
-                                      <label><input checked  type="radio" name="isNew" value="0">是</label>
-                                      <label><input  type="radio" name="isNew" value="1">否</label>
-                                  </c:if>
-                                    <c:if test="${product.isNew==1}">
-                                        <label><input  type="radio" name="isNew" value="0">是</label>
-                                        <label><input   checked type="radio" name="isNew" value="1">否</label>
-                                    </c:if>
-                                    <c:if test="${product.isNew!=1&&product.isNew!=0}">
-                                        <label><input  type="radio" name="isNew" value="0">是</label>
-                                        <label><input  type="radio" name="isNew" value="1">否</label>
-                                    </c:if>
+                                    <label><input  type="radio" <c:if test="${product.isNew==0}"> checked</c:if> name="isNew" value="0">是</label>
+                                    <label><input  type="radio"<c:if test="${product.isNew==1}"> checked</c:if> name="isNew" value="1">否</label>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">绑定菜单：</label>
                                 <div class="col-sm-6">
-                                    <select class="filter-input-filed form-control" name="menuId" id="menuId">
+                                    <select class="filter-input-filed form-control"  name="menuId" id="menuId">
                                         <option value="0" >无</option>
                                         <c:forEach items="${menus}" var="itemDto">
-                                            <option value="${itemDto.id}">${itemDto.sort}--------->${itemDto.principal}</option>
+                                        <option value="${itemDto.id}">${itemDto.sort}--------->${itemDto.principal}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
@@ -119,9 +98,11 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">背景图片：</label>
                                 <div class="col-sm-6" >
-                                    <input type="hidden" id="txtImgurl" name="background" />
+                                    <input type="hidden" id="txtImgurl" name="background"  value="${product.background}"/>
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()"/>
-                                   <textarea id="uploadEditor" style="display: block;"></textarea>
+                                    <img id='img' style='margin: 10px' src='${product.background}' width='100' height='100' >
+
+                                    <textarea id="uploadEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
 
@@ -137,7 +118,7 @@
                                 <label class="col-sm-2 control-label">上架时间：</label>
                                 <div class="col-sm-6">
                                     <input class="filter-input-filed form-control" placeholder="请选择上架时间" readonly id="onTime" name="onTime"
-                                       value="${product.createTime.toLocaleString()}"     type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" >
+                                           type="text" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  value="${product.createTime.toLocaleString()}">
                                 </div>
                             </div>
 
@@ -162,6 +143,7 @@
                             <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
                             <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.js"></script>
                             <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+
                             <script type="text/javascript" src="/js/fwb.js"></script>
                             <script type="text/javascript">
 
@@ -174,10 +156,11 @@
                                     uploadEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
+                                        $("#img").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnImageUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnImageUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnImageUpLoader").after("<img  id='img' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
                                         }
                                         $("#txtImgurl").attr("value", res);
                                     });
@@ -190,35 +173,44 @@
                                     uploadIconEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
+                                        $("#icon").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnIconUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnIconUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnIconUpLoader").after("<img id='icon' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
                                         }
                                         $("#txtIconurl").attr("value", res);
                                     });
                                 });
 
+
+
                                 var uploadVideoEditor = UE.getEditor("uploadVideoEditor");
-                                uploadVideoEditor.ready(function() {
-                                    uploadVideoEditor.setDisabled();
+                                    uploadVideoEditor.ready(function() {
+                                   uploadVideoEditor.setDisabled();
                                     uploadVideoEditor.hide();
-                                    uploadVideoEditor.addListener('myinsertvideo', function(t, arg) {
-                                        //因为可以上传多张,所以就用arg[0]
-                                        var res = [];
-                                        for (var i = 0; i < arg.length; i++) {
-                                            alert(arg[i].url)
-                                            console.log(arg[i].url)
-                                            res.push(arg[i].url);
-                                            $("#btnVideoUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnVideoUpLoader").after("<video class=\"edui-upload-video video-js vjs-default-skin video-js\" controls=\"\" preload=\"none\" width=\"420\" height=\"280\" src='"+arg[i].url+"' data-setup=\"{}\">\n" +
-                                                "        <source src='"+arg[i].url+"' type=\"video/mp4\"/>\n" +
-                                                "    </video>");
-                                        }
-                                        $("#txtVideourl").attr("value", res);
+                                        uploadVideoEditor.addListener('myinsertvideo', function(t, arg) {
+                                            //因为可以上传多张,所以就用arg[0]
+                                            var res = [];
+                                            for (var i = 0; i < arg.length; i++) {
+                                                alert(arg[i].url)
+                                                console.log(arg[i].url)
+                                                res.push(arg[i].url);
+                                                $("#btnVideoUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
+                                                $("#btnVideoUpLoader").after("<video class=\"edui-upload-video video-js vjs-default-skin video-js\" controls=\"\" preload=\"none\" width=\"420\" height=\"280\" src='"+arg[i].url+"' data-setup=\"{}\">\n" +
+                                                    "        <source src='"+arg[i].url+"' type=\"video/mp4\"/>\n" +
+                                                    "    </video>");
+                                            }
+                                            $("#txtVideourl").attr("value", res);
+                                        });
+
                                     });
 
+                               var editor = UE.getEditor('editor');
+                                editor.ready(function() {
+                                    editor.setContent('${product.cProductDetails.productContent}');
                                 });
+
 
                                 function upImage() {
                                     var m;
@@ -264,9 +256,18 @@
                                     with($("#frm").get(0)){
                                         if(checkForm())
                                             submit();
-                                        toastr.success("修改成功")
+                                        toastr.success("发布商品成功")
                                     }
                                 }
+
+
+                                $(function () {
+                                    $("#showPrice").blur(function(){
+                                        //把价格转成分存储
+                                        $("#price").val($("#showPrice").val()*100);
+                                    })
+                                })
+
                             </script>
                         </form>
                 </div>

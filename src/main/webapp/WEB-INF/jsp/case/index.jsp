@@ -6,11 +6,11 @@
 <html>
 
 <head>
-    <title>商品管理</title>
+    <title>案例管理</title>
     <%-- 页面头部样式开始----------------------------------------------------------%>
     <jsp:include page="/decorator/sellerHead.jsp"/>
     <%-- 页面头部样式结束---------------------------------------------------------%>
-    <meta name="menu" content="index"/>
+    <meta name="case" content="index"/>
 
 </head>
 
@@ -58,7 +58,9 @@
                                                      style="float: left;">
                                             </td>
                                             <td class="text-center">${itemDto.name}</td>
-                                            <td class="text-center">${itemDto.cItemDetails.content}</td>
+                                            <td class="text-center"> <a href="/case/detail?id=${itemDto.id}"
+                                                                        class="delete-good"
+                                                                        target="_blank" style="text-decoration:underline;">查看详情</a></td>
                                             <td class="text-center" width="70">
                                                     <a href="/case/update?id=${itemDto.id}"    class="delete-good" >修改</a>
                                                     <a href="/case/delete?id=${itemDto.id}" onclick="return confirm('确定将此记录删除?')"   class="delete-good" >删除</a>

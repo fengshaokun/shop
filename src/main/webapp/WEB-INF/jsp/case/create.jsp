@@ -5,8 +5,8 @@
 <html>
 
 <head>
-    <title>发布商品</title>
-    <meta name="menu" content="toSellerUploadGoods"/>
+    <title>创建案例</title>
+    <meta name="case" content="create"/>
     <%-- 页面头部样式开始----------------------------------------------------------%>
     <jsp:include page="/decorator/sellerHead.jsp"/>
     <%-- 页面头部样式结束---------------------------------------------------------%>

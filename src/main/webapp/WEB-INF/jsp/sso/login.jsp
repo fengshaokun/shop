@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by sapling
   User: sapling
@@ -9,6 +10,7 @@
 <html>
 <head>
     <jsp:include page="common.jsp"></jsp:include>
+    <c:set value="${pageConext.request.contextPath}" var="ctx"></c:set>
     <title>登陆页面</title>
 </head>
 <body class="media_screen_1200">
@@ -16,7 +18,8 @@
     <div class="login_wrap">
         <div class="logo_wrap">
             <div class="logo">
-                <a title="" href="#" class="mainlogo logo_mgj_img"></a>
+               <%-- <a title="" href="#" class="mainlogo logo_mgj_img"></a>--%>
+                <h1 size="30">${request.contextPath}11</h1>
             </div>
         </div>
         <div class="content clearfix" style="background:url(${ctx}/img/bg_login.png) no-repeat center center;">

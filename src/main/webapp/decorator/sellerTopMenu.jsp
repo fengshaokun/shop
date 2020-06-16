@@ -3,8 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <div class="top">
     <div class="wrapper">
+        <div class="fl">
+            <span id="userInfo"></span>
+        </div>
         <div class="fr">
-            <span><a href="http://localhost:8087/portal/toMain">首页</a></span>
+            <span><a href="/product/index">首页</a></span>
             <span></span>
             <span><a href="#">倍速世纪产品后台</a></span>
         </div>

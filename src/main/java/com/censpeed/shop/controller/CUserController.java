@@ -29,9 +29,9 @@ private CUserServiceI cUserServiceI;
 
         CUser login = cUserServiceI.login(name, password);
         if (null == login) {
-            return  ShopResult.build(400,"");
+            return  ShopResult.build(400,"账号或密码错误,请重新登陆");
         }
-        request.getSession().setAttribute("loginName", login.getName());
+        request.getSession().setAttribute("user", login);
         return ShopResult.ok();
     }
 

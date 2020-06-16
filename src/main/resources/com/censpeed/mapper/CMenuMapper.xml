@@ -9,6 +9,17 @@
     <result column="SORT" property="sort" jdbcType="VARCHAR" />
     <result column="PID" property="pid" jdbcType="INTEGER" />
   </resultMap>
+  <resultMap id="BaseResultMap2" type="com.censpeed.shop.entity.CMenu" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="PRINCIPAL" property="principal" jdbcType="VARCHAR" />
+    <result column="SUBORDINATE" property="subordinate" jdbcType="VARCHAR" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+    <result column="SORT" property="sort" jdbcType="VARCHAR" />
+    <result column="PID" property="pid" jdbcType="INTEGER" />
+    <association property="cMenu" column="PID"
+                 select="com.censpeed.shop.mapper.CMenuMapper.selectByPrimaryKey"
+                 javaType="com.censpeed.shop.entity.CMenu"/>
+  </resultMap>
   <sql id="Base_Column_List" >
     ID, PRINCIPAL, SUBORDINATE, URL, SORT, PID
   </sql>
@@ -18,7 +29,7 @@
     from c_menu
     where ID = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultType="com.censpeed.shop.entity.CMenu">
+  <select id="selectAll" resultMap="BaseResultMap2">
     select
     <include refid="Base_Column_List" />
     from c_menu

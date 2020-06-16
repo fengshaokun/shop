@@ -31,18 +31,23 @@ public class CMenuServiceImpl implements CMenuServiceI {
 
     @Override
     public ShopResult selectPMenuByPid(Integer id) {
-        CMenu cMenu = cMenuMapper.selectPMenuByPid(id);
+        List<CMenu> cMenu = cMenuMapper.selectPMenuByPid(id);
         List<CProductMenuLink> cProductMenuLinks = cProductMenuLinkMapper.selectLinkByMenuId(id);
-        if (cMenu==null&&cProductMenuLinks.size()==0){
-          return   ShopResult.ok();
+        if (cMenu.size()==0&&cProductMenuLinks.size()==0){
+          return  ShopResult.ok();
         }
         else {
-            return   ShopResult.build(400,"此菜单有关联,无法删除");
+            return  ShopResult.build(400,"此菜单有关联,无法删除");
         }
     }
 
     @Override
     public void deleteMenuById(Integer id) {
         cMenuMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public CMenu selectByPrimaryKey(Integer id) {
+        return cMenuMapper.selectByPrimaryKey(id);
     }
 }

@@ -15,4 +15,6 @@ public interface CMenuServiceI {
     ShopResult selectPMenuByPid(Integer id);
 
     void deleteMenuById(Integer id);
+
+    CMenu selectByPrimaryKey(Integer id);
 }

@@ -401,20 +401,6 @@ table {
     margin-right: auto
 }
 
-.light_box_fullbg {
-    background-color: #000;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top: 0;
-    zoom: 1;
-    position: fixed;
-    z-index: 9998;
-    opacity: .3;
-    FILTER: alpha(opacity=30);
-    _position: absolute;
-    _top: expression(document.compatMode && document.compatMode=="CSS1Compat" ? documentElement.scrollTop:document.body.scrollTop)
-}
 
 .pagination {
     clear: both;
@@ -1983,65 +1969,6 @@ a.mu_hoverline:hover {
     overflow: hidden
 }
 
-.vip_level0 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ifqwinlehfrwkmzrguzdambqgyyde_116x16.png) 0 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4gcyrrgvrwkmzrguzdambqgiyde_116x16.png) 0 0
-}
-
-.vip_level1 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ifqwinlehfrwkmzrguzdambqgyyde_116x16.png) -20px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4gcyrrgvrwkmzrguzdambqgiyde_116x16.png) -20px 0
-}
-
-.vip_level2 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ifqwinlehfrwkmzrguzdambqgyyde_116x16.png) -40px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4gcyrrgvrwkmzrguzdambqgiyde_116x16.png) -40px 0
-}
-
-.vip_level3 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ifqwinlehfrwkmzrguzdambqgyyde_116x16.png) -60px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4gcyrrgvrwkmzrguzdambqgiyde_116x16.png) -60px 0
-}
-
-.vip_level4 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ifqwinlehfrwkmzrguzdambqgyyde_116x16.png) -80px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4gcyrrgvrwkmzrguzdambqgiyde_116x16.png) -80px 0
-}
-
-.vip_level5 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ifqwinlehfrwkmzrguzdambqgyyde_116x16.png) -100px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4gcyrrgvrwkmzrguzdambqgiyde_116x16.png) -100px 0
-}
-
-.vip_black_level0 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dqmzqmm2gmmzrguzdambqgiyde_116x16.png) 0 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dsnrrme2gmmzrguzdambqgiyde_116x16.png) 0 0
-}
-
-.vip_black_level1 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dqmzqmm2gmmzrguzdambqgiyde_116x16.png) -20px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dsnrrme2gmmzrguzdambqgiyde_116x16.png) -20px 0
-}
-
-.vip_black_level2 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dqmzqmm2gmmzrguzdambqgiyde_116x16.png) -40px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dsnrrme2gmmzrguzdambqgiyde_116x16.png) -40px 0
-}
-
-.vip_black_level3 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dqmzqmm2gmmzrguzdambqgiyde_116x16.png) -60px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dsnrrme2gmmzrguzdambqgiyde_116x16.png) -60px 0
-}
-
-.vip_black_level4 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dqmzqmm2gmmzrguzdambqgiyde_116x16.png) -80px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dsnrrme2gmmzrguzdambqgiyde_116x16.png) -80px 0
-}
-
-.vip_black_level5 {
-    background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dqmzqmm2gmmzrguzdambqgiyde_116x16.png) -100px 0;
-    _background: url(https://s10.mogucdn.com/p1/151125/upload_ie4dsnrrme2gmmzrguzdambqgiyde_116x16.png) -100px 0
-}
 
 .mu_nav {
     padding: 0 20px
@@ -2150,23 +2077,6 @@ a.mu_hoverline:hover {
     margin: 3px 0 0 20px
 }
 
-.m-safe-lession-pop-wrap, .m-wallet-charge-pop-wrap, .m-wallet-duoshou-pop-wrap {
-    position: fixed;
-    _position: absolute;
-    width: 185px;
-    height: 104px;
-    right: 0;
-    bottom: 10px;
-    _bottom: auto;
-    _top: expression(documentElement.scrollTop ? documentElement.scrollTop + documentElement.clientHeight - 120:document.body.scrollTop + document.body.clientHeight - 120)
-}
-
-.m-wallet-charge-pop-wrap {
-    width: 223px;
-    height: 149px;
-    right: 36px;
-    _top: expression(documentElement.scrollTop ? documentElement.scrollTop + documentElement.clientHeight - 170:document.body.scrollTop + document.body.clientHeight - 170)
-}
 
 .m-safe-lession-pop-wrap .close_btn, .m-wallet-charge-pop-wrap .close_btn {
     background: url(https://s10.mogucdn.com/pic/140305/o613k_kqzeuqskkrbg26dwgfjeg5sckzsew_178x141.png) no-repeat;
@@ -2183,11 +2093,3 @@ a.mu_hoverline:hover {
     right: 14px
 }
 
-.m-wallet-duoshou-pop-wrap .close_btn {
-    position: absolute;
-    top: 9px;
-    right: 65px;
-    width: 32px;
-    height: 32px;
-    background: url(about:blank)
-}

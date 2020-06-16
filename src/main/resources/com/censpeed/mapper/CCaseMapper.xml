@@ -26,7 +26,7 @@
   <sql id="Base_Column_List" >
     ID, COMPANY_NAME, COMPANY_INTRODUCT, COMPANY_LOGO, BACKGROUND_IMAGE, NAME,SORT
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap2" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from c_case

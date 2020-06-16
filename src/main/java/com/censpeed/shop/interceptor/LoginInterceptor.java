@@ -1,5 +1,6 @@
 package com.censpeed.shop.interceptor;
 
+import com.censpeed.shop.entity.CUser;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,14 +20,12 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 检查每个到来的请求对应的session域中是否有登录标识
-        Object loginName = request.getSession().getAttribute("loginName");
-        if (null == loginName || !(loginName instanceof String)) {
+        CUser cUser = (CUser)request.getSession().getAttribute("user");
+        if (null == cUser ) {
             // 未登录，重定向到登录页
-            response.sendRedirect("/");
+            response.sendRedirect("/user/");
             return false;
         }
-        String userName = (String) loginName;
-        System.out.println("当前用户已登录，登录的用户名为： " + userName);
         return true;
     }
 

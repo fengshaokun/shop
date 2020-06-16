@@ -1,6 +1,7 @@
 package com.censpeed.shop.controller;
 
 import com.censpeed.shop.entity.CCase;
+import com.censpeed.shop.entity.CItemDetails;
 import com.censpeed.shop.service.CCaseServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,6 +57,13 @@ public class CCaseController {
     public String delete(Integer id){
         cCaseServiceI.deleteCaseItem(id);
         return "redirect:/case/index";
+    }
+
+    @RequestMapping("detail")
+    public String detail(Integer id,Map map){
+        CItemDetails cItemDetails = cCaseServiceI.selectCaseDetailsByCaId(id);
+        map.put("detail",cItemDetails);
+        return "case/detail";
     }
 
 

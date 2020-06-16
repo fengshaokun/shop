@@ -43,7 +43,7 @@
     where ID = #{id,jdbcType=INTEGER}
   </select>
 
-  <select id="selectAllCProductByStatus" resultMap="BaseResultMap2" resultType="com.censpeed.shop.entity.CProduct">
+  <select id="selectAllCProductByStatus" resultMap="BaseResultMap" resultType="com.censpeed.shop.entity.CProduct">
     select
     <include refid="Base_Column_List" />
     from c_product
@@ -168,6 +168,9 @@
       </if>
       <if test="status != null" >
         STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="background != null" >
+        BACKGROUND = #{background,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}

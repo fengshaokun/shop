@@ -2,8 +2,10 @@ package com.censpeed.shop.controller;
 
 import com.censpeed.shop.entity.CMenu;
 import com.censpeed.shop.entity.CProduct;
+import com.censpeed.shop.entity.CProductDetails;
 import com.censpeed.shop.service.CMenuServiceI;
 import com.censpeed.shop.service.CProductServiceI;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,9 +38,10 @@ public class CProductController {
 
     //产品管理
     @RequestMapping("index")
-    public String toProduct(@RequestParam(defaultValue = "1") Integer status, Map map){
-        List<CProduct> cProducts = cProductServiceI.selectAllCProductByStatus(status);
-        map.put("productList",cProducts);
+    public String toProduct(@RequestParam(defaultValue = "1") Integer status, Map map,@RequestParam(defaultValue = "1") Integer pageNum){
+        PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectAllCProductByStatus(status, pageNum);
+        map.put("pageInfo",cProductPageInfo);
+        map.put("status",status);
         return "product/index";
 
     }
@@ -91,7 +94,13 @@ public class CProductController {
             return "redirect:/product/index";
         }
     }
-
+    //修改页面回显
+    @RequestMapping("detail")
+    public String detail(Integer id,Map map) {
+        CProductDetails cProductDetails = cProductServiceI.selectProductDetailsByProId(id);
+        map.put("details",cProductDetails);
+        return "product/detail";
+    }
 
 
 

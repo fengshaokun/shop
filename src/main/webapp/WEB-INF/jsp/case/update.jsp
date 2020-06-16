@@ -5,8 +5,8 @@
 <html>
 
 <head>
-    <title>发布商品</title>
-    <meta name="menu" content="toSellerUploadGoods"/>
+    <title>修改案例</title>
+    <meta name="case" content="update"/>
     <%-- 页面头部样式开始----------------------------------------------------------%>
     <jsp:include page="/decorator/sellerHead.jsp"/>
     <%-- 页面头部样式结束---------------------------------------------------------%>
@@ -48,9 +48,12 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">客户LOGO：</label>
                                 <div class="col-sm-6" >
-                                    <input type="hidden" id="txtIconurl" name="companyLogo" />
-                                    <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()"/>
+                                    <input type="hidden" id="txtIconurl" name="companyLogo" value="${item.companyLogo}" />
+                                    <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()" style="margin-top: -100px;margin-right: 20px;"/>
+                                    <img  id='icon' style='margin: 10px' src='${item.companyLogo}' width='100' height='100' >
+
                                     <textarea id="uploadIconEditor" style="display: block;"></textarea>
+
                                 </div>
                             </div>
 
@@ -67,9 +70,11 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">背景图片：</label>
                                 <div class="col-sm-6" >
-                                    <input type="hidden" id="txtImgurl" name="backgroundImage" />
-                                    <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()"/>
-                                   <textarea id="uploadEditor" style="display: block;"></textarea>
+                                    <input type="hidden" id="txtImgurl" name="backgroundImage" value="${item.backgroundImage}" />
+                                    <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()" style="margin-top: -100px;margin-right: 20px;"/>
+                                    <img  id='img' style='margin: 10px' src='${item.backgroundImage}' width='100' height='100' >
+
+                                    <textarea id="uploadEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
 
@@ -84,7 +89,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">案例详情：</label>
                                 <div class="col-sm-6">
-                                    <textarea id="editor" name="caseContent" type="text/plain" style="width:664px;height:500px;"></textarea>
+                                    <textarea id="editor" name="caseContent" type="text/plain" style="width:664px;height:500px;" >${item.cItemDetails.content}</textarea>
                                 </div>
                             </div>
 
@@ -114,10 +119,11 @@
                                     uploadEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
+                                        $("#img").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnImageUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnImageUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnImageUpLoader").after("<img id='img' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
                                         }
                                         $("#txtImgurl").attr("value", res);
                                     });
@@ -130,13 +136,19 @@
                                     uploadIconEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
+                                        $("#icon").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnIconUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnIconUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnIconUpLoader").after("<img id='icon' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
                                         }
                                         $("#txtIconurl").attr("value", res);
                                     });
+                                });
+
+                                var editor = UE.getEditor('editor');
+                                editor.ready(function() {
+                                    editor.setContent('${item.cItemDetails.content}');
                                 });
 
                                 function upImage() {

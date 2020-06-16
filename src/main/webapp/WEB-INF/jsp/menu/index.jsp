@@ -6,11 +6,11 @@
         <html>
 
         <head>
-        <title>商品管理</title>
+        <title>菜单管理</title>
         <%-- 页面头部样式开始----------------------------------------------------------%>
         <jsp:include page="/decorator/sellerHead.jsp"/>
         <%-- 页面头部样式结束---------------------------------------------------------%>
-        <meta name="menu" content="toGoodsManagement"/>
+        <meta name="menu" content="index"/>
 
         </head>
 
@@ -48,9 +48,9 @@
             <td class="text-center">${itemDto.subordinate}</td>
             <td class="text-center">${itemDto.url}</td>
             <td class="text-center">${itemDto.sort}</td>
-            <td class="text-center">${itemDto.pid}</td>
+            <td class="text-center">${itemDto.cMenu.principal}</td>
             <td class="text-center" width="70">
-            <a href="/case/update?id=${itemDto.id}" class="delete-good" >修改</a>
+            <a href="/menu/update?id=${itemDto.id}" class="delete-good" >修改</a>
             <a onclick="return confirm('确定将此记录删除?')" class="delete-good delete-btn" data-id="${itemDto.id}">删除</a>
             </td>
             </tr>
@@ -80,9 +80,9 @@
         // window.location.href="http://localhost:8087/portal/toMain"
         alert(data.msg)
         }
-		if (data.status==200){
-		window.location.href="/menu/toDelete?id="+id;
-		}
+        if (data.status==200){
+        window.location.href="/menu/toDelete?id="+id;
+        }
         }
         });
 
