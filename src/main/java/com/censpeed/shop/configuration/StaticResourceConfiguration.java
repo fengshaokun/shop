@@ -18,8 +18,11 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/fonts/**").addResourceLocations("/WEB-INF/fonts/");
         registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/img/");
         registry.addResourceHandler("/portal/assets/images/**").addResourceLocations("/WEB-INF/jsp/portal/assets/images/");
+        registry.addResourceHandler("/home/assets/images/**").addResourceLocations("/WEB-INF/jsp/home/assets/images/");
         registry.addResourceHandler("/portal/assets/js/**").addResourceLocations("/WEB-INF/jsp/portal/assets/js/");
-        registry.addResourceHandler("/portal/assets/css/**").addResourceLocations("/WEB-INF/jsp/portal/assets/css/");
+        registry.addResourceHandler("/portal/assets/css/**").addResourceLocations("/WEB-INF/jsp/portal/assets/css/");        registry.addResourceHandler("/portal/assets/images/**").addResourceLocations("/WEB-INF/jsp/portal/assets/images/");
+        registry.addResourceHandler("/home/assets/js/**").addResourceLocations("/WEB-INF/jsp/home/assets/js/");
+        registry.addResourceHandler("/home/assets/css/**").addResourceLocations("/WEB-INF/jsp/home/assets/css/");
         super.addResourceHandlers(registry);
     }
     @Override

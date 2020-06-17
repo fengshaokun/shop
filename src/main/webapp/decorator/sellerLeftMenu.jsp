@@ -23,6 +23,12 @@
             <li>
                 <a href="/case/create" >创建案例</a>
             </li>
+            <li>
+                <a href="/consult/index" >咨询管理</a>
+            </li>
+            <li>
+                <a href="/homepage/index" >首页管理</a>
+            </li>
         </ul>
 
     </div>

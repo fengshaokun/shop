@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.censpeed.shop.mapper.CHomePageMapper" >
+  <resultMap id="BaseResultMap" type="com.censpeed.shop.entity.CHomePage" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="src" property="src" jdbcType="VARCHAR" />
+    <result column="style" property="style" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, src, style
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from c_home_page
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectAllHomePage" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from c_home_page
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from c_home_page
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.censpeed.shop.entity.CHomePage" >
+    insert into c_home_page (id, src, style
+      )
+    values (#{id,jdbcType=INTEGER}, #{src,jdbcType=VARCHAR}, #{style,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CHomePage" >
+    insert into c_home_page
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="src != null" >
+        src,
+      </if>
+      <if test="style != null" >
+        style,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="src != null" >
+        #{src,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null" >
+        #{style,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.censpeed.shop.entity.CHomePage" >
+    update c_home_page
+    <set >
+      <if test="src != null" >
+        src = #{src,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null" >
+        style = #{style,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.censpeed.shop.entity.CHomePage" >
+    update c_home_page
+    set src = #{src,jdbcType=VARCHAR},
+      style = #{style,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

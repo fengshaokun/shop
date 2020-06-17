@@ -25,8 +25,7 @@ private CProductMapper cProductMapper;
 private CProductDetailsMapper cProductDetailsMapper;
 @Autowired
 private CProductMenuLinkMapper cProductMenuLinkMapper;
-    @Value("${pageSize}")
-    private Integer pageSize;
+
 
     @Override
     public CProduct getCProductById(Integer cProductId) {
@@ -34,7 +33,7 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
     }
 
     @Override
-    public PageInfo<CProduct> selectAllCProductByStatus(Integer status, Integer pageNum) {
+    public PageInfo<CProduct> selectAllCProductByStatus(Integer status, Integer pageNum,Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<CProduct> cProducts = cProductMapper.selectAllCProductByStatus(status);
         PageInfo<CProduct> pageInfo = new PageInfo<CProduct>(cProducts);

@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div>
+<div style="text-align: center">
 ${detail.content}
 </div>
 

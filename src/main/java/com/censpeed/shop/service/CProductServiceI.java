@@ -10,7 +10,7 @@ public interface CProductServiceI {
 
     CProduct getCProductById(Integer cProductId);
 
-    PageInfo<CProduct> selectAllCProductByStatus(Integer status, Integer pageNum);
+    PageInfo<CProduct> selectAllCProductByStatus(Integer status, Integer pageNum,Integer pageSize);
 
     //新增产品返回产品主键
     int insert(CProduct record,String productContent,Integer menuId);

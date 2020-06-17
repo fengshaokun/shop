@@ -33,7 +33,11 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />-->
-        <table schema="censpeed_product" tableName="c_user"
+       <!-- <table schema="censpeed_product" tableName="c_user"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />-->
+        <table schema="censpeed_product" tableName="c_home_page"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />

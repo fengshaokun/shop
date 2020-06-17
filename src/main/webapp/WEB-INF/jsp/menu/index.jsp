@@ -31,9 +31,15 @@
         <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
         <%--左边菜单结束-----------------------------------------------------%>
         <div class="bg_color percent-seller percent-seller-goods" id="searchCondition">
-        <table class="table table-bordered table-striped">
+
+<%--
+<table id="demoTreeTb" class="table table-bordered table-striped"> </table>
+--%>
+
+
+        <table id="treeTable" class="table table-bordered table-striped">
         <tr>
-        <th>id</th>
+        <th role="row">id</th>
         <th>主标题</th>
         <th>副标题</th>
         <th>Url</th>
@@ -42,7 +48,7 @@
         <th>操作</th>
         </tr>
         <c:forEach items="${menus}" var="itemDto">
-            <tr>
+            <tr id="${itemDto.id}" pId="${itemDto.pid}">
             <td class="text-center">${itemDto.id}</td>
             <td class="text-center">${itemDto.principal}</td>
             <td class="text-center">${itemDto.subordinate}</td>
@@ -57,13 +63,22 @@
         </c:forEach>
         </table>
 
+
         </div>
         </div>
         </div>
         </div>
         </div>
         </div>
+
+            <script type="text/javascript" charset="utf-8" src="/layui/layui.all.js"></script>
+            <script type="text/javascript" charset="utf-8" src="/layui/layui.js"></script>
+
+
+
         <script type="text/javascript">
+
+
         $(".delete-btn").click(function() {
         var id = ($(this).data('id'));
 

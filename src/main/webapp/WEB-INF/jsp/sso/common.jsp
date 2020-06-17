@@ -6,9 +6,9 @@
 <meta http-equiv="Cache-Control" content="no-transform ">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/global.css"/>
-<link rel="stylesheet" type="text/css" href="/css/bottom.css"/>
-<link rel="stylesheet" type="text/css" href="/css/login.css"/>
-<link rel="stylesheet" type="text/css" href="/css/toastr.min.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/global.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/bottom.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/login.css"/>
+<link rel="stylesheet" type="text/css" href="${ctx}/css/toastr.min.css"/>
 <script src="/js/jquery-2.0.3.js"></script>
 <script src="/js/toastr.min.js"></script>
