@@ -16,6 +16,7 @@ import java.io.IOException;
 @Controller
 @RequestMapping("user")
 public class CUserController {
+
 @Autowired
 private CUserServiceI cUserServiceI;
 

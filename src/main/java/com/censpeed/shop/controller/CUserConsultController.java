@@ -29,8 +29,29 @@ public class CUserConsultController {
     public String index(Map map,@RequestParam(defaultValue = "1") Integer pageNum){
         PageInfo<CUserConsult> cUserConsultPageInfo=cUserConsultServiceI.getAllUserConsult(pageNum);
         map.put("pageInfo",cUserConsultPageInfo);
-        return "user/index";
+        return "/user/index";
 
+    }
+
+    @RequestMapping("delete")
+    public String delete(Integer id){
+        cUserConsultServiceI.deleteUserConsultById(id);
+        return "redirect:/consult/index";
+
+    }
+
+
+    @RequestMapping("update")
+    public String update(Integer id,Map map){
+        CUserConsult cUserConsult = cUserConsultServiceI.selectCUserConsultById(id);
+        map.put("itemDto",cUserConsult);
+        return "/user/update";
+    }
+
+    @RequestMapping("updateConsult")
+    public String updateConsult(CUserConsult cUserConsult){
+        cUserConsultServiceI.updateConsult(cUserConsult);
+        return "redirect:/consult/index";
     }
 
 

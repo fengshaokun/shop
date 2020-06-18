@@ -95,7 +95,7 @@
           location.href="/home/list?&pageNum=" + num;
         }
       </script>
-      <div class="pagination-layout">
+      <div class="pagination-layout" style="text-align: center">
         <div class="pagination">
           <ul class="pagination" total-items="pageInfo.totalRows" max-size="10" boundary-links="true">
 

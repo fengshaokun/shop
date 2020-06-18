@@ -12,6 +12,7 @@
 <script type="text/javascript" src="/js/jquery.ztree.exedit.js"></script>
 <script type="text/javascript" src="/js/jqPaginator.js" ></script>
 <script type="text/javascript" src="/js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="/js/jquery.treetable.js"></script>
 
 <script src="/js/app.js" type=""></script>
 <script type="text/javascript">

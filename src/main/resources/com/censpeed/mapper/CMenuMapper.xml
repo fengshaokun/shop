@@ -42,6 +42,8 @@
       where PID = #{id,jdbcType=INTEGER}
 
     </select>
+
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_menu
     where ID = #{id,jdbcType=INTEGER}

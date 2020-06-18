@@ -9,3 +9,6 @@
 <link rel="stylesheet" href="${ctx}/home/assets/css/common.css">
 <link rel="stylesheet" href="${ctx}/home/assets/css/index.css">
 <link rel="stylesheet" href="${ctx}/home/assets/css/list.css">
+<link rel="stylesheet" href="${ctx}/home/assets/css/caseShow.css">
+<link rel="stylesheet" href="${ctx}/home/assets/css/bootstrap.min.3.3.5.css">
+<link rel="stylesheet" href="${ctx}/home/assets/css/bootstrapstyle.css">

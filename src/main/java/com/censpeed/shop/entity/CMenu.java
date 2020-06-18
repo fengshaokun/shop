@@ -1,5 +1,7 @@
 package com.censpeed.shop.entity;
 
+import java.util.List;
+
 public class CMenu {
     private Integer id;
 
@@ -14,6 +16,18 @@ public class CMenu {
     private Integer pid;
 
     private CMenu cMenu;
+
+
+    private List<CMenu> childMenu;
+
+
+    public List<CMenu> getChildMenu() {
+        return childMenu;
+    }
+
+    public void setChildMenu(List<CMenu> childMenu) {
+        this.childMenu = childMenu;
+    }
 
     public CMenu getcMenu() {
         return cMenu;

@@ -18,4 +18,8 @@ public interface CProductMapper {
     int updateByPrimaryKey(CProduct record);
 
     List<CProduct> selectAllCProductByStatus(Integer status);
+
+
+    //根据菜单Id 查询产品
+    List<CProduct> selectProductByMenuId(Integer id);
 }

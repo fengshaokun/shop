@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>倍速世纪产品中心</title>
   <%-- 页面头部样式开始----------------------------------------------------------%>
   <jsp:include page="homeHead.jsp"/>
   <%-- 页面头部样式结束---------------------------------------------------------%>
@@ -16,113 +16,7 @@
 
 <body>
 <jsp:include page="homeTopMenu.jsp"/>
-<%--  <!-- 顶部导航 -->
-  <div class="header">
 
-    <!-- 列表 -->
-    <ul>
-      <!-- logo -->
-      <li class="headerli">
-        <div class="logo">
-          <img src="./assets/images/logo.png" alt="">
-        </div>
-      </li>
-      <li class="headerli">
-        <span>首页</span>
-        <!-- <span class="arrow"></span> -->
-      </li>
-      <li class="headerli headerli_case">
-        <span>产品</span>
-        <span class="arrow"></span>
-
-      </li>
-      <li class="headerli">
-        <span>案例</span>
-        <!-- <span class="arrow"></span> -->
-      </li>
-      <li class="headerli">
-        <input type="text" placeholder="搜索...">
-        <span></span>
-      </li>
-    </ul>
-    <!-- 下拉 -->
-    <div class="dropdown case">
-      <div>
-        <ul class="left_ul">
-          <li data-to="1" class="right_li_hover">
-            <span>硬件</span>
-          </li>
-          <li data-to="2" class="">
-            <span>系统</span>
-          </li>
-          <li data-to="3" class="">
-            <span>niagara驱动</span>
-          </li>
-        </ul>
-        <div class="dropdownNav dropdownNav1">
-          <ul class="right_ul">
-            <li>
-              <img src="./assets/images/bot_1.png" alt="">
-              <p>采集控制</p>
-              <p>xxx</p>
-              <!-- <a href="">采集控制</a> -->
-            </li>
-            <li>
-              <img src="./assets/images/bot_1.png" alt="">
-              <p>物联网中间件</p>
-              <p>xxx</p>
-              <!-- <a href="">物联网中间件</a> -->
-            </li>
-            <li>
-              <img src="./assets/images/bot_1.png" alt="">
-              <p>传感器|计量装置</p>
-              <p>xxx</p>
-              <!-- <a href="">传感器|计量装置</a> -->
-            </li>
-          </ul>
-        </div>
-        <div class="dropdownNav dropdownNav2">
-          <ul class="right_ul">
-            <li>
-              <img src="./assets/images/bot_1.png" alt="">
-              <p>楼宇</p>
-              <p>xxx</p>
-              <!-- <a href="">楼宇</a> -->
-            </li>
-            <li>
-              <img src="./assets/images/bot_1.png" alt="">
-              <p>工业</p>
-              <p>xxx</p>
-              <!-- <a href="">工业</a> -->
-            </li>
-            <li>
-              <img src="./assets/images/bot_1.png" alt="">
-              <p>产品</p>
-              <p>xxx</p>
-              <!-- <a href="">产品</a> -->
-            </li>
-          </ul>
-        </div>
-        <div class="dropdownNav dropdownNav3">
-          <ul class="right_ul">
-            <li>
-              <img src="./assets/images/bot_1.png" alt="">
-              <p>niagara驱动</p>
-              <p>xxx</p>
-              <!-- <a href="">niagara驱动</a> -->
-            </li>
-            <li>
-              <img src="./assets/images/bot_1.png" alt="">
-              <p>niagara模块</p>
-              <p>xxx</p>
-              <!-- <a href="">niagara模块</a> -->
-            </li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </div>--%>
   <!-- banner -->
   <div class="swiper-container">
     <div class="swiper-wrapper">
@@ -168,7 +62,6 @@
       </div>
     </div>
     <div class="paginationB"></div>
-    <!-- <div class="cover"></div> -->
 
   </div>
 
@@ -180,14 +73,7 @@
     <img src="${itemDto.src}" alt="">
   </div>
   </c:forEach>
-<%--  <!-- 我们的优势 -->
-  <div class="business">
-    <img src="../../../upload/image/20200612/2.png" alt="">
-  </div>
-  <!-- 技术体系 -->
-  <div class="business">
-    <img src="../../../upload/image/20200612/3.png" alt="">
-  </div>--%>
+
   <!-- 案例展示 -->
   <div class="caseShow">
     <div class="caseTitle">
@@ -209,31 +95,10 @@
     </div>
     <!-- 查看更多 -->
     <div class="checkMore">
-      <a href="javascript:;" target="_blank">查看更多 +</a>
+      <a href="/home/caseShow" target="_self">查看更多 +</a>
     </div>
   </div>
 <jsp:include page="footer.jsp"/>
-<%--  <!-- 底部 -->
-  <div class="footer">
-    <div class="footerContent">
-      <!-- 公司介绍 -->
-      <div class="companyIntroduction">
-        <h4>公司简介</h4>
-        <p>江苏倍速世纪集团 旗下：南京长江都市楼宇科技有限责任公司、南京倍速创恒信息技术有限公司和EVOLUTION CONTROL(HONGKONG)三家全资控股子公司。</p>
-        <p>
-          经过数年的沉淀与发展，倍速世纪逐渐形成：旗下企业“三足鼎立”，集团公司两级管理的发展模式。公司目前在北京、上海、香港、深圳、淮安等地设有分公司及办事处。新年伊始，未来已来。倍速世纪希望与更多有识之士携手同行，为企业间共赢发展翻开崭新篇章！
-        </p>
-        <p>企业理念:互联的物联网时代和增强现实</p>
-        <p>企业使命: 将先进的计算技术和通信技术作为创新的解决方案，提高客户的竞争力和应对数字技术惊人的进化能力。</p>
-      </div>
-      <div class="companyMessage">
-        <h4>公司信息</h4>
-        <p>电话: (025)51809281</p>
-        <p>邮箱: sale@cen-speed.com</p>
-        <p>公司地址: 中国 • 南京 应天大街388号1865创意园E9栋</p>
-      </div>
-    </div>
-  </div>--%>
 
   <!-- 咨询悬浮框 -->
   <div class="suspensionBox">
@@ -276,7 +141,6 @@
     </div>
   </div>
 </div>
-<jsp:include page="footer.jsp"/>
 <jsp:include page="homeBottom.jsp"/>
 
   <script>

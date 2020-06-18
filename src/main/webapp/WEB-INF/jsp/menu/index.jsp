@@ -32,11 +32,6 @@
         <%--左边菜单结束-----------------------------------------------------%>
         <div class="bg_color percent-seller percent-seller-goods" id="searchCondition">
 
-<%--
-<table id="demoTreeTb" class="table table-bordered table-striped"> </table>
---%>
-
-
         <table id="treeTable" class="table table-bordered table-striped">
         <tr>
         <th role="row">id</th>
@@ -48,7 +43,7 @@
         <th>操作</th>
         </tr>
         <c:forEach items="${menus}" var="itemDto">
-            <tr id="${itemDto.id}" pId="${itemDto.pid}">
+            <tr data-tt-id="${itemDto.id}" data-tt-parent-id="${itemDto.pid}">
             <td class="text-center">${itemDto.id}</td>
             <td class="text-center">${itemDto.principal}</td>
             <td class="text-center">${itemDto.subordinate}</td>
@@ -71,13 +66,11 @@
         </div>
         </div>
 
-            <script type="text/javascript" charset="utf-8" src="/layui/layui.all.js"></script>
-            <script type="text/javascript" charset="utf-8" src="/layui/layui.js"></script>
 
-
+            <script src="/js/jquery.treetable.js"></script>
 
         <script type="text/javascript">
-
+            $("#treeTable").treetable({ expandable: true });
 
         $(".delete-btn").click(function() {
         var id = ($(this).data('id'));

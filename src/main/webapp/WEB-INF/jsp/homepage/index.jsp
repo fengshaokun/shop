@@ -36,12 +36,14 @@
                                 <table class="table table-bordered table-striped">
                                     <tr>
                                         <th>序号</th>
+                                        <th>名称</th>
                                         <th>图片</th>
                                         <th>操作</th>
                                     </tr>
                                     <c:forEach items="${list}" var="itemDto">
                                         <tr>
                                             <td class="text-center">${itemDto.id}</td>
+                                            <td class="text-center">${itemDto.style}</td>
                                             <td>
                                                 <img width="54" height="54"
                                                      src=" ${ fn:split(itemDto.src, ',')[0] } "

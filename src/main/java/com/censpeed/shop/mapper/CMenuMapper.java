@@ -22,4 +22,5 @@ public interface CMenuMapper {
 
     List<CMenu> selectAll();
 
+
 }

@@ -49,7 +49,17 @@
     from c_product
     where STATUS = #{status,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectProductByMenuId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+
+      select c_product.ID, NAME, ICON, TAG, BRIEF_INTRODUCTION, VIDEO, IS_NEW, IS_HOT, CREATE_TIME, SORT, STATUS,BACKGROUND
+      from c_product
+      LEFT JOIN c_product_menu_link
+      ON c_product.id = c_product_menu_link.C_PRODUCT_ID
+      WHERE c_product_menu_link.C_MENU_ID = #{id,jdbcType=INTEGER}
+
+
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_product
     where ID = #{id,jdbcType=INTEGER}
   </delete>

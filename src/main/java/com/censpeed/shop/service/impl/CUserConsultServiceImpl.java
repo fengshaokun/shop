@@ -32,4 +32,19 @@ public class CUserConsultServiceImpl implements CUserConsultServiceI {
     public List<CUserConsult> getAll() {
         return cUserConsultMapper.getAllCUserConsultLimit();
     }
+
+    @Override
+    public void deleteUserConsultById(Integer id) {
+        cUserConsultMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void updateConsult(CUserConsult cUserConsult) {
+        cUserConsultMapper.updateByPrimaryKeySelective(cUserConsult);
+    }
+
+    @Override
+    public CUserConsult selectCUserConsultById(Integer id) {
+        return cUserConsultMapper.selectByPrimaryKey(id);
+    }
 }

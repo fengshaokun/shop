@@ -42,7 +42,7 @@
                             </div>
                             <table class="table table-bordered table-striped">
                                 <tr>
-                                    <th>id</th>
+                                    <th>序号</th>
                                     <th>姓名</th>
                                     <th>电话</th>
                                     <th>邮箱</th>
@@ -51,9 +51,9 @@
                                     <th>咨询时间</th>
                                     <th>操作</th>
                                 </tr>
-                                <c:forEach items="${pageInfo.list}" var="itemDto">
+                                <c:forEach items="${pageInfo.list}" var="itemDto" varStatus="status">
                                     <tr>
-                                        <td class="text-center">${itemDto.id}</td>
+                                        <td class="text-center">${status.index + 1}</td>
                                         <td class="text-center">${itemDto.name}</td>
                                         <td class="text-center">${itemDto.tel}</td>
                                         <td class="text-center">${itemDto.email}</td>
@@ -61,8 +61,8 @@
                                         <td class="text-center">${itemDto.content}</td>
                                         <td class="text-center">${itemDto.createTime.toLocaleString()}</td>
                                         <td class="text-center" width="70">
-                                            <a href="/menu/update?id=${itemDto.id}" class="delete-good" >修改</a>
-                                            <a onclick="return confirm('确定将此记录删除?')" class="delete-good delete-btn" data-id="${itemDto.id}">删除</a>
+                                            <a href="/consult/update?id=${itemDto.id}" class="delete-good" >修改</a>
+                                            <a href="/consult/delete?id=${itemDto.id}" onclick="return confirm('确定将此记录删除?')"   class="delete-good" >删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -20,4 +20,6 @@ public interface CProductServiceI {
     int updateByPrimaryKeySelective(CProduct record);
 
     CProductDetails selectProductDetailsByProId(Integer id);
+    //根据菜单Id 查询产品
+    List<CProduct> selectProductByMenuId(Integer id);
 }

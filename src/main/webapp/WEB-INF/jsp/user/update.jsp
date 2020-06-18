@@ -5,7 +5,7 @@
         <html>
 
         <head>
-        <title>修改菜单</title>
+        <title>修改咨询用户信息</title>
         <meta name="menu" content="update"/>
         <%-- 页面头部样式开始----------------------------------------------------------%>
         <jsp:include page="/decorator/sellerHead.jsp"/>
@@ -27,71 +27,67 @@
         <%--左边菜单开始-----------------------------------------------------%>
         <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
         <%--左边菜单结束-----------------------------------------------------%>
-        <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/menu/updateMenu"
+        <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/consult/updateConsult"
         method="post" onsubmit="return false">
-        <h2>修改菜单</h2>
+        <h2>咨询用户信息</h2>
 
-        <div class="form-group" style="display:none">
-        <label class="col-sm-2 control-label">id：</label>
+            <div class="form-group" style="display:none">
+                <label class="col-sm-2 control-label">id：</label>
+                <div class="col-sm-6">
+                    <input class="filter-input-filed form-control" id="id"
+                           type="text" name="id" value="${itemDto.id}" >
+                </div>
+            </div>
+
+        <div class="form-group">
+        <label class="col-sm-2 control-label">姓名：</label>
         <div class="col-sm-6">
-        <input class="filter-input-filed form-control" id="id"
-        type="text" name="id" value="${cMenu.id}" >
+        <input class="filter-input-filed form-control" id="name" placeholder="请输入姓名"
+        type="text" name="name" value="${itemDto.name}">
         </div>
         </div>
 
         <div class="form-group">
-        <label class="col-sm-2 control-label">主标题：</label>
-        <div class="col-sm-6">
-        <input class="filter-input-filed form-control" id="principal" placeholder="请输入主标题"
-        type="text" name="principal" value="${cMenu.principal}">
-        </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">副标题：</label>
+            <label class="col-sm-2 control-label">电话：</label>
             <div class="col-sm-6">
-            <input class="filter-input-filed form-control" id="subordinate" placeholder="请输入副标题"
-            type="text" name="subordinate" value="${cMenu.subordinate}">
+            <input class="filter-input-filed form-control" id="tel" placeholder="请输入电话"
+            type="text" name="tel" value="${itemDto.tel}">
             </div>
             </div>
 
             <div class="form-group">
-            <label class="col-sm-2 control-label">url：</label>
+            <label class="col-sm-2 control-label">邮箱：</label>
             <div class="col-sm-6">
-            <input class="filter-input-filed form-control" id="url" placeholder="请输入url"
-            type="text" name="url" value="${cMenu.url}">
+            <input class="filter-input-filed form-control" id="email" placeholder="请输入邮箱"
+            type="text" name="email" value="${itemDto.email}">
             </div>
             </div>
             <div class="form-group">
-            <label class="col-sm-2 control-label">排序：</label>
+            <label class="col-sm-2 control-label">公司：</label>
             <div class="col-sm-6">
-            <input class="filter-input-filed form-control" id="sort" placeholder="请输入排序"
-            type="text" name="sort" value="${cMenu.sort}" >
+            <input class="filter-input-filed form-control" id="company" placeholder="请输入公司"
+            type="text" name="company" value="${itemDto.company}">
             </div>
             </div>
-
 
             <div class="form-group">
-            <label class="col-sm-2 control-label">绑定上一级菜单：</label>
-            <div class="col-sm-6">
-            <select class="filter-input-filed form-control" name="pid" id="pid">
-        <option value="0" >无</option>
-        <c:forEach items="${pMenu}" var="itemDto">
-            <option <c:if test="${cMenu.pid==itemDto.id}"> selected </c:if>  value="${itemDto.id}">${itemDto.id}--------->${itemDto.principal}</option>
-        </c:forEach>
-            </select>
+                <label class="col-sm-2 control-label">咨询内容：</label>
+                <div class="col-sm-6">
+                    <input class="filter-input-filed form-control" id="content" placeholder="请输入内容"
+                           type="text" name="content"  value="${itemDto.content}">
+                </div>
             </div>
-            </div>
+
+
 
 
         <div class="form-group">
-        <label for="principal" class="col-sm-2 control-label">
+        <label for="name" class="col-sm-2 control-label">
         <button class="btn btn-primary " onclick="upload()" >
         确认
         </button>
         </label>
         </div>
-
 
 
 
@@ -120,11 +116,11 @@
         }
 
         function upload() {
-        $("#frm").attr("action","/menu/updateMenu");
+        $("#frm").attr("action","/consult/updateConsult");
         with($("#frm").get(0)){
         if(checkForm())
         submit();
-        toastr.success("修改菜单成功")
+        toastr.success("修改成功")
         }
         }
 

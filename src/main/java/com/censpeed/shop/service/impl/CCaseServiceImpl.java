@@ -5,6 +5,8 @@ import com.censpeed.shop.entity.CItemDetails;
 import com.censpeed.shop.mapper.CCaseMapper;
 import com.censpeed.shop.mapper.CItemDetailsMapper;
 import com.censpeed.shop.service.CCaseServiceI;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,14 @@ public class CCaseServiceImpl implements CCaseServiceI {
     @Override
     public List selectAll() {
         return cCaseMapper.selectAll();
+    }
+
+    @Override
+    public PageInfo<CCase> selectAllLimit(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<CCase> cases = cCaseMapper.selectAll();
+        PageInfo<CCase> pageInfo = new PageInfo<CCase>(cases);
+        return pageInfo;
     }
 
     @Override

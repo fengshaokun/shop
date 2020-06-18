@@ -85,4 +85,9 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
     public CProductDetails selectProductDetailsByProId(Integer id) {
         return cProductDetailsMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public List<CProduct> selectProductByMenuId(Integer id) {
+        return cProductMapper.selectProductByMenuId(id);
+    }
 }

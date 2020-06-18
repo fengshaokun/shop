@@ -7,7 +7,7 @@
             <span id="userInfo"></span>
         </div>
         <div class="fr">
-            <span><a href="/home/index">首页</a></span>
+            <span><a href="/home/index" target ="_blank">首页</a></span>
             <span></span>
             <span><a href="#">倍速世纪产品后台</a></span>
         </div>

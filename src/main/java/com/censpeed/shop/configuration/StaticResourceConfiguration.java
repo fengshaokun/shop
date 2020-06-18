@@ -29,10 +29,15 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
     public void addInterceptors(InterceptorRegistry registry) {
         InterceptorRegistration loginRegistry = registry.addInterceptor(new LoginInterceptor());
         // 拦截路径
-        loginRegistry.addPathPatterns("/**");
+        loginRegistry.addPathPatterns("/case/*");
+        loginRegistry.addPathPatterns("/product/*");
+        loginRegistry.addPathPatterns("/menu/*");
+        loginRegistry.addPathPatterns("/homepage/*");
+        loginRegistry.addPathPatterns("/consult/*");
         // 排除路径
         loginRegistry.excludePathPatterns("/user/login");
         loginRegistry.excludePathPatterns("/user/");
+        loginRegistry.excludePathPatterns("/home/*");
 
     }
 }

@@ -16,6 +16,8 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/css/login.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/toastr.min.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/toastr.min.css"/>
+<link href="${ctx}/css/screen.css" rel="stylesheet" media="screen" />
 <link href="${ctx}/css/jquery.treetable.css" rel="stylesheet" type="text/css" />
+<link href="${ctx}/css/jquery.treetable.theme.default.css" rel="stylesheet" type="text/css" />
 <script src="${ctx}/js/jquery-2.0.3.js"></script>
 <script src="${ctx}/js/toastr.min.js"></script>

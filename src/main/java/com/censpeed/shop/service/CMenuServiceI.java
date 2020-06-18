@@ -17,4 +17,10 @@ public interface CMenuServiceI {
     void deleteMenuById(Integer id);
 
     CMenu selectByPrimaryKey(Integer id);
+
+    List<CMenu> selectAllMenu(List<CMenu> list,List<CMenu>result);
+
+    List<CMenu> selectAllPMEnu();
+
+    void updateMenu(CMenu cMenu);
 }

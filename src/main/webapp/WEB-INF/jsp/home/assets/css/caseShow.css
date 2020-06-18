@@ -1,0 +1,269 @@
+/* 头部header */
+.header {
+  width: 100%;
+  height: 60px;
+  background: #000;
+  box-sizing: border-box;
+}
+
+
+/* logo */
+.header .logo{
+  width: 150px;
+  height:60px;
+}
+.header .logo img{
+  width: 100%;
+  height:100%;
+}
+/* 列表 */
+
+.header>ul {
+  width: 1200px;
+  display: flex;
+  margin:0 auto;
+  position: relative;
+}
+.header li.headerli {
+  padding:0px 15px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.header li.headerli:not(:first-of-type){
+  width: 100px;
+} 
+.header li.headerli:last-of-type {
+  width: auto;
+  position: absolute;
+  right:20px;
+  top:15px;
+  padding:0px;
+}
+.header li.headerli:last-of-type input{
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  outline: unset;
+  border:unset;
+  padding:5px;
+  padding-right: 20px;
+  box-sizing: border-box;
+} 
+.header li.headerli:last-of-type input::-webkit-input-placeholder {
+  color: #666;
+  font-size: 14px;
+}
+.header li.headerli:last-of-type span{
+  background-image: url(../images/search.png);
+  width: 16px;
+  height: 16px;
+  background-size: 100% 100%;
+  position: absolute;
+  right:5px;
+}
+
+.header li.headerli .arrow {
+  background-image: url(../images/arrow.png);
+  width: 22px;
+  height: 22px;
+  background-size: 100% 100%;
+}
+/* 下拉部分 */
+.dropdown {
+  width: 100%;
+  height:300px;
+  position: absolute;
+  top:60px;
+  background: #eee;
+  color:#000;
+  text-align: center;
+  z-index: 10;
+}
+.dropdown>div{
+  width: 1200px;
+  height:100%;
+  margin:0 auto;
+  display: inline-flex;
+}
+/* 左边列表 */
+.dropdown>div ul.left_ul{
+  width: 200px;
+  height: 100%;
+  padding:20px;
+  box-sizing: border-box;
+}
+.dropdown ul.left_ul li{
+  display: inline-block;
+  width: 100%;
+  height:40px;
+  line-height: 40px;
+  font-size: 16px;
+}
+.right_li_hover{
+  border-bottom: 2px solid #ccc;
+  font-weight: 600;
+}
+
+/* 右边列表 */
+.dropdown ul.right_ul{
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  padding:30px;
+  border-left:1px solid #ccc;
+  box-sizing: border-box;
+  align-items: center;
+}
+.dropdown ul.right_ul li{
+  width: 200px;
+  height: 200px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.dropdown ul.right_ul li p{
+  color:#000;
+  font-size: 20px;
+}
+.dropdown ul.right_ul li p:nth-of-type(2){
+  font-size: 12px;
+}
+
+.dropdown{
+  display: none;
+}
+.dropdown .dropdownNav1{
+  flex:1;
+}
+.dropdownNav2,.dropdownNav3{
+  flex:1;
+  display: none;
+}
+
+
+/* 主体 */
+.main{
+  width: 100%;
+}
+/* banner */
+.main .bannerImg{
+  width: 100%;
+  height:300px;
+}
+.main .bannerImg img{
+  width: 100%;
+  height:100%;
+}
+/* main */
+.mainContent .topNav{
+  width: 100%;
+  height: 30px;
+  background: #eee;
+  color:#282828;
+}
+.mainContent .topNav>div{
+  width: 1200px;
+  height:30px;
+  line-height: 30px;;
+  margin:0 auto;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.mainContent .topNav>div i{
+  width: 20px;
+  height: 20px;
+  background: url(../images/caseShow/home.png);
+  background-size:100% 100%;
+  margin-right: 5px;
+}
+.mainContent .topNav>div a{
+  color: #282828;
+  margin:0px 5px;
+}
+/* 内容主体 */
+.mainBodyContent .title{
+  width: 1200px;
+  height: 100px;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mainBodyContent .title h4{
+  font-size: 24px;
+  letter-spacing: 5px;
+  margin-bottom: 5px;
+}
+.mainBodyContent .title p{
+  font-size: 12px;
+}
+
+/* caseitem */
+.mainBodyContent .itemGroup{
+  width: 1200px;
+  margin:0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.itemGroup .item {
+  width: 200px;
+  height: 300px;
+  margin:0px 20px;
+  position: relative;
+  overflow: hidden;
+  padding:10px;
+  border:1px solid #ccc;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.itemGroup .item:hover{
+  border:1px solid #00aeef;
+}
+.itemGroup .item:hover h4{
+  color:#00aeef;
+}
+.itemGroup .item:hover p{
+  color:#00aeef;
+}
+.itemGroup .item:hover a{
+  color:#00aeef;
+}
+
+.itemGroup .item img {
+  width: 100%;
+  height: 160px;
+}
+
+.itemGroup .item h4 {
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+}
+
+.itemGroup .item p {
+  font-size: 13px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.itemGroup .item a {
+  color: #282828;
+  border:1px solid #ccc;
+  padding: 0px 5px;
+  font-size: 14px;
+}
+.itemGroup .item a:hover{
+  color:#f45353;
+} 

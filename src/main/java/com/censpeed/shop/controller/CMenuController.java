@@ -45,9 +45,18 @@ private CMenuServiceI cMenuServiceI;
         return "menu/update";
     }
 
+
+
     @RequestMapping("uploadGood")
     public String uploadGood(CMenu cMenu) {
         cMenuServiceI.insert(cMenu);
+        return "redirect:/menu/index";
+    }
+
+
+    @RequestMapping("updateMenu")
+    public String updateMenu(CMenu cMenu) {
+        cMenuServiceI.updateMenu(cMenu);
         return "redirect:/menu/index";
     }
 

@@ -37,7 +37,11 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />-->
-        <table schema="censpeed_product" tableName="c_home_page"
+      <!--  <table schema="censpeed_product" tableName="c_home_page"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />-->
+        <table schema="censpeed_product" tableName="c_foot_text"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />

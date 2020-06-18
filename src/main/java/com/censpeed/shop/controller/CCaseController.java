@@ -3,9 +3,12 @@ package com.censpeed.shop.controller;
 import com.censpeed.shop.entity.CCase;
 import com.censpeed.shop.entity.CItemDetails;
 import com.censpeed.shop.service.CCaseServiceI;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -18,11 +21,15 @@ public class CCaseController {
     @Autowired
     private CCaseServiceI cCaseServiceI;
 
+    @Value("${caseSize}")
+    private Integer caseSize;
+
+
 
     @RequestMapping("index")
-    public String index(Map map) {
-        List list = cCaseServiceI.selectAll();
-        map.put("cases",list);
+    public String index(Map map,@RequestParam(defaultValue = "1") Integer pageNum){
+        PageInfo<CCase> cCasePageInfo = cCaseServiceI.selectAllLimit(pageNum,caseSize);
+        map.put("pageInfo",cCasePageInfo);
         return "case/index";
     }
 

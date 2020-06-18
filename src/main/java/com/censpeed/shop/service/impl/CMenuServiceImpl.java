@@ -9,6 +9,7 @@ import com.censpeed.shop.utils.ShopResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,4 +51,30 @@ public class CMenuServiceImpl implements CMenuServiceI {
     public CMenu selectByPrimaryKey(Integer id) {
         return cMenuMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public List<CMenu> selectAllMenu(List<CMenu> cMenus,List<CMenu>result) {
+
+        for (CMenu cMenu:cMenus){
+            List<CMenu> cMenus1 = cMenuMapper.selectPMenuByPid(cMenu.getId());
+            if (cMenus1!=null&&cMenus1.size()!=0){
+                cMenu.setChildMenu(cMenus1);
+                result.add(cMenu);
+                selectAllMenu(cMenus1,result);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public List<CMenu> selectAllPMEnu() {
+        return cMenuMapper.selectPMenuByPid(0);
+    }
+
+    @Override
+    public void updateMenu(CMenu cMenu) {
+        cMenuMapper.updateByPrimaryKeySelective(cMenu);
+    }
+
+
 }

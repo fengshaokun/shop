@@ -12,5 +12,9 @@ public interface CUserConsultServiceI {
 
     List<CUserConsult>getAll();
 
+    void deleteUserConsultById(Integer id);
 
+    void updateConsult(CUserConsult cUserConsult);
+
+    CUserConsult selectCUserConsultById(Integer id);
 }
