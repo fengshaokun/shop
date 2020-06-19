@@ -27,7 +27,19 @@ public class CMenuServiceImpl implements CMenuServiceI {
 
     @Override
     public List<CMenu> selectAll() {
-        return cMenuMapper.selectAll();
+        List<CMenu> cMenus = cMenuMapper.selectAll();
+        List<CMenu>sort = new ArrayList<>();
+        return sort(0, cMenus, sort);
+    }
+
+    private static List<CMenu> sort(Integer pid, List<CMenu> itemCatsBeforeList, List<CMenu> itemCatsAfterList) {
+        for (CMenu entity : itemCatsBeforeList) {
+            if (entity.getPid().equals(pid)) {
+                itemCatsAfterList.add(entity);
+                sort(entity.getId(), itemCatsBeforeList, itemCatsAfterList);
+            }
+        }
+        return itemCatsAfterList;
     }
 
     @Override
@@ -53,15 +65,16 @@ public class CMenuServiceImpl implements CMenuServiceI {
     }
 
     @Override
-    public List<CMenu> selectAllMenu(List<CMenu> cMenus,List<CMenu>result) {
+    public List<CMenu> selectAllMenu(List<CMenu> cMenus) {
 
+        List<CMenu> result = new ArrayList<>();
         for (CMenu cMenu:cMenus){
             List<CMenu> cMenus1 = cMenuMapper.selectPMenuByPid(cMenu.getId());
             if (cMenus1!=null&&cMenus1.size()!=0){
                 cMenu.setChildMenu(cMenus1);
-                result.add(cMenu);
-                selectAllMenu(cMenus1,result);
+                selectAllMenu(cMenus1);
             }
+            result.add(cMenu);
         }
         return result;
     }
@@ -74,6 +87,12 @@ public class CMenuServiceImpl implements CMenuServiceI {
     @Override
     public void updateMenu(CMenu cMenu) {
         cMenuMapper.updateByPrimaryKeySelective(cMenu);
+    }
+
+    @Override
+    public CMenu selectMenuByProductId(Integer id) {
+
+        return cMenuMapper.selectMenuByProductId(id);
     }
 
 

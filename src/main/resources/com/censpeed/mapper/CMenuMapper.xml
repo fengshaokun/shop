@@ -23,7 +23,7 @@
   <sql id="Base_Column_List" >
     ID, PRINCIPAL, SUBORDINATE, URL, SORT, PID
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap2" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from c_menu
@@ -40,11 +40,20 @@
       <include refid="Base_Column_List" />
       from c_menu
       where PID = #{id,jdbcType=INTEGER}
+      order by sort
+
 
     </select>
+  <select id="selectMenuByProductId" resultType="com.censpeed.shop.entity.CMenu">
+    select  c_menu.ID, PRINCIPAL, SUBORDINATE, URL, SORT, PID from c_menu
+    LEFT JOIN c_product_menu_link
+    on c_menu.id = c_product_menu_link.C_MENU_ID
+    where c_product_menu_link.C_PRODUCT_ID = #{id,jdbcType=INTEGER}
+
+  </select>
 
 
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_menu
     where ID = #{id,jdbcType=INTEGER}
   </delete>

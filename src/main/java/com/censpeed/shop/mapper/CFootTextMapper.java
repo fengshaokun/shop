@@ -1,19 +1,24 @@
 package com.censpeed.shop.mapper;
 
 import com.censpeed.shop.entity.CFootText;
+import com.censpeed.shop.entity.CFootTextWithBLOBs;
+
+import java.util.List;
 
 public interface CFootTextMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(CFootText record);
+    int insert(CFootTextWithBLOBs record);
 
-    int insertSelective(CFootText record);
+    int insertSelective(CFootTextWithBLOBs record);
 
-    CFootText selectByPrimaryKey(Integer id);
+    CFootTextWithBLOBs selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(CFootText record);
+    int updateByPrimaryKeySelective(CFootTextWithBLOBs record);
 
-    int updateByPrimaryKeyWithBLOBs(CFootText record);
+    int updateByPrimaryKeyWithBLOBs(CFootTextWithBLOBs record);
 
     int updateByPrimaryKey(CFootText record);
+
+    List<CFootTextWithBLOBs> selectAllCFootText();
 }

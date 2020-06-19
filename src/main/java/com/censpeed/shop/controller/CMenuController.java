@@ -2,16 +2,14 @@ package com.censpeed.shop.controller;
 
 
 import com.censpeed.shop.entity.CMenu;
-import com.censpeed.shop.entity.CProduct;
 import com.censpeed.shop.service.CMenuServiceI;
 import com.censpeed.shop.utils.ShopResult;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -29,11 +27,13 @@ private CMenuServiceI cMenuServiceI;
         return "menu/index";
     }
 
+
+
     @RequestMapping("create")
     public String create(Map map) {
         List<CMenu> cMenus = cMenuServiceI.selectAll();
         map.put("menus",cMenus);
-        return "menu/create";
+        return "/menu/create";
     }
 
     @RequestMapping("update")
@@ -75,6 +75,13 @@ private CMenuServiceI cMenuServiceI;
         return "redirect:/menu/index";
     }
 
+    @RequestMapping(value = "/menuIndex" ,method = RequestMethod.POST)
+    @ResponseBody
+    public  ShopResult menuIndex(){
+        List<CMenu> cMenus = cMenuServiceI.selectAll();
+
+        return ShopResult.ok(cMenus);
+    }
 
 
 

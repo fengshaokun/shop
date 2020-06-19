@@ -28,29 +28,36 @@
                     <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
                     <%--左边菜单结束-----------------------------------------------------%>
 
-                    <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/seller/uploadGood" method="post"  onsubmit="return false">
-                        <h2>商品基本信息</h2>
+                    <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/homepage/updateFoot" method="post"  onsubmit="return false">
+                        <h2>首页底部</h2>
 
-                        <div class="form-group">
+                        <div class="form-group"  style="display:none">
                             <label class="col-sm-2 control-label">id：</label>
                             <div class="col-sm-6">
-                                <input class="filter-input-filed form-control" id="id" placeholder="请输入名称"
-                                       type="text" name="name">
+                                <input class="filter-input-filed form-control" id="id" placeholder="请输入id"
+                                       type="text" name="id" value="${foot.id}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">名称：</label>
                             <div class="col-sm-6">
                                 <input class="filter-input-filed form-control" id="name" placeholder="请输入名称"
-                                       type="text" name="name">
+                                       type="text" name="name" value="${foot.name}">
                             </div>
                         </div>
 
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">产品详情：</label>
+                            <label class="col-sm-2 control-label">底部左边内容：</label>
                             <div class="col-sm-6">
-                                <textarea id="editor" name="productContent" type="text/plain" style="width:664px;height:500px;"></textarea>
+                                <textarea id="editor" name="leftText" type="text/plain" style="width:664px;height:500px;"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">底部右边内容：</label>
+                            <div class="col-sm-6">
+                                <textarea id="editor1" name="rightText" type="text/plain" style="width:664px;height:500px;"></textarea>
                             </div>
                         </div>
 
@@ -71,6 +78,16 @@
 
                         <script type="text/javascript" src="/js/fwb.js"></script>
                         <script type="text/javascript">
+
+                            var editor = UE.getEditor('editor');
+                            editor.ready(function() {
+                                editor.setContent('${foot.leftText}');
+                            });
+
+                            var editor1= UE.getEditor('editor1');
+                            editor1.ready(function() {
+                                editor1.setContent('${foot.rightText}');
+                            });
 
 
                             function checkForm() {
@@ -93,7 +110,7 @@
                             }
 
                             function upload() {
-                                $("#frm").attr("action","/product/uploadGood");
+                                $("#frm").attr("action","/homepage/updateFoot");
                                 with($("#frm").get(0)){
                                     if(checkForm())
                                         submit();

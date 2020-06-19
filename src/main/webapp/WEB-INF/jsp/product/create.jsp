@@ -9,7 +9,8 @@
     <meta name="product" content="create"/>
     <%-- 页面头部样式开始----------------------------------------------------------%>
     <jsp:include page="/decorator/sellerHead.jsp"/>
-    <%-- 页面头部样式结束---------------------------------------------------------%>
+    <link rel="stylesheet" type="text/css" href="/menu/css/zTreeStyle.css"/>
+<%-- 页面头部样式结束---------------------------------------------------------%>
 </head>
 <body>
 <div class="main">
@@ -76,7 +77,7 @@
                                     <label><input  type="radio" name="isNew" value="1">否</label>
                                 </div>
                             </div>
-                            <div class="form-group">
+                          <%--  <div class="form-group">
                                 <label class="col-sm-2 control-label">绑定菜单：</label>
                                 <div class="col-sm-6">
                                     <select class="filter-input-filed form-control" name="menuId" id="menuId">
@@ -85,6 +86,16 @@
                                             <option value="${itemDto.id}">${itemDto.sort}--------->${itemDto.principal}</option>
                                         </c:forEach>
                                     </select>
+                                </div>
+                            </div>--%>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">绑定菜单：</label>
+                                <div class="col-sm-6">
+
+                                    <input class="filter-input-filed" id="menuId" type="hidden" name="menuId"  type="text">
+                                    <input class="filter-input-filed form-control" placeholder="请选择菜单" readonly
+                                           id="modal"
+                                           data-toggle="modal" data-target="#myModal" >
                                 </div>
                             </div>
                             <div class="form-group">
@@ -267,7 +278,81 @@
     <%-- 底部js开始 --%>
     <jsp:include page="/decorator/sellerBottom.jsp"/>
     <%-- 底部js结束 --%>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">请选择菜单</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="zTreeDemoBackground left">
+                            <ul id="treeDemo" class="ztree"></ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="toMenu()">确认</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+        <script src="/menu/js/jquery.ztree.core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/menu/js/jquery.ztree.excheck.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            var setting = {
+                callback: {
+                     beforeClick: zTreeBeforeClick,
+                    onClick: zTreeOnClick
+                },
+                data: {
+                    key: {
+                        name:"principal",
+                        url: "xUrl"
+                    },
+                    simpleData: {
+                        enable: true,
+                        idKey: "id",
+                        pIdKey: "pid",
+                        rootPId: 0
+                    }
+                },
+                view: {
+                    selectedMulti: false
+                }
+            };
 
+            var menuId ;
+            var menuName;
+            function zTreeBeforeClick(treeId, treeNode, clickFlag) {
+                return !treeNode.isParent;//当是父节点 返回false 不让选取
+            };
+            function zTreeOnClick(event, treeId, treeNode) {
+                menuId=treeNode.id;
+                menuName=treeNode.principal;
+            };
+            function toMenu() {
+                $("#menuId").val(menuId);
+                $("#modal").val(menuName);
+            }
+            var zNodes = [];
+            $.ajax({
+                url: "/menu/menuIndex", //请求的url地址
+                dataType: "json", //返回格式为json
+                async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                data: {}, //参数值
+                type: "post", //请求方式
+                success: function (req) {
+                    zNodes = req.data;
+                    console.log(zNodes)
+                    $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+                },
+                error: function () {
+
+                }
+            });
+        </script>
 </body>
 
 </html>

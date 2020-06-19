@@ -19,7 +19,7 @@
         <!-- logo -->
         <li class="headerli">
             <div class="logo">
-                <img src="./assets/images/logo.png" alt="">
+                <img src="" alt="">
             </div>
         </li>
         <li class="headerli">

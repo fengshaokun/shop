@@ -19,7 +19,6 @@
         <h2 class="fl"><span>倍速世纪</span><em>|</em><em>后台管理</em></h2>
     </div>
 </div>
-<script src="/js/jquery-1.11.2.min.js" type="text/javascript"></script>
 <script src="/js/sso.js" type="text/javascript"></script>
 
 

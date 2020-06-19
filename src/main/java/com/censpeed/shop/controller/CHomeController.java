@@ -1,13 +1,7 @@
 package com.censpeed.shop.controller;
 
-import com.censpeed.shop.entity.CCase;
-import com.censpeed.shop.entity.CHomePage;
-import com.censpeed.shop.entity.CMenu;
-import com.censpeed.shop.entity.CProduct;
-import com.censpeed.shop.service.CCaseServiceI;
-import com.censpeed.shop.service.CHomePageServiceI;
-import com.censpeed.shop.service.CMenuServiceI;
-import com.censpeed.shop.service.CProductServiceI;
+import com.censpeed.shop.entity.*;
+import com.censpeed.shop.service.*;
 import com.censpeed.shop.utils.ShopResult;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sun.awt.CausedFocusEvent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +28,8 @@ public class CHomeController {
     private CProductServiceI cProductServiceI;
     @Autowired
     private CMenuServiceI cMenuServiceI;
+    @Autowired
+    private CFootTextServiceI cFootTextServiceI;
 
     @Value("${homeProductSize}")
     private Integer homeProductSize;
@@ -70,12 +67,15 @@ public class CHomeController {
 
     @RequestMapping("menuIndex")
     @ResponseBody
-    public List<CMenu> menuIndex(Map map){
+    public ShopResult menuIndex(){
 
+        Map map = new HashMap();
         List<CMenu> cMenus = cMenuServiceI.selectAllPMEnu();
-        List<CMenu>result = new ArrayList<>();
-        List<CMenu> cMenus1 = cMenuServiceI.selectAllMenu(cMenus, result);
-        return cMenus1;
+        List<CMenu> result = cMenuServiceI.selectAllMenu(cMenus);
+        CHomePage cHomePage = cHomePageServiceI.selectCHomePageById(4);
+        map.put("menu",result);
+        map.put("logo",cHomePage);
+        return ShopResult.ok(map);
     }
 
 
@@ -86,6 +86,12 @@ public class CHomeController {
         return ShopResult.ok(cProducts);
     }
 
+    @RequestMapping("footIndex")
+    @ResponseBody
+    public ShopResult footIndex(){
+        CFootText cFootText = cFootTextServiceI.selectCFootTextById(1);
+        return ShopResult.ok(cFootText);
+    }
 
 
 

@@ -5,14 +5,15 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.censpeed.shop.entity.CFootText" extends="BaseResultMap" >
-    <result column="text" property="text" jdbcType="LONGVARCHAR" />
+  <resultMap id="ResultMapWithBLOBs" type="com.censpeed.shop.entity.CFootTextWithBLOBs" extends="BaseResultMap" >
+    <result column="left_text" property="leftText" jdbcType="LONGVARCHAR" />
+    <result column="right_text" property="rightText" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name
   </sql>
   <sql id="Blob_Column_List" >
-    text
+    left_text, right_text
   </sql>
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
@@ -22,17 +23,24 @@
     from c_foot_text
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAllCFootText" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from c_foot_text
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_foot_text
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.censpeed.shop.entity.CFootText" >
-    insert into c_foot_text (id, name, text
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{text,jdbcType=LONGVARCHAR}
-      )
+  <insert id="insert" parameterType="com.censpeed.shop.entity.CFootTextWithBLOBs" >
+    insert into c_foot_text (id, name, left_text, 
+      right_text)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{leftText,jdbcType=LONGVARCHAR}, 
+      #{rightText,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CFootText" >
+  <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CFootTextWithBLOBs" >
     insert into c_foot_text
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -41,8 +49,11 @@
       <if test="name != null" >
         name,
       </if>
-      <if test="text != null" >
-        text,
+      <if test="leftText != null" >
+        left_text,
+      </if>
+      <if test="rightText != null" >
+        right_text,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -52,27 +63,34 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="text != null" >
-        #{text,jdbcType=LONGVARCHAR},
+      <if test="leftText != null" >
+        #{leftText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="rightText != null" >
+        #{rightText,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.censpeed.shop.entity.CFootText" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.censpeed.shop.entity.CFootTextWithBLOBs" >
     update c_foot_text
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="text != null" >
-        text = #{text,jdbcType=LONGVARCHAR},
+      <if test="leftText != null" >
+        left_text = #{leftText,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="rightText != null" >
+        right_text = #{rightText,jdbcType=LONGVARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.censpeed.shop.entity.CFootText" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.censpeed.shop.entity.CFootTextWithBLOBs" >
     update c_foot_text
     set name = #{name,jdbcType=VARCHAR},
-      text = #{text,jdbcType=LONGVARCHAR}
+      left_text = #{leftText,jdbcType=LONGVARCHAR},
+      right_text = #{rightText,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.censpeed.shop.entity.CFootText" >

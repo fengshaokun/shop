@@ -30,7 +30,6 @@
     <script src="/js/angular.min.js" type="text/javascript"></script>
     <script src="/js/angular-route.min.js" type="text/javascript"></script>
     <script src="/js/ui-bootstrap-tpls-0.12.0.js" type="text/javascript"></script>
-    <script src="/js/jquery-1.11.2.min.js" type="text/javascript"></script>
     <script src="/js/jquery.cookie.min.js" type="text/javascript"></script>
     <script src="/js/lib/layer/layer.js" type="text/javascript"></script>
     <script src="/js/common.js" type=""></script>

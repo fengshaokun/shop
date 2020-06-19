@@ -18,9 +18,12 @@ public interface CMenuServiceI {
 
     CMenu selectByPrimaryKey(Integer id);
 
-    List<CMenu> selectAllMenu(List<CMenu> list,List<CMenu>result);
+    List<CMenu> selectAllMenu(List<CMenu> list);
 
     List<CMenu> selectAllPMEnu();
 
     void updateMenu(CMenu cMenu);
+
+    //通过产品ID查看关联菜单
+    CMenu selectMenuByProductId(Integer id);
 }

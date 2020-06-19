@@ -29,6 +29,7 @@ public class CProductController {
     @Autowired
     private CMenuServiceI cMenuServiceI;
 
+
     @Value("${productPageSize}")
     private Integer productPageSize;
 
@@ -79,7 +80,9 @@ public class CProductController {
     public String update(Integer id,Map map) {
         CProduct cProductById = cProductServiceI.getCProductById(id);
         List<CMenu> cMenus = cMenuServiceI.selectAll();
+        CMenu cMenu = cMenuServiceI.selectMenuByProductId(cProductById.getId());
         map.put("menus",cMenus);
+        map.put("menu",cMenu);
         map.put("product",cProductById);
         return "product/update";
     }
