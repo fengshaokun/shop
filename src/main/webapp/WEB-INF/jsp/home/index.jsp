@@ -1,14 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
-
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>倍速世纪产品中心</title>
+  <title>倍速世纪产品网页</title>
   <%-- 页面头部样式开始----------------------------------------------------------%>
   <jsp:include page="homeHead.jsp"/>
   <%-- 页面头部样式结束---------------------------------------------------------%>
@@ -88,7 +85,7 @@
         <div class="itemText">
           <h4>${itemDto.name}</h4>
           <p>${itemDto.companyIntroduct}</p>
-          <a href="/case/detail?id=${itemDto.id}" target="_blank">MORE..</a>
+          <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>
         </div>
       </div>
       </c:forEach>
@@ -99,50 +96,8 @@
     </div>
   </div>
 <jsp:include page="footer.jsp"/>
-
-  <!-- 咨询悬浮框 -->
-  <div class="suspensionBox">
-    <!-- 咨询 -->
-    <div class="suspension" data-toggle="modal" data-target="#suspensionModal">
-      <img src="assets/images/lianxi.png" alt="">
-      <p>咨询</p>
-    </div>
-    <div class="toTop">
-      <img src="assets/images/toTop.png" alt="">
-    </div>
-    </div>
-    <!-- 隐藏部分 -->
-    <!-- Modal -->
-    <!-- Modal -->
-<div class="modal fade" id="suspensionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">联系我们</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <p>您的联系方式:</p>
-        <div class="contactInfo">
-          <input type="text" placeholder="姓名..">
-          <input type="text" placeholder="电话..">
-          <input type="text" placeholder="邮箱..">
-          <input type="text" placeholder="公司名称..">
-        </div>
-        <p>咨询内容:</p>
-        <div class="consultInfo">
-          <textarea name="" id="" cols="30" rows="10" placeholder="请输入咨询内容.."></textarea>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary">提交</button>
-      </div>
-    </div>
-  </div>
-</div>
 <jsp:include page="homeBottom.jsp"/>
-
+<jsp:include page="consult.jsp"/>
   <script>
     var mySwiper = new Swiper('.swiper-container', {
       pagination: '.paginationB',
@@ -175,6 +130,7 @@
 
     })
   </script>
+
 
 </body>
 

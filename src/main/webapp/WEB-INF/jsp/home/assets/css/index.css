@@ -542,54 +542,81 @@
 }
 
 /*  咨询*/
+/*  咨询*/
 .suspensionBox {
-  height: 180px;
-  position: fixed;
-  right: 5px;
-  bottom: 190px;
-    z-index: 100;
+    height: 180px;
+    position: fixed;
+    right: 5px;
+    bottom: 190px;
 }
 
-.suspensionBox .suspension,.suspensionBox .toTop{
-  width: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  border:1px solid #eee; 
-  color:#282828;
+
+.suspensionBox .suspension,.suspensionBox .toTop,.suspensionBox .qrCode{
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border:1px solid #eee;
+    color:#282828;
 }
 .suspensionBox .suspension img{
-  width: 40px;
-  height: 40px;
+    width: 40px;
+    height: 40px;
 }
-.suspensionBox .suspension{
-  height: 75px;
-  flex-direction: column;
-  margin-bottom: 10px;
+
+.suspensionBox .suspension,.suspensionBox .qrCode{
+    height: 75px;
+    flex-direction: column;
 }
-.suspensionBox .suspension:hover{
-  color:red
+.suspensionBox .suspension:hover,.suspensionBox .qrCode:hover{
+    color:red
 }
+/* 二维码 */
+.suspensionBox .qrCode{
+    font-size: 14px;
+}
+.suspensionBox .qrCode img{
+    width:35px;
+    height:35px;
+}
+.suspensionBox .qrCode .qrCodeHidden{
+    display: none;
+    width: 120px;
+    height: 120px;
+    padding:5px;
+    border:1px solid #ccc;
+    position: absolute;
+    top:0;
+    right:70px;
+}
+.suspensionBox .qrCode .qrCodeHidden img{
+    width: 100%;
+    height: 100%;
+}
+.suspensionBox .qrCode:hover .qrCodeHidden{
+    display: block;
+}
+
 .suspensionBox .toTop{
-  display: none;
-  height: 50px;
-  text-align: center;
-  padding-top: 10px;
+    display: none;
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
 }
 .suspensionBox .toTop img{
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
 }
 
 .suspensionBox .relationMessage{
-  display: none;
-  width: 300px;
-  height: 300px;
-  border:1px solid #000;
-  position: absolute;
-  right:71px;
-  top:0px;
+    display: none;
+    width: 300px;
+    height: 300px;
+    border:1px solid #000;
+    position: absolute;
+    right:71px;
+    top:0px;
 }
 
 /* 模态框 */

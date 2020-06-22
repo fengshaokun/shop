@@ -43,22 +43,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">副标题：</label>
-                        <div class="col-sm-6">
-                            <input class="filter-input-filed form-control" id="subordinate"
-                                   placeholder="请输入副标题"
-                                   type="text" name="subordinate">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">url：</label>
-                        <div class="col-sm-6">
-                            <input class="filter-input-filed form-control" id="url" placeholder="请输入url"
-                                   type="text" name="url">
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label">排序：</label>
                         <div class="col-sm-6">
                             <input class="filter-input-filed form-control" id="sort" placeholder="请输入排序"

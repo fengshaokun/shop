@@ -5,7 +5,7 @@
 <html>
 
 <head>
-    <title>创建产品</title>
+    <title>底部修改</title>
     <meta name="product" content="create"/>
     <%-- 页面头部样式开始----------------------------------------------------------%>
     <jsp:include page="/decorator/sellerHead.jsp"/>

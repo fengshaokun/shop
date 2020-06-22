@@ -4,6 +4,7 @@ package com.censpeed.shop.service.impl;
 import com.censpeed.shop.entity.CUserConsult;
 import com.censpeed.shop.mapper.CUserConsultMapper;
 import com.censpeed.shop.service.CUserConsultServiceI;
+import com.censpeed.shop.utils.ShopResult;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,11 @@ public class CUserConsultServiceImpl implements CUserConsultServiceI {
     @Override
     public CUserConsult selectCUserConsultById(Integer id) {
         return cUserConsultMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public ShopResult addUserConsult(CUserConsult cUserConsult) {
+        cUserConsultMapper.insert(cUserConsult);
+        return ShopResult.ok();
     }
 }

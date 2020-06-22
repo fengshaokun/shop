@@ -40,7 +40,7 @@
       <!-- 内容主体 -->
       <div class="mainBodyContent">
         <div class="title">
-          <h4>案例展示</h4>
+          <h4>倍速世纪案例展示</h4>
           <p>-CASE SHOW-</p>
         </div>
         <div class="itemGroup">
@@ -49,7 +49,7 @@
             <img src="${itemDto.backgroundImage}" alt="">
             <h4>${itemDto.name}</h4>
             <p>${itemDto.companyIntroduct}</p>
-            <a href="javascript:;" target="_blank">MORE..</a>
+            <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>
           </div>
           </c:forEach>
         </div>

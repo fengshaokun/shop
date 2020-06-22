@@ -8,7 +8,7 @@ $(function () {
       type:"post",   //请求方式
       success:function(req){
         if (req.status==200) {
-          console.log(req.data.logo.src)
+
           $('.logo img').attr('src',req.data.logo.src)
 
           for (var i = 0, l = req.data.menu.length; i < l; i++) {
@@ -125,39 +125,6 @@ $(function () {
 
   })
 
-  // 页面刷新时滚动条在顶部
-  // window.scrollTo(0,0);
-  // 一级菜单
-  // $(".header li.headerli_case").on({
-  //   "mouseover": function () {
-  //     console.log(111)
-  //     $('.case').show();
-  //   },
-  //   "mouseleave": function () {
-  //     $('.case').hide();
-  //   }
-  // });
-  // $('.case').on({
-  //   "mouseover": function () {
-  //     $('.case').show();
-  //   },
-  //   "mouseleave": function () {
-  //     $('.case').hide();
-  //   },
-  //
-  // })
-  //
-  // // // 产品二级菜单
-/*  $('.case .left_ul li').on('mouseover', function () {
-    var index = $(this).data('to');
-    // 添加hover样式
-    $(this).addClass('right_li_hover').siblings().removeClass('right_li_hover');
-
-    $('.case div.dropdownNav' + index).show();
-    $('.case div.dropdownNav' + index).siblings('div').hide();
-  });*/
-//
-  // 返回顶部
   $(window).scroll(function() {
     var h = $(this).scrollTop();//获得滚动条距top的高度
     if (h > 400) {
@@ -171,4 +138,23 @@ $(function () {
       window.scrollTo(0, 0)
     })
   })
+
+
+    $.ajax({
+        url:"/home/weChatCord",    //请求的url地址
+        dataType:"json",   //返回格式为json
+        async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+        data:{},    //参数值
+        type:"post",   //请求方式
+        success:function(req) {
+            if (req.status==200){
+                $('.qrCodeHidden img').attr('src',req.data.src);
+            }
+        },
+        error:function () {
+
+        }
+
+    });
+
 })

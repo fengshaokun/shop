@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -32,6 +33,18 @@ a:hover {
   cursor: pointer;
   display: inline-block;
   background: #fff;
+}
+.list li.listli .tipimg {
+  /*width: 36px;*/
+  /*height: 36px;*/
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.list li.listli .tipimg img{
+    width: 36px;
+    height: 36px;
+    display: inline-block;
 }
 .list li.listli a {
   display: block;
@@ -141,3 +154,4 @@ a:hover {
 .page-link {
   color: #333;
 }
+

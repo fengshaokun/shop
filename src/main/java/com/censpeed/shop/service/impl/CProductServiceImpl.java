@@ -90,4 +90,12 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
     public List<CProduct> selectProductByMenuId(Integer id) {
         return cProductMapper.selectProductByMenuId(id);
     }
+
+    @Override
+    public PageInfo<CProduct> selectProductLike(String name,Integer status, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<CProduct> cProducts = cProductMapper.selectProductLike(name,status);
+        PageInfo<CProduct> pageInfo = new PageInfo<CProduct>(cProducts);
+        return pageInfo;
+    }
 }

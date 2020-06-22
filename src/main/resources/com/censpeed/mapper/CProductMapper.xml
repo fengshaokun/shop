@@ -60,6 +60,14 @@
       order by sort
 
     </select>
+    <select id="selectProductLike" resultType="com.censpeed.shop.entity.CProduct">
+      select
+      <include refid="Base_Column_List" />
+      from c_product
+      where NAME  like '%' #{name} '%' and STATUS = #{status,jdbcType=INTEGER}
+      order by sort
+
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_product
     where ID = #{id,jdbcType=INTEGER}

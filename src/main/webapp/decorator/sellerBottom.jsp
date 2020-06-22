@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <c:set value="${pageConext.request.contextPath}" var="ctx"/>
 <script src="/js/jquery-1.11.2.min.js" type="text/javascript"></script>

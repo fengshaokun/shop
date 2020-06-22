@@ -48,21 +48,6 @@
         </div>
         </div>
 
-        <div class="form-group">
-            <label class="col-sm-2 control-label">副标题：</label>
-            <div class="col-sm-6">
-            <input class="filter-input-filed form-control" id="subordinate" placeholder="请输入副标题"
-            type="text" name="subordinate" value="${cMenu.subordinate}">
-            </div>
-            </div>
-
-            <div class="form-group">
-            <label class="col-sm-2 control-label">url：</label>
-            <div class="col-sm-6">
-            <input class="filter-input-filed form-control" id="url" placeholder="请输入url"
-            type="text" name="url" value="${cMenu.url}">
-            </div>
-            </div>
             <div class="form-group">
             <label class="col-sm-2 control-label">排序：</label>
             <div class="col-sm-6">
@@ -84,17 +69,6 @@
 
 
 
-<%--            <div class="form-group">
-            <label class="col-sm-2 control-label">绑定上一级菜单：</label>
-            <div class="col-sm-6">
-            <select class="filter-input-filed form-control" name="pid" id="pid">
-        <option value="0" >无</option>
-        <c:forEach items="${pMenu}" var="itemDto">
-            <option <c:if test="${cMenu.pid==itemDto.id}"> selected </c:if>  value="${itemDto.id}">${itemDto.id}--------->${itemDto.principal}</option>
-        </c:forEach>
-            </select>
-            </div>
-            </div>--%>
 
 
         <div class="form-group">

@@ -9,12 +9,12 @@ $(function () {
             if (req.status==200){
                 $('.companyIntroduction .c1').after(req.data.leftText)
                 $('.companyMessage .c2').after(req.data.rightText)
-                console.log(req.data)
             }
         },
         error:function () {
 
         }
 
-});})
+});
+})
 

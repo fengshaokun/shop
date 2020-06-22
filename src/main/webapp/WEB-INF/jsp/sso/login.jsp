@@ -49,12 +49,12 @@
                                 <div class="lg_login clearfix">
                                     <input id="toLoginCheck" type="submit" value="登录" class="sub" onclick="return false">
                                 </div>
-                                <div  class="lg_login clearfix" onclick="toRegister()">
+                               <%-- <div  class="lg_login clearfix" onclick="toRegister()">
                                         <input type="submit"  value="还没有账号?去注册" class="sub" onclick="return false">
                                 </div>
                                 <div class="lg_reg">
                                     <a class="findpwd" href="javascript:void(0)">忘记密码</a>
-                                </div>
+                                </div>--%>
                             </div>
                             <!-- 登录 end -->
                         </form>

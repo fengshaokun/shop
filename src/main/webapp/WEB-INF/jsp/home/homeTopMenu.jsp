@@ -30,8 +30,11 @@
             <span><a href="/home/caseShow">案例</a></span>
         </li>
         <li class="headerli">
-            <input type="text" placeholder="搜索...">
-            <span></span>
+            <span><a href="/home/list">产品列表</a></span>
+        </li>
+        <li class="headerli">
+            <input id="param" type="text" placeholder="搜索...">
+            <span onclick="searchProduct()"></span>
         </li>
     </ul>
     <!-- 下拉 -->
@@ -49,6 +52,14 @@
 </div>
 
 <script>
+
+function  searchProduct() {
+    var val = $('#param').val();
+    if (val!=null&&"" != val&&undefined!=val){
+       window.location.href="/home/list?name="+val
+    }
+}
+
 </script>
 </body>
 </html>

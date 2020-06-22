@@ -22,4 +22,7 @@ public interface CProductServiceI {
     CProductDetails selectProductDetailsByProId(Integer id);
     //根据菜单Id 查询产品
     List<CProduct> selectProductByMenuId(Integer id);
+    //模糊查询产品
+    PageInfo<CProduct> selectProductLike(String name,Integer status, Integer pageNum,Integer pageSize);
+
 }

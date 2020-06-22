@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>倍速世纪产品列表</title>
   <%-- 页面头部样式开始----------------------------------------------------------%>
   <jsp:include page="homeHead.jsp"/>
   <%-- 页面头部样式结束---------------------------------------------------------%>
@@ -20,8 +20,16 @@
         <ul>
 <c:forEach items="${pageInfo.list}" var="itemDto">
           <li class="listli">
+            <div class="tipimg">
+              <c:if test="${itemDto.isNew==1}">
+                <img src="/home/assets/images/new.png" alt="">
+              </c:if>
+              <c:if test="${itemDto.isHot==1}">
+                <img src="/home/assets/images/hot.png" alt="">
+              </c:if>
+            </div>
             <div class="imgBox">
-              <img src="${itemDto.background}" alt="" />
+              <img src="${itemDto.icon}" alt="" />
             </div>
             <div class="mask">
               <img class="play" src="/home/assets/images/play.png" alt="" />
@@ -41,15 +49,15 @@
                 </video>
               </div>
             </div>
-            <a href="detail.html">
+            <a href="/home/productDetails?id=${itemDto.id}" target="_blank">
               <div class="listdetail">
                 <div class="detailtt">${itemDto.name}</div>
                 <div class="detaillabel">
                   <!-- <div class="labeltt">产品标签</div> -->
                   <ul>
-                    <li>安全启动</li>
-                    <li>可配置的无线模式</li>
-                    <li>有电池</li>
+                    <li>${itemDto.tag}</li>
+                <%--    <li>可配置的无线模式</li>
+                    <li>有电池</li>--%>
                   </ul>
                 </div>
                 <div class="detailinstruction">
@@ -61,10 +69,10 @@
 </c:forEach>
         </ul>
       </div>
+      <input  id="searchParam" type="text"  value="${searchParam}"  style="display: none;">
       <%--分页--%>
       <script type="text/javascript">
         var if_firstime = true;
-
 
         window.onload = function () {
           $('.pagination').jqPaginator({
@@ -82,17 +90,17 @@
               if (if_firstime) {
                 if_firstime = false;
               } else if (!if_firstime) {
-                changePage(num);
+                var paramVal = $('#searchParam').val();
+                $('#param').val(paramVal);
+                changePage(num,paramVal);
               }
 
             }
           });
         }
-        function changePage(num) {
-          /* var newhref = $(".on a")[0].href + "&" + $("#itemSearchForm").serialize() + "&pageNum=" + num;
-           window.location.href = newhref;*/
-          var status = $("#status").val();
-          location.href="/home/list?&pageNum=" + num;
+        function changePage(num,paramVal) {
+
+          location.href="/home/list?&pageNum=" + num+"&name="+paramVal;
         }
       </script>
       <div class="pagination-layout" style="text-align: center">

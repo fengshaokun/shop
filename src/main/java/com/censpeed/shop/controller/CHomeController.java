@@ -10,12 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import sun.awt.CausedFocusEvent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 @RequestMapping("home")
 @Controller
@@ -30,6 +27,8 @@ public class CHomeController {
     private CMenuServiceI cMenuServiceI;
     @Autowired
     private CFootTextServiceI cFootTextServiceI;
+    @Autowired
+    private CUserConsultServiceI cUserConsultServiceI;
 
     @Value("${homeProductSize}")
     private Integer homeProductSize;
@@ -48,12 +47,23 @@ public class CHomeController {
         map.put("cases",list);
         return "home/index";
     }
+/*
     @RequestMapping("list")
     public String list(Map map,@RequestParam(defaultValue = "1") Integer pageNum){
         PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectAllCProductByStatus(1, pageNum,homeProductSize);
         map.put("pageInfo",cProductPageInfo);
         return "home/list";
     }
+*/
+@RequestMapping("list")
+public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
+    if (name==null){name="";}
+    PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectProductLike(name,1, pageNum,homeProductSize);
+    //PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectAllCProductByStatus(1, pageNum,homeProductSize);
+    map.put("pageInfo",cProductPageInfo);
+    map.put("searchParam",name);
+    return "home/list";
+}
 
 
     @RequestMapping("caseShow")
@@ -95,6 +105,40 @@ public class CHomeController {
 
 
 
+   @RequestMapping("addUserConsult")
+    @ResponseBody
+    public ShopResult addUserConsult(CUserConsult cUserConsult){
+       cUserConsult.setCreateTime(new Date());
+       ShopResult shopResult = cUserConsultServiceI.addUserConsult(cUserConsult);
+       return shopResult;
+   }
 
+
+   @RequestMapping("productDetails")
+    public  String productDetails(Integer id,Map map){
+       CProductDetails cProductDetails = cProductServiceI.selectProductDetailsByProId(id);
+       map.put("details",cProductDetails);
+      return "home/productDetail";
+   }
+    @RequestMapping("caseDetails")
+    public  String caseDetails(Integer id,Map map){
+        CItemDetails cItemDetails = cCaseServiceI.selectCaseDetailsByCaId(id);
+        map.put("details",cItemDetails);
+        return "home/caseDetail";
+    }
+
+    @RequestMapping("weChatCord")
+    @ResponseBody
+    public ShopResult weChatCord(){
+        CHomePage cHomePage = cHomePageServiceI.selectCHomePageById(6);
+        return ShopResult.ok(cHomePage);
+    }
+/*
+    @RequestMapping("getProductByLike")
+    public String getProductByLike(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
+        PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectProductLike(name,1, pageNum,homeProductSize);
+        map.put("pageInfo",cProductPageInfo);
+        return "home/list";
+    }*/
 
 }

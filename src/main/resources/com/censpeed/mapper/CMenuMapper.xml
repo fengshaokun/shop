@@ -4,16 +4,12 @@
   <resultMap id="BaseResultMap" type="com.censpeed.shop.entity.CMenu" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="PRINCIPAL" property="principal" jdbcType="VARCHAR" />
-    <result column="SUBORDINATE" property="subordinate" jdbcType="VARCHAR" />
-    <result column="URL" property="url" jdbcType="VARCHAR" />
     <result column="SORT" property="sort" jdbcType="VARCHAR" />
     <result column="PID" property="pid" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="BaseResultMap2" type="com.censpeed.shop.entity.CMenu" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="PRINCIPAL" property="principal" jdbcType="VARCHAR" />
-    <result column="SUBORDINATE" property="subordinate" jdbcType="VARCHAR" />
-    <result column="URL" property="url" jdbcType="VARCHAR" />
     <result column="SORT" property="sort" jdbcType="VARCHAR" />
     <result column="PID" property="pid" jdbcType="INTEGER" />
     <association property="cMenu" column="PID"
@@ -21,7 +17,7 @@
                  javaType="com.censpeed.shop.entity.CMenu"/>
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, PRINCIPAL, SUBORDINATE, URL, SORT, PID
+    ID, PRINCIPAL,  SORT, PID
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap2" parameterType="java.lang.Integer" >
     select 
@@ -45,7 +41,7 @@
 
     </select>
   <select id="selectMenuByProductId" resultType="com.censpeed.shop.entity.CMenu">
-    select  c_menu.ID, PRINCIPAL, SUBORDINATE, URL, SORT, PID from c_menu
+    select  c_menu.ID, PRINCIPAL,   SORT, PID from c_menu
     LEFT JOIN c_product_menu_link
     on c_menu.id = c_product_menu_link.C_MENU_ID
     where c_product_menu_link.C_PRODUCT_ID = #{id,jdbcType=INTEGER}
@@ -58,10 +54,10 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.censpeed.shop.entity.CMenu" >
-    insert into c_menu (ID, PRINCIPAL, SUBORDINATE,
-      URL, SORT, PID)
-    values (null , #{principal,jdbcType=VARCHAR}, #{subordinate,jdbcType=VARCHAR},
-      #{url,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER})
+    insert into c_menu (ID, PRINCIPAL,
+       SORT, PID)
+    values (null , #{principal,jdbcType=VARCHAR},
+       #{sort,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CMenu" >
     insert into c_menu
@@ -71,12 +67,6 @@
       </if>
       <if test="principal != null" >
         PRINCIPAL,
-      </if>
-      <if test="subordinate != null" >
-        SUBORDINATE,
-      </if>
-      <if test="url != null" >
-        URL,
       </if>
       <if test="sort != null" >
         SORT,
@@ -92,12 +82,6 @@
       <if test="principal != null" >
         #{principal,jdbcType=VARCHAR},
       </if>
-      <if test="subordinate != null" >
-        #{subordinate,jdbcType=VARCHAR},
-      </if>
-      <if test="url != null" >
-        #{url,jdbcType=VARCHAR},
-      </if>
       <if test="sort != null" >
         #{sort,jdbcType=VARCHAR},
       </if>
@@ -112,12 +96,6 @@
       <if test="principal != null" >
         PRINCIPAL = #{principal,jdbcType=VARCHAR},
       </if>
-      <if test="subordinate != null" >
-        SUBORDINATE = #{subordinate,jdbcType=VARCHAR},
-      </if>
-      <if test="url != null" >
-        URL = #{url,jdbcType=VARCHAR},
-      </if>
       <if test="sort != null" >
         SORT = #{sort,jdbcType=VARCHAR},
       </if>
@@ -130,8 +108,6 @@
   <update id="updateByPrimaryKey" parameterType="com.censpeed.shop.entity.CMenu" >
     update c_menu
     set PRINCIPAL = #{principal,jdbcType=VARCHAR},
-      SUBORDINATE = #{subordinate,jdbcType=VARCHAR},
-      URL = #{url,jdbcType=VARCHAR},
       SORT = #{sort,jdbcType=VARCHAR},
       PID = #{pid,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}

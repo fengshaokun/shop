@@ -1,6 +1,7 @@
 package com.censpeed.shop.service;
 
 import com.censpeed.shop.entity.CUserConsult;
+import com.censpeed.shop.utils.ShopResult;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface CUserConsultServiceI {
     void updateConsult(CUserConsult cUserConsult);
 
     CUserConsult selectCUserConsultById(Integer id);
+
+    ShopResult addUserConsult(CUserConsult cUserConsult);
 }

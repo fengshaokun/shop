@@ -36,8 +36,6 @@
         <tr>
         <th role="row">id</th>
         <th>主标题</th>
-        <th>副标题</th>
-        <th>Url</th>
         <th>排序</th>
         <th>上一级菜单</th>
         <th>操作</th>
@@ -46,8 +44,6 @@
             <tr data-tt-id="${itemDto.id}" data-tt-parent-id="${itemDto.pid}">
             <td class="text-center">${itemDto.id}</td>
             <td class="text-center">${itemDto.principal}</td>
-            <td class="text-center">${itemDto.subordinate}</td>
-            <td class="text-center">${itemDto.url}</td>
             <td class="text-center">${itemDto.sort}</td>
             <td class="text-center">${itemDto.cMenu.principal}</td>
             <td class="text-center" width="70">
