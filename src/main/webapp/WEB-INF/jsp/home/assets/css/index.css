@@ -83,6 +83,12 @@
   text-align: center;
   z-index: 10;
 }
+.dropdown .dropdownNav .checkMoreClass{
+    color:#282828;
+    position: absolute;
+    bottom:10px;
+    right:45%;
+}
 .dropdown>div{
   width: 1200px;
   height:100%;
@@ -91,7 +97,7 @@
 }
 /* 左边列表 */
 .dropdown>div ul.left_ul{
-  width: 200px;
+  width: 240px;
   height: 100%;
   padding:20px;
   box-sizing: border-box;
@@ -125,10 +131,11 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+    padding:10px;
 }
 .dropdown ul.right_ul li p{
   color:#000;
-  font-size: 20px;
+  font-size: 16px;
 }
 .dropdown ul.right_ul li p:nth-of-type(2){
   font-size: 12px;
@@ -388,7 +395,6 @@
 .business,.advantage,.technology{
   width: 100%;
   height: 600px;
-  margin:20px 0px;
 }
 .business img,.advantage img,.technology img{
   width: 100%;
@@ -505,9 +511,8 @@
 /* 底部 */
 .footer{
   width: 100%;
-  /* height: 300px; */
+   height: 300px;
   background: rgba(56,56,56,1);
-  margin-top:20px;
   color:#fff;
 }
 .footerContent{
@@ -663,4 +668,6 @@
   font-size: 14px;
 }
 
-
+.mainBody{
+    min-height: calc(100% - 360px)!important;
+}

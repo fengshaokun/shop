@@ -39,9 +39,9 @@
             <div class="modal-body">
                 <p>您的联系方式:</p>
                 <div class="contactInfo">
-                    <input type="text" placeholder="姓名.." id="name">
-                    <input type="text" placeholder="电话.." id="tel">
-                    <input type="text" placeholder="邮箱.." id="email">
+                    <input type="text" placeholder="姓名.." id="name" >
+                    <input type="text" placeholder="电话.." id="tel" onblur="isTel()">
+                    <input type="text" placeholder="邮箱.." id="email" onblur="isEmail()">
                     <input type="text" placeholder="公司名称.." id="company">
                 </div>
                 <p>咨询内容:</p>
@@ -87,4 +87,30 @@
             }
         });
     }
+    
+/*
+    function isEmail() {
+        var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        var email = $('#email').val();
+        if (!myreg.test(email   )) {
+            alert("请输入有效的邮箱地址！");
+            myreg.onfocus();
+            return false;
+          }
+        }
+
+    function isTel() {
+        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        var tel = $('#tel').val();
+        if (!myreg.test(tel)) {
+            alert("请录入正确的手机号码！");
+        }
+        // document.getElementById('tel').focus();
+        // return true;
+    }
+*/
+
+
+
+
 </script>

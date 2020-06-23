@@ -59,7 +59,8 @@
                                         <td class="text-center">${itemDto.email}</td>
                                         <td class="text-center">${itemDto.company}</td>
                                         <td class="text-center">${itemDto.content}</td>
-                                        <td class="text-center">${itemDto.createTime.toLocaleString()}</td>
+                                        <td class="text-center">
+                                            <fmt:formatDate value="${itemDto.createTime}" pattern="yyyy-MM-dd　HH:mm"/></td>
                                         <td class="text-center" width="70">
                                             <a href="/consult/update?id=${itemDto.id}" class="delete-good" >修改</a>
                                             <a href="/consult/delete?id=${itemDto.id}" onclick="return confirm('确定将此记录删除?')"   class="delete-good" >删除</a>

@@ -8,7 +8,7 @@
     <title>案例详情</title>
     <meta name="case" content="detail"/>
     <%-- 页面头部样式开始----------------------------------------------------------%>
-    <jsp:include page="/decorator/sellerHead.jsp"/>
+    <jsp:include page="${ctx}/decorator/sellerHead.jsp"/>
     <%-- 页面头部样式结束---------------------------------------------------------%>
 </head>
 <body>

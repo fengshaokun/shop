@@ -36,10 +36,12 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
         loginRegistry.addPathPatterns("/product/*");
         loginRegistry.addPathPatterns("/menu/*");
         loginRegistry.addPathPatterns("/homepage/*");
+        loginRegistry.addPathPatterns("/user/*");
         loginRegistry.addPathPatterns("/consult/*");
+        loginRegistry.addPathPatterns("/**");
         // 排除路径
         loginRegistry.excludePathPatterns("/user/login");
-        loginRegistry.excludePathPatterns("/user/");
+        loginRegistry.excludePathPatterns("/user/index");
         loginRegistry.excludePathPatterns("/home/*");
 
     }

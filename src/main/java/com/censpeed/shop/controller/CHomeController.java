@@ -1,5 +1,6 @@
 package com.censpeed.shop.controller;
 
+import com.censpeed.shop.configuration.SendByEmailConfig;
 import com.censpeed.shop.entity.*;
 import com.censpeed.shop.service.*;
 import com.censpeed.shop.utils.ShopResult;
@@ -29,7 +30,13 @@ public class CHomeController {
     private CFootTextServiceI cFootTextServiceI;
     @Autowired
     private CUserConsultServiceI cUserConsultServiceI;
+    @Autowired
+    private SendByEmailConfig send;
 
+
+
+    @Value("${spring.mail.username}")
+    private String senderName;
     @Value("${homeProductSize}")
     private Integer homeProductSize;
     @Value("${homeCaseSize}")
@@ -47,19 +54,11 @@ public class CHomeController {
         map.put("cases",list);
         return "home/index";
     }
-/*
-    @RequestMapping("list")
-    public String list(Map map,@RequestParam(defaultValue = "1") Integer pageNum){
-        PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectAllCProductByStatus(1, pageNum,homeProductSize);
-        map.put("pageInfo",cProductPageInfo);
-        return "home/list";
-    }
-*/
+
 @RequestMapping("list")
 public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
     if (name==null){name="";}
     PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectProductLike(name,1, pageNum,homeProductSize);
-    //PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectAllCProductByStatus(1, pageNum,homeProductSize);
     map.put("pageInfo",cProductPageInfo);
     map.put("searchParam",name);
     return "home/list";
@@ -96,6 +95,13 @@ public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer
         return ShopResult.ok(cProducts);
     }
 
+    @RequestMapping("kong")
+    public String kong(Map map,String name){
+        if (name==null){name="";}
+         map.put("name",name);
+        return "/home/kong";
+    }
+
     @RequestMapping("footIndex")
     @ResponseBody
     public ShopResult footIndex(){
@@ -110,6 +116,13 @@ public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer
     public ShopResult addUserConsult(CUserConsult cUserConsult){
        cUserConsult.setCreateTime(new Date());
        ShopResult shopResult = cUserConsultServiceI.addUserConsult(cUserConsult);
+       String  content = "姓名：" + cUserConsult.getName()
+              + ", 手机号：" + cUserConsult.getTel()
+              + ", 邮箱：" + cUserConsult.getEmail()
+              + ", 公司：" + cUserConsult.getCompany()
+              + ", 留言内容：" + cUserConsult.getContent() ;
+       String title = "姓名为："+cUserConsult.getName()+"网友提交了留言";
+       Integer result = send.send(senderName, "", title, content);
        return shopResult;
    }
 
@@ -133,12 +146,15 @@ public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer
         CHomePage cHomePage = cHomePageServiceI.selectCHomePageById(6);
         return ShopResult.ok(cHomePage);
     }
-/*
-    @RequestMapping("getProductByLike")
-    public String getProductByLike(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
-        PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectProductLike(name,1, pageNum,homeProductSize);
-        map.put("pageInfo",cProductPageInfo);
-        return "home/list";
-    }*/
+
+         @RequestMapping("searchParam")
+         @ResponseBody
+     public ShopResult searchParam(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
+             PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectProductLike(name,1, pageNum,homeProductSize);
+             if (cProductPageInfo.getList().size()==0){
+                 return  ShopResult.build(500,"查询为空");
+             }
+             return ShopResult.ok();
+    }
 
 }

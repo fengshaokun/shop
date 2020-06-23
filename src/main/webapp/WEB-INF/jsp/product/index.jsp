@@ -81,7 +81,8 @@
                                         <td class="text-center">
                                             <c:if test="${itemDto.isNew==0}">是</c:if>
                                             <c:if test="${itemDto.isNew==1}">否</c:if></td>
-                                        <td class="text-center">${itemDto.createTime.toLocaleString()}</td>
+                                        <td class="text-center">
+                                            <fmt:formatDate value="${itemDto.createTime}" pattern="yyyy-MM-dd  HH:mm"/>  </td>
                                         <td class="text-center">   <a href="/product/detail?id=${itemDto.id}"
                                                                        class="delete-good"
                                                                       target="_blank" style="text-decoration:underline;">查看详情</a></td>

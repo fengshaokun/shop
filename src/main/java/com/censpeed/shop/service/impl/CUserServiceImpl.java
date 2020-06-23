@@ -19,4 +19,14 @@ public class CUserServiceImpl implements CUserServiceI {
          cUser.setPassword(password);
         return cUserMapper.selectByNameAndPass(cUser);
     }
+
+    @Override
+    public CUser getAllUser() {
+        return cUserMapper.selectByPrimaryKey(1);
+    }
+
+    @Override
+    public void update(CUser cUser) {
+        cUserMapper.updateByPrimaryKeySelective(cUser);
+    }
 }

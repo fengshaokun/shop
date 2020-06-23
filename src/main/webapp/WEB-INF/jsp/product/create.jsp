@@ -249,7 +249,7 @@
                                     with($("#frm").get(0)){
                                         if(checkForm())
                                             submit();
-                                        toastr.success("发布商品成功")
+                                        toastr.success("创建产品成功")
                                     }
                                 }
 
@@ -345,7 +345,6 @@
                 type: "post", //请求方式
                 success: function (req) {
                     zNodes = req.data;
-                    console.log(zNodes)
                     $.fn.zTree.init($("#treeDemo"), setting, zNodes);
                 },
                 error: function () {

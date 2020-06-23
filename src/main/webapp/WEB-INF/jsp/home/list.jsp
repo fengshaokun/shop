@@ -14,17 +14,17 @@
 
   <body>
   <jsp:include page="homeTopMenu.jsp"/>
-    <div class="main-container">
+    <div class="main-container mainBody" >
 
       <div class="list">
         <ul>
 <c:forEach items="${pageInfo.list}" var="itemDto">
           <li class="listli">
             <div class="tipimg">
-              <c:if test="${itemDto.isNew==1}">
+              <c:if test="${itemDto.isNew==0}">
                 <img src="/home/assets/images/new.png" alt="">
               </c:if>
-              <c:if test="${itemDto.isHot==1}">
+              <c:if test="${itemDto.isHot==0}">
                 <img src="/home/assets/images/hot.png" alt="">
               </c:if>
             </div>
@@ -126,5 +126,10 @@
         $(".video").hide();
       });
     </script>
+  <script>
+      var val = $('#searchParam').val();
+      console.log(val)
+      $('#param').val(val);
+  </script>
   </body>
 </html>

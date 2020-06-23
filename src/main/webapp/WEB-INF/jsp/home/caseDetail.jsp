@@ -14,7 +14,7 @@
 
 <body>
 <jsp:include page="homeTopMenu.jsp"/>
-<div style="align-content: center">
+<div style="align-content: center" class="mainBody">
 ${details.content}
 </div>
 <jsp:include page="footer.jsp"/>

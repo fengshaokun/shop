@@ -27,6 +27,9 @@
                 <a href="/consult/index" >咨询管理</a>
             </li>
             <li>
+                <a href="/user/email" >邮箱管理</a>
+            </li>
+            <li>
                 <a href="/homepage/index" >首页管理</a>
             </li>    <li>
                 <a href="/homepage/foot" >底部管理</a>

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+import java.util.Map;
 
 @Controller
 @RequestMapping("user")
@@ -20,7 +20,7 @@ public class CUserController {
 @Autowired
 private CUserServiceI cUserServiceI;
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public String index(){
         return "sso/login";
     }
@@ -38,5 +38,24 @@ private CUserServiceI cUserServiceI;
         return ShopResult.ok();
     }
 
+    @RequestMapping(value = "/email" ,method = RequestMethod.GET)
+    public String email(Integer id, Map map){
+        CUser allUser = cUserServiceI.getAllUser();
+        map.put("user",allUser);
+        return "user/email";
+    }
+
+    @RequestMapping(value = "/toUpdate" ,method = RequestMethod.GET)
+    public String toUpdate(Integer id, Map map){
+        CUser allUser = cUserServiceI.getAllUser();
+        map.put("user",allUser);
+        return "user/updateEmail";
+    }
+
+    @RequestMapping(value = "/update" ,method = RequestMethod.POST)
+    public String update(CUser cUser){
+        cUserServiceI.update(cUser);
+        return "redirect:/user/email";
+    }
 
 }

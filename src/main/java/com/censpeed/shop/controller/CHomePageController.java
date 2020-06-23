@@ -6,6 +6,7 @@ import com.censpeed.shop.entity.CFootTextWithBLOBs;
 import com.censpeed.shop.entity.CHomePage;
 import com.censpeed.shop.service.CFootTextServiceI;
 import com.censpeed.shop.service.CHomePageServiceI;
+import com.censpeed.shop.service.CUserServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ public class CHomePageController {
     private CHomePageServiceI cHomePageServiceI;
     @Autowired
     private CFootTextServiceI cFootTextServiceI;
+
 
     @RequestMapping("index")
     public String index(Map map){
@@ -58,6 +60,9 @@ public class CHomePageController {
         map.put("foot",cFootText);
         return "homepage/foottextupdate";
     }
+
+
+
 
 
 

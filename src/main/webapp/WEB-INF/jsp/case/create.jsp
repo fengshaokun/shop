@@ -14,7 +14,7 @@
 <body>
 <div class="main">
     <%--上边菜单开始-------------------------------------------------------------%>
-    <jsp:include page="/decorator/sellerTopMenu.jsp"/>
+    <jsp:include page="${ctx}/decorator/sellerTopMenu.jsp"/>
     <%--上边菜单结束-------------------------------------------------------------%>
 
 
@@ -25,10 +25,10 @@
                 <div class="content-layout">
 
                     <%--左边菜单开始-----------------------------------------------------%>
-                    <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
+                    <jsp:include page="${ctx}/decorator/sellerLeftMenu.jsp"/>
                     <%--左边菜单结束-----------------------------------------------------%>
 
-                        <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="/case/upload" method="post"  onsubmit="return false">
+                        <form id="frm" class="form-horizontal editgoods grey edit-goods-new distProduct" action="${ctx}/case/upload" method="post"  onsubmit="return false">
                             <h2>案例信息</h2>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">公司名称：</label>
@@ -92,11 +92,11 @@
 
 
 
-                            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
-                            <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.js"></script>
-                            <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"></script>
+                            <script type="text/javascript" charset="utf-8" src="${ctx}/ueditor/ueditor.config.js"></script>
+                            <script type="text/javascript" charset="utf-8" src="${ctx}/ueditor/ueditor.all.js"></script>
+                            <script type="text/javascript" charset="utf-8" src="${ctx}/ueditor/lang/zh-cn/zh-cn.js"></script>
 
-                            <script type="text/javascript" src="/js/fwb.js"></script>
+                            <script type="text/javascript" src="${ctx}/js/fwb.js"></script>
                             <script type="text/javascript">
 
                                 // 实例化编辑器，这里注意配置项隐藏编辑器并禁用默认的基础功能。
@@ -165,7 +165,7 @@
                                 }
 
                                 function upload() {
-                                    $("#frm").attr("action","/case/upload");
+                                    $("#frm").attr("action","${ctx}/case/upload");
                                     with($("#frm").get(0)){
                                         if(checkForm())
                                             submit();
@@ -185,11 +185,11 @@
 
 
     <%--页脚开始   -------------------------------------------------------------------%>
-    <jsp:include page="/decorator/footer.jsp"/>
+    <jsp:include page="${ctx}/decorator/footer.jsp"/>
     <%--页脚结束   -------------------------------------------------------------------%>
 
     <%-- 底部js开始 --%>
-    <jsp:include page="/decorator/sellerBottom.jsp"/>
+    <jsp:include page="${ctx}/decorator/sellerBottom.jsp"/>
     <%-- 底部js结束 --%>
 
 </body>

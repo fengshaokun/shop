@@ -154,4 +154,7 @@ a:hover {
 .page-link {
   color: #333;
 }
+.main-container{
+  min-height: calc(100% - 360px);
+}
 

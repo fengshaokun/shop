@@ -49,9 +49,11 @@ $(function () {
                   if (req.status == 200) {
                     for (var i = 0, l = req.data.length; i < l; i++) {
                       $('ul.right_ul').append('<li>\n' +
+                          '<a href="/home/productDetails?id='+req.data[i].id+'" target="_self">' +
                           '<img src="' + req.data[i].icon + '" alt="">\n' +
                           '<p>' + req.data[i].name + '</p>\n' +
                           '<p>' + req.data[i].tag + '</p>\n' +
+                          '</a>' +
                           '<!-- <a href="">采集控制</a> -->\n' +
                           '</li>')
                     }
@@ -77,9 +79,11 @@ $(function () {
                     if (req.status == 200) {
                       for (var i = 0, l = req.data.length; i < l; i++) {
                         $('ul.right_ul').append('<li>\n' +
+                            '<a href="/home/productDetails?id='+req.data[i].id+'" target="_self">' +
                             '<img src="' + req.data[i].icon + '" alt="">\n' +
                             '<p>' + req.data[i].name + '</p>\n' +
                             '<p>' + req.data[i].tag + '</p>\n' +
+                            '</a>'+
                             '<!-- <a href="">采集控制</a> -->\n' +
                             '</li>')
                       }
@@ -156,5 +160,12 @@ $(function () {
         }
 
     });
+
+  $(function () {
+    var val = $('#searchParam').val();
+    $('#param').val(val);
+
+
+  })
 
 })

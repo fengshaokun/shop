@@ -17,7 +17,7 @@
 <body>
 <div class="main">
     <%--上边菜单开始-------------------------------------------------------------%>
-    <jsp:include page="/decorator/sellerTopMenu.jsp"/>
+    <jsp:include page="${ctx}/decorator/sellerTopMenu.jsp"/>
     <%--上边菜单结束-------------------------------------------------------------%>
 
 
@@ -28,7 +28,7 @@
                 <div class="content-layout">
 
                     <%--左边菜单开始-----------------------------------------------------%>
-                    <jsp:include page="/decorator/sellerLeftMenu.jsp"/>
+                    <jsp:include page="${ctx}/decorator/sellerLeftMenu.jsp"/>
                     <%--左边菜单结束-----------------------------------------------------%>
 
                         <div>
@@ -99,7 +99,7 @@
                                         /* var newhref = $(".on a")[0].href + "&" + $("#itemSearchForm").serialize() + "&pageNum=" + num;
                                          window.location.href = newhref;*/
                                         var status = $("#status").val();
-                                        location.href="/case/index?&pageNum=" + num;
+                                        location.href="${ctx}/case/index?&pageNum=" + num;
                                     }
                                 </script>
                                 <div class="pagination-layout">

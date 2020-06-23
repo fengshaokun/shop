@@ -20,7 +20,7 @@
 <!-- 顶部导航 -->
 <jsp:include page="homeTopMenu.jsp"/>
   <!-- 主体 -->
-  <div class="main">
+  <div class="main mainBody">
     <!-- banner图 -->
     <div class="bannerImg">
       <img src="${cHomePage.src}" alt="">

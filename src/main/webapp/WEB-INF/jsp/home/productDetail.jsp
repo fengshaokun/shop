@@ -14,9 +14,9 @@
 
 <body>
 <jsp:include page="homeTopMenu.jsp"/>
-<div style="align-content: center">
+<div style="align-content: center" class="mainBody">
 ${details.productContent}
-</div>
+</div class>
 <jsp:include page="footer.jsp"/>
 <jsp:include page="homeBottom.jsp"/>
 </body>

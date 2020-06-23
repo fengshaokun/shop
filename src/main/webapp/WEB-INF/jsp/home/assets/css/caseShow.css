@@ -94,7 +94,7 @@
 }
 /* 左边列表 */
 .dropdown>div ul.left_ul{
-  width: 200px;
+  width: 240px;
   height: 100%;
   padding:20px;
   box-sizing: border-box;
@@ -128,16 +128,17 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding:5px;
+  padding:10px;
   border:1px solid #ccc;
   margin-right:10px;
 }
 .dropdown ul.right_ul li img{
-  width:100%;
+  width:180px;
+  height:135px
 }
 .dropdown ul.right_ul li p{
   color:#000;
-  font-size: 20px;
+  font-size: 16px;
 }
 .dropdown ul.right_ul li p:nth-of-type(2){
   font-size: 12px;
@@ -172,7 +173,7 @@
 .mainContent .topNav{
   width: 100%;
   height: 30px;
-  background: #eee;
+  background: #aaa;
   color:#282828;
 }
 .mainContent .topNav>div{
@@ -188,7 +189,6 @@
 .mainContent .topNav>div i{
   width: 20px;
   height: 20px;
-  background: url(../images/caseShow/home.png);
   background-size:100% 100%;
   margin-right: 5px;
 }

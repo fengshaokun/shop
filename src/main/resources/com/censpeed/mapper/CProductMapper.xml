@@ -60,7 +60,7 @@
       order by sort
 
     </select>
-    <select id="selectProductLike" resultType="com.censpeed.shop.entity.CProduct">
+    <select id="selectProductLike" resultMap="BaseResultMap">
       select
       <include refid="Base_Column_List" />
       from c_product

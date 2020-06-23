@@ -6,6 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-transform ">
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="shortcut icon" href="${ctx}/img/icon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="${ctx}/css/global.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/bottom.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}/css/login.css"/>
