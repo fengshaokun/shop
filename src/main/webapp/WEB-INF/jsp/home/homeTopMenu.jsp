@@ -17,10 +17,12 @@
     <!-- 列表 -->
     <ul>
         <!-- logo -->
+
         <li class="headerli">
-            <div class="logo">
+            <a href="/home/index"> <div class="logo">
                 <img src="" alt="">
-            </div>
+            </div></a>
+
         </li>
         <li class="headerli">
             <span><a href="/home/index">首页</a></span>

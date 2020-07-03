@@ -18,43 +18,37 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide slide1">
+        <img src="assets/images/bg-pc4.jpg" alt="">
+        <div class="inner">
+          <div class="banner-text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s"
+               swiper-animate-delay="0.5s">
+            <h3><em>设备图形及UI定制</em></h3>
+            <p>设备自适应，图形化控制、事件管理、能效管理、设施管理、策略日历、WEB应用</p>
+          </div>
+          <img src="assets/images/bg1.png" class="ani img2" swiper-animate-effect="fadeInDown"
+               swiper-animate-duration="2s" swiper-animate-delay="0.5s">
+        </div>
       </div>
       <div class="swiper-slide slide2">
         <div class="inner">
-          <img src="assets/images/words2.png" class="ani img1" swiper-animate-effect="fadeInLeft"
-            swiper-animate-duration="2s" swiper-animate-delay="0.5s">
+          <div class="banner-text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s"
+               swiper-animate-delay="0.5s">
+            <h3><em>能效管理</em></h3>
+            <p>设备自适应，图形化控制、事件管理、能效管理、设施管理、策略日历、WEB应用</p>
+          </div>
+          <img src="assets/images/bg2.png" class="ani img2" swiper-animate-effect="fadeInDown"
+               swiper-animate-duration="2s" swiper-animate-delay="0.5s">
         </div>
       </div>
       <div class="swiper-slide slide3">
-      </div>
-      <div class="swiper-slide slide4">
         <div class="inner">
           <div class="banner-text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s"
             swiper-animate-delay="0.5s">
-            <h3><em>[ 限时免费 ]</em></h3>
-            <h2>专属云<em>0元试用</em></h2>
-            <p>专家团1V1量身定制，打造您的云上专属头等舱</p>
-            <span class="btn-primary" href="javascript:">免费申请</span>
+            <h3><em>系统集成解决方案</em></h3>
+            <p>软件集成了多种楼宇常用的协议标准，包括OBIX、OPC、BACNet、Lonworks、M-Bus、KNX等多种标准协议，以及多厂商楼宇自控系统的私有协议</p>
           </div>
-          <img src="assets/images/image-main4-r.png" class="ani img1" swiper-animate-effect="fadeInUp"
+          <img src="assets/images/bg3.png" class="ani img1" swiper-animate-effect="fadeInRight"
             swiper-animate-duration="1s" swiper-animate-delay="0.5s">
-          <img src="assets/images/image-sub4-r2.png" class="ani img2" swiper-animate-effect="fadeInDown"
-            swiper-animate-duration="2s" swiper-animate-delay="0.5s">
-        </div>
-      </div>
-      <div class="swiper-slide slide5">
-        <div class="inner">
-          <div class="banner-text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s"
-            swiper-animate-delay="0.5s">
-            <h3><em>[ 限时免费 ]</em></h3>
-            <h2>专属云<em>0元试用</em></h2>
-            <p>专家团1V1量身定制，打造您的云上专属头等舱</p>
-            <span class="btn-primary" href="javascript:">免费申请</span>
-          </div>
-          <img src="assets/images/image-main5-r.png" class="ani img1" swiper-animate-effect="fadeInRight"
-            swiper-animate-duration="1s" swiper-animate-delay="0.5s">
-          <img src="assets/images/image-sub5-r2.png" class="ani img2" swiper-animate-effect="fadeInDown"
-            swiper-animate-duration="2s" swiper-animate-delay="0.5s">
         </div>
       </div>
     </div>

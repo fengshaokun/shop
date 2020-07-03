@@ -129,7 +129,7 @@ public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer
 
    @RequestMapping("productDetails")
     public  String productDetails(Integer id,Map map){
-       CProductDetails cProductDetails = cProductServiceI.selectProductDetailsByProId(id);
+       CProduct cProductDetails = cProductServiceI.getCProductById(id);
        map.put("details",cProductDetails);
       return "home/productDetail";
    }
@@ -156,5 +156,6 @@ public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer
              }
              return ShopResult.ok();
     }
+
 
 }

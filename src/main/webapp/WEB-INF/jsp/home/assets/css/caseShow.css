@@ -85,6 +85,7 @@
   color:#000;
   text-align: center;
   z-index: 10;
+  box-shadow: 0 3px 4px rgba(0,0,0,.18);
 }
 .dropdown>div{
   width: 1200px;

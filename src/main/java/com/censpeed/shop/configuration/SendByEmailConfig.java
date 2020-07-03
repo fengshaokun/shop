@@ -40,7 +40,7 @@ public class SendByEmailConfig {
         // 建立邮件消息
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         CUser allUser = cUserServiceI.getAllUser();
-        if (allUser!=null&&allUser.getEmail()!=null){
+        if (allUser!=null&&allUser.getEmail()!=null&&!"".equals(allUser.getEmail())){
             receiver=allUser.getEmail();
         }
         else {return 0;}

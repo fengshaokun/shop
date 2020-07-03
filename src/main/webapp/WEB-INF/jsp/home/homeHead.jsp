@@ -11,4 +11,5 @@
 <link rel="stylesheet" href="${ctx}/home/assets/css/index.css">
 <link rel="stylesheet" href="${ctx}/home/assets/css/list.css">
 <link rel="stylesheet" href="${ctx}/home/assets/css/caseShow.css">
+<link rel="stylesheet" href="${ctx}/home/assets/css/detail.css">
 <link rel="stylesheet" href="${ctx}/home/assets/css/bootstrapstyle.css">

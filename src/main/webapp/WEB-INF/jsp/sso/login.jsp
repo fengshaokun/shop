@@ -22,9 +22,7 @@
         </div>
         <div class="content clearfix" style="background:url(${ctx}/img/bg_login.png) no-repeat center center;">
             <div class="lg_banner">
-                <a href="#" target="_blank" class="banner1"></a>
             </div>
-
             <div class="lg_left ui-option-main-box" id="lg_content">
                 <div class="login_mod_tab">
                     <div class="fl mod">

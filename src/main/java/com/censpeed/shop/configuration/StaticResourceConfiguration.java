@@ -21,9 +21,11 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/home/assets/images/**").addResourceLocations("/WEB-INF/jsp/home/assets/images/");
         registry.addResourceHandler("/menu/img/**").addResourceLocations("/WEB-INF/jsp/menu/img/");
         registry.addResourceHandler("/portal/assets/js/**").addResourceLocations("/WEB-INF/jsp/portal/assets/js/");
-        registry.addResourceHandler("/portal/assets/css/**").addResourceLocations("/WEB-INF/jsp/portal/assets/css/");        registry.addResourceHandler("/portal/assets/images/**").addResourceLocations("/WEB-INF/jsp/portal/assets/images/");
+        registry.addResourceHandler("/portal/assets/css/**").addResourceLocations("/WEB-INF/jsp/portal/assets/css/");
+        registry.addResourceHandler("/portal/assets/images/**").addResourceLocations("/WEB-INF/jsp/portal/assets/images/");
         registry.addResourceHandler("/home/assets/js/**").addResourceLocations("/WEB-INF/jsp/home/assets/js/");
-        registry.addResourceHandler("/home/assets/css/**").addResourceLocations("/WEB-INF/jsp/home/assets/css/");        registry.addResourceHandler("/home/assets/js/**").addResourceLocations("/WEB-INF/jsp/home/assets/js/");
+        registry.addResourceHandler("/home/assets/css/**").addResourceLocations("/WEB-INF/jsp/home/assets/css/");
+        registry.addResourceHandler("/home/assets/js/**").addResourceLocations("/WEB-INF/jsp/home/assets/js/");
         registry.addResourceHandler("/menu/js/**").addResourceLocations("/WEB-INF/jsp/menu/js/");
         registry.addResourceHandler("/menu/css/**").addResourceLocations("/WEB-INF/jsp/menu/css/");
         super.addResourceHandlers(registry);
