@@ -24,6 +24,8 @@ public interface CMenuMapper {
 
     //查询菜单通过产品Id
     CMenu selectMenuByProductId(Integer id);
+    //根据父类Id 查询菜单
+    List<CMenu> selectFootMenus(Integer pid);
 
 
 }

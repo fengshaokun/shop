@@ -67,12 +67,21 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">案例名称：</label>
+                                <label class="col-sm-2 control-label">应用案例：</label>
                                 <div class="col-sm-6">
-                                    <input class="filter-input-filed form-control" id="name" placeholder="请输入案例名称"
+                                    <input class="filter-input-filed form-control" id="name" placeholder="请输入应用案例"
                                            type="text" name="name">
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">排序：</label>
+                                <div class="col-sm-6">
+                                    <input class="filter-input-filed form-control" id="sort" placeholder="请输入排序"
+                                           type="text" name="sort">
+                                </div>
+                            </div>
+
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">案例详情：</label>
@@ -107,10 +116,13 @@
                                     uploadEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
+                                        $("#backgorudImg").remove();
+                                        $("#dImg").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnImageUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnImageUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnImageUpLoader").after("<img id='backgorudImg' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >" +
+                                                " <button id='dImg' class='btn btn-primary ' onclick='deleteBackgorudImg()' >清除</button>");
                                         }
                                         $("#txtImgurl").attr("value", res);
                                     });
@@ -123,10 +135,13 @@
                                     uploadIconEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
+                                        $("#icon").remove();
+                                        $("#dIcon").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnIconUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnIconUpLoader").after("<img style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnIconUpLoader").after("<img id='icon' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >" +
+                                                " <button id='dIcon' class='btn btn-primary ' onclick='deleteIcon()' >清除</button> ");
                                         }
                                         $("#txtIconurl").attr("value", res);
                                     });
@@ -173,7 +188,18 @@
                                     }
                                 }
 
-
+                                function deleteIcon() {
+                                    $("#txtIconurl").attr("value", '');
+                                    $("#icon").remove();
+                                    $("#dIcon").remove();
+                                    $("#btnIconUpLoader").attr("style", "margin-top: 0px; ");
+                                }
+                                function deleteBackgorudImg() {
+                                    $("#txtImgurl").attr("value", '');
+                                    $("#backgorudImg").remove();
+                                    $("#dImg").remove();
+                                    $("#btnImageUpLoader").attr("style", "margin-top: 0px; ");
+                                }
                             </script>
                         </form>
                 </div>

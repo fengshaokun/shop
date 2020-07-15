@@ -15,9 +15,6 @@
 <body>
 <jsp:include page="homeTopMenu.jsp"/>
 <div class="mainBody">
-    <div class="banner">
-      <img src="${details.background}" alt="" />
-    </div>
     <div class="component-specs-content__redmi-xai">
         ${details.cProductDetails.productContent}
     </div>
@@ -52,8 +49,8 @@
     </c:if>
 
 </div>
-<jsp:include page="footer.jsp"/>
 <jsp:include page="homeBottom.jsp"/>
+<jsp:include page="footer.jsp"/>
 <jsp:include page="consult.jsp"/>
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script>

@@ -5,6 +5,7 @@ import com.censpeed.shop.entity.CProductDetails;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CProductServiceI {
 
@@ -24,5 +25,10 @@ public interface CProductServiceI {
     List<CProduct> selectProductByMenuId(Integer id);
     //模糊查询产品
     PageInfo<CProduct> selectProductLike(String name,Integer status, Integer pageNum,Integer pageSize);
+    //根据菜单查询产品
+    List<CProduct>selectProductsByMenu(Integer menuId);
+    //查询所有产品通过菜单分类
+    Map selectProductsList();
+
 
 }

@@ -89,9 +89,8 @@
       <a href="/home/caseShow" target="_self">查看更多 +</a>
     </div>
   </div>
-<jsp:include page="footer.jsp"/>
 <jsp:include page="homeBottom.jsp"/>
-<jsp:include page="consult.jsp"/>
+<jsp:include page="footer.jsp"/>
   <script>
     var mySwiper = new Swiper('.swiper-container', {
       pagination: '.paginationB',

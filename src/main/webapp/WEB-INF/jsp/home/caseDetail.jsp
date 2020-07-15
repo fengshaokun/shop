@@ -17,7 +17,8 @@
 <div style="align-content: center" class="mainBody">
 ${details.content}
 </div>
-<jsp:include page="footer.jsp"/>
 <jsp:include page="homeBottom.jsp"/>
+<jsp:include page="footer.jsp"/>
+
 </body>
 </html>

@@ -26,6 +26,7 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/home/assets/js/**").addResourceLocations("/WEB-INF/jsp/home/assets/js/");
         registry.addResourceHandler("/home/assets/css/**").addResourceLocations("/WEB-INF/jsp/home/assets/css/");
         registry.addResourceHandler("/home/assets/js/**").addResourceLocations("/WEB-INF/jsp/home/assets/js/");
+        registry.addResourceHandler("/home/assets/bootstrap/**").addResourceLocations("/WEB-INF/jsp/home/assets/bootstrap/");
         registry.addResourceHandler("/menu/js/**").addResourceLocations("/WEB-INF/jsp/menu/js/");
         registry.addResourceHandler("/menu/css/**").addResourceLocations("/WEB-INF/jsp/menu/css/");
         super.addResourceHandlers(registry);
@@ -34,17 +35,13 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
     public void addInterceptors(InterceptorRegistry registry) {
         InterceptorRegistration loginRegistry = registry.addInterceptor(new LoginInterceptor());
         // 拦截路径
-        loginRegistry.addPathPatterns("/case/*");
-        loginRegistry.addPathPatterns("/product/*");
-        loginRegistry.addPathPatterns("/menu/*");
-        loginRegistry.addPathPatterns("/homepage/*");
-        loginRegistry.addPathPatterns("/user/*");
-        loginRegistry.addPathPatterns("/consult/*");
+
         loginRegistry.addPathPatterns("/**");
         // 排除路径
         loginRegistry.excludePathPatterns("/user/login");
         loginRegistry.excludePathPatterns("/user/index");
         loginRegistry.excludePathPatterns("/home/*");
+
 
     }
 }

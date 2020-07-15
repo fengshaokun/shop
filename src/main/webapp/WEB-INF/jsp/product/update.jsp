@@ -51,8 +51,9 @@
                                 <label class="col-sm-2 control-label">产品图标：</label>
                                 <div class="col-sm-6" >
                                     <input type="hidden" id="txtIconurl" name="icon" value="${product.icon}"/>
-                                    <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()"/>
+                                    <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()" style="margin-top: -100px; margin-right: 20px;"/>
                                     <img id='icon' style='margin: 10px' src='${product.icon}' width='100' height='100' >
+                                    <button id='dIcon' class='btn btn-primary ' onclick='deleteIcon()' >清除</button>
                                     <textarea id="uploadIconEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
@@ -96,17 +97,14 @@
                                            data-toggle="modal" data-target="#myModal" value="${menu.principal}" >
                                 </div>
                             </div>
-
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">背景图片：</label>
-                                <div class="col-sm-6" >
-                                    <input type="hidden" id="txtImgurl" name="background"  value="${product.background}"/>
-                                    <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()"/>
-                                    <img id='img' style='margin: 10px' src='${product.background}' width='100' height='100' >
-
-                                    <textarea id="uploadEditor" style="display: none;"></textarea>
+                                <label class="col-sm-2 control-label">排序：</label>
+                                <div class="col-sm-6">
+                                    <input class="filter-input-filed form-control" id="sort" placeholder="请输入排序"
+                                           type="text" name="sort" value="${product.sort}">
                                 </div>
                             </div>
+
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">视频：</label>
@@ -150,23 +148,7 @@
                             <script type="text/javascript">
 
                                 // 实例化编辑器，这里注意配置项隐藏编辑器并禁用默认的基础功能。
-                                var uploadEditor = UE.getEditor("uploadEditor");
 
-                                uploadEditor.ready(function() {
-                                  /*  uploadEditor.setDisabled();*/
-                                    uploadEditor.hide();
-                                    uploadEditor.addListener('beforeInsertImage', function(t, arg) {
-                                        //因为可以上传多张,所以就用arg[0]
-                                        var res = [];
-                                        $("#img").remove();
-                                        for (var i = 0; i < arg.length; i++) {
-                                            res.push(arg[i].src);
-                                            $("#btnImageUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnImageUpLoader").after("<img  id='img' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
-                                        }
-                                        $("#txtImgurl").attr("value", res);
-                                    });
-                                });
                                 var uploadIconEditor = UE.getEditor("uploadIconEditor");
 
                                 uploadIconEditor.ready(function() {
@@ -176,10 +158,12 @@
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
                                         $("#icon").remove();
+                                        $("#dIcon").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnIconUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnIconUpLoader").after("<img id='icon' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnIconUpLoader").after("<img id='icon' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >" +
+                                                "<button id='dIcon' class='btn btn-primary ' onclick='deleteIcon()' >清除</button>");
                                         }
                                         $("#txtIconurl").attr("value", res);
                                     });
@@ -196,7 +180,6 @@
                                             var res = [];
                                             for (var i = 0; i < arg.length; i++) {
                                                 alert(arg[i].url)
-                                                console.log(arg[i].url)
                                                 res.push(arg[i].url);
                                                 $("#btnVideoUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
                                                 $("#btnVideoUpLoader").after("<video class=\"edui-upload-video video-js vjs-default-skin video-js\" controls=\"\" preload=\"none\" width=\"420\" height=\"280\" src='"+arg[i].url+"' data-setup=\"{}\">\n" +
@@ -262,6 +245,12 @@
                                     }
                                 }
 
+                                function deleteIcon() {
+                                    $("#txtIconurl").attr("value", '');
+                                    $("#icon").remove();
+                                    $("#dIcon").remove();
+                                    $("#btnIconUpLoader").attr("style", "margin-top: 0px; ");
+                                }
 
                                 $(function () {
                                     $("#showPrice").blur(function(){

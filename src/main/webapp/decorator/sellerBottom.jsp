@@ -3,18 +3,19 @@
 <c:set value="${pageConext.request.contextPath}" var="ctx"/>
 <script src="/js/jquery-1.11.2.min.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8" src="/js/toastr.min.js"></script>
-<script src="/js/jquery.cookie.min.js" type="text/javascript"></script>
-<script src="/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+<%--<script src="/js/jquery.cookie.min.js" type="text/javascript"></script>--%>
+<%--<script src="/js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>--%>
 <script type="text/javascript" src="/js/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="/js/jquery.treetable.js"></script>
 <script type="text/javascript" src="/js/jquery.browser.js"></script>
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jqPaginator.js" ></script>
 <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-treeview.js"></script>
-<script src="/js/jquery.tmpl.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-<script type="text/javascript" src="/js/jqPaginator.js" ></script>
+<%--<script src="/js/jquery.tmpl.min.js"></script>--%>
+<%--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>--%>
+<%--<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>--%>
 
 
 <script src="/js/app.js" type=""></script>

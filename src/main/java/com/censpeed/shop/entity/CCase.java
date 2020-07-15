@@ -13,7 +13,7 @@ public class CCase {
 
     private String name;
 
-    private String sort;
+    private Integer sort;
 
     private CItemDetails cItemDetails;
 
@@ -72,11 +72,11 @@ public class CCase {
     public void setName(String name) {
         this.name = name;
     }
-    public String getSort() {
+    public Integer getSort() {
         return sort;
     }
 
-    public void setSort(String sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 }

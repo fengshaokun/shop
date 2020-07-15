@@ -45,7 +45,6 @@ $(function () {
                 data: {"id": req.data.menu[index].childMenu[0].id},    //参数值
                 type: "post",   //请求方式
                 success: function (req) {
-                  console.log(req.data)
                   if (req.status == 200) {
                     for (var i = 0, l = req.data.length; i < l; i++) {
                       $('ul.right_ul').append('<li>\n' +
@@ -75,7 +74,7 @@ $(function () {
                   data: {"id": id},    //参数值
                   type: "post",   //请求方式
                   success: function (req) {
-                    console.log(req.data)
+
                     if (req.status == 200) {
                       for (var i = 0, l = req.data.length; i < l; i++) {
                         $('ul.right_ul').append('<li>\n' +

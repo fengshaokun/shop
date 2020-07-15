@@ -22,19 +22,10 @@ public class CProduct {
 //发布时间
     private Date createTime;
 //排序
-    private String sort;
+    private Integer sort;
 //状态
     private Integer status;
 
-    private String background;
-
-    public String getBackground() {
-        return background;
-    }
-
-    public void setBackground(String background) {
-        this.background = background;
-    }
 
     //详情
     private CProductDetails cProductDetails;
@@ -119,11 +110,11 @@ public class CProduct {
         this.createTime = createTime;
     }
 
-    public String getSort() {
+    public Integer getSort() {
         return sort;
     }
 
-    public void setSort(String sort) {
+    public void setSort(Integer sort) {
         this.sort = sort;
     }
 

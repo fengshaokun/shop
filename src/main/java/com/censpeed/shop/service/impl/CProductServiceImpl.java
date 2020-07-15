@@ -1,8 +1,10 @@
 package com.censpeed.shop.service.impl;
 
+import com.censpeed.shop.entity.CMenu;
 import com.censpeed.shop.entity.CProduct;
 import com.censpeed.shop.entity.CProductDetails;
 import com.censpeed.shop.entity.CProductMenuLink;
+import com.censpeed.shop.mapper.CMenuMapper;
 import com.censpeed.shop.mapper.CProductDetailsMapper;
 import com.censpeed.shop.mapper.CProductMapper;
 import com.censpeed.shop.mapper.CProductMenuLinkMapper;
@@ -14,7 +16,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.beans.Transient;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class CProductServiceImpl implements CProductServiceI {
@@ -25,6 +30,8 @@ private CProductMapper cProductMapper;
 private CProductDetailsMapper cProductDetailsMapper;
 @Autowired
 private CProductMenuLinkMapper cProductMenuLinkMapper;
+@Autowired
+private CMenuMapper cMenuMapper;
 
 
     @Override
@@ -57,19 +64,21 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
 
     @Override
     public int update(CProduct record, String productContent, Integer menuId) {
+
         cProductMapper.updateByPrimaryKeySelective(record);
         Integer id = record.getId();
-        CProductMenuLink cProductMenuLink = new CProductMenuLink();
-        cProductMenuLink.setcProductId(id);
-        cProductMenuLink.setcMenuId(menuId);
-        cProductMenuLinkMapper.deleteByProductKey(id);
-        cProductMenuLinkMapper.insert(cProductMenuLink);
-
+        if (!"".equals(menuId)&&menuId!=null){
+            CProductMenuLink cProductMenuLink = new CProductMenuLink();
+            cProductMenuLink.setcProductId(id);
+            cProductMenuLink.setcMenuId(menuId);
+            cProductMenuLinkMapper.deleteByProductKey(id);
+            cProductMenuLinkMapper.insert(cProductMenuLink);
+        }
         CProductDetails cProductDetails = cProductDetailsMapper.selectByPrimaryKey(record.getId());
         if (cProductDetails==null){
             cProductDetails=new CProductDetails();
             cProductDetails.setcProductId(id);
-       }
+        }
         cProductDetails.setProductContent(productContent);
         cProductDetailsMapper.updateByPrimaryKeySelective(cProductDetails);
         return record.getId();
@@ -97,5 +106,33 @@ private CProductMenuLinkMapper cProductMenuLinkMapper;
         List<CProduct> cProducts = cProductMapper.selectProductLike(name,status);
         PageInfo<CProduct> pageInfo = new PageInfo<CProduct>(cProducts);
         return pageInfo;
+    }
+
+    @Override
+    public List<CProduct> selectProductsByMenu(Integer menuId) {
+        return cProductMapper.selectProductByMenuId(menuId);
+    }
+
+    @Override
+    public Map selectProductsList() {
+        //查询所有父级菜单
+        List<CMenu> PMenus = cMenuMapper.selectFootMenus(0);
+        //查询所有2级菜单
+
+        Map map = new HashMap();
+        if (!PMenus.isEmpty()){
+            for (CMenu c:PMenus){
+                List<CMenu> cMenus = cMenuMapper.selectFootMenus(c.getId());
+                if (!cMenus.isEmpty()){
+                    for (CMenu cMenu:cMenus){
+                        List<CProduct> cProducts = cProductMapper.selectProductByMenuId(cMenu.getId());
+                        if (!cProducts.isEmpty()){
+                            map.put(c.getPrincipal()+"-"+cMenu.getPrincipal(),cProducts);
+                        }
+                    }
+                }
+            }
+        }
+      return map;
     }
 }

@@ -13,3 +13,4 @@
 <link rel="stylesheet" href="${ctx}/home/assets/css/caseShow.css">
 <link rel="stylesheet" href="${ctx}/home/assets/css/detail.css">
 <link rel="stylesheet" href="${ctx}/home/assets/css/bootstrapstyle.css">
+<link rel="stylesheet" href="${ctx}/home/assets/bootstrap/css/bootstrap.min.css">

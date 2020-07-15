@@ -43,7 +43,7 @@
                                 <label class="col-sm-2 control-label">图片：</label>
                                 <div class="col-sm-6" >
                                     <input type="hidden" id="txtImgurl" name="src" value="${homepage.src}" />
-                                    <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()" style="margin-top: -100px;margin-right: 20px;"/>
+                                    <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()" style="margin-right: 20px;"/>
                                     <img  id='img' style='margin: 10px' src='${homepage.src}' width='100' height='100' >
 
                                     <textarea id="uploadEditor" style="display: block;"></textarea>
@@ -79,7 +79,7 @@
                                         $("#img").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
-                                            $("#btnImageUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
+                                            $("#btnImageUpLoader").attr("style","margin-right: 20px;");
                                             $("#btnImageUpLoader").after("<img id='img' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
                                         }
                                         $("#txtImgurl").attr("value", res);

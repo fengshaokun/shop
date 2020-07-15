@@ -72,7 +72,7 @@ function  searchProduct() {
             type: "post",   //请求方式
             success: function (req) {
                 if (req.status == 200) {
-                    window.location.href="/home/list?name="+val
+                    window.location.href="/home/lists?name="+val
                 }
                 else{
                     window.location.href="/home/kong?name="+val

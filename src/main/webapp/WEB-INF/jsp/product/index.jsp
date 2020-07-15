@@ -50,10 +50,10 @@
                                     <th>产品名称</th>
                                     <th>产品图标</th>
                                     <th>产品标签</th>
-                                    <th>背景图片</th>
                                     <th>产品简介</th>
                                     <th>是否热卖</th>
                                     <th>是否新品</th>
+                                    <th>排序</th>
                                     <th>上传时间</th>
                                     <th>产品详情</th>
                                     <th>视频</th>
@@ -68,33 +68,30 @@
                                                  style="float: left;">
                                         </td>
                                         <td class="text-center">${itemDto.tag}</td>
-                                        <td>
-                                            <img width="54" height="54"
-                                                 src=" ${ fn:split(itemDto.background, ',')[0] } "
-                                                 style="float: left;">
-                                        </td>
                                         <td class="text-center">${itemDto.briefIntroduction}</td>
                                         <td class="text-center">
-                                            <c:if test="${itemDto.isHot==0}">是</c:if>
-                                            <c:if test="${itemDto.isHot==1}">否</c:if>
+                                            <input  onchange="changeHot(${itemDto.id},0)" type="radio" <c:if test="${itemDto.isHot==0}"> checked="checked" </c:if> name="isHot_${itemDto.id}" value="0">是
+                                            <input  onchange="changeHot(${itemDto.id},1)" type="radio" <c:if test="${itemDto.isHot==1}"> checked="checked" </c:if> name="isHot_${itemDto.id}" value="1">否
                                         </td>
                                         <td class="text-center">
-                                            <c:if test="${itemDto.isNew==0}">是</c:if>
-                                            <c:if test="${itemDto.isNew==1}">否</c:if></td>
+                                            <input  onchange="changeNew(${itemDto.id},0)" type="radio" <c:if test="${itemDto.isNew==0}"> checked="checked" </c:if> name="isNew_${itemDto.id}" value="0">是
+                                            <input  onchange="changeNew(${itemDto.id},1)" type="radio" <c:if test="${itemDto.isNew==1}"> checked="checked" </c:if> name="isNew_${itemDto.id}" value="1">否
+                                        </td>
+                                        <td>${itemDto.sort}</td>
                                         <td class="text-center">
                                             <fmt:formatDate value="${itemDto.createTime}" pattern="yyyy-MM-dd  HH:mm"/>  </td>
-                                        <td class="text-center">   <a href="/product/detail?id=${itemDto.id}"
+                                        <td class="text-center">   <a href="/home/productDetails?id=${itemDto.id}"
                                                                        class="delete-good"
-                                                                      target="_blank" style="text-decoration:underline;">查看详情</a></td>
+                                                                      target="_blank" style="text-decoration:underline;">预览</a></td>
                                         <td class="text-center">
-                                            <c:if test="${itemDto.video!=null}">
+                                            <c:if test="${itemDto.video!=null&&itemDto.video!=''}">
                                                 <video class="edui-upload-video video-js vjs-default-skin video-js"
                                                        controls="" preload="none" width="100" height="100"
                                                        src=${itemDto.video} data-setup="{}">
                                                     <source src=${itemDto.video} type="video/mp4"/>
                                                 </video>
                                             </c:if>
-                                            <c:if test="${itemDto.video==null}">
+                                            <c:if test="${itemDto.video==null||itemDto.video==''}">
                                                 暂无视频
                                             </c:if>
 
@@ -117,40 +114,6 @@
                                     </tr>
                                 </c:forEach>
                             </table>
-                            <%--分页--%>
-                            <script type="text/javascript">
-                                var if_firstime = true;
-
-
-                                window.onload = function () {
-                                    $('.pagination').jqPaginator({
-                                        totalPages: ${pageInfo.pages},
-                                        visiblePages: 10,
-                                        currentPage: ${pageInfo.pageNum},
-
-                                        first: '<li class="first"><a href="javascript:void(0);">第一页</a></li>',
-                                        prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
-                                        next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
-                                        last: '<li class="last"><a href="javascript:void(0);">最末页 </a></li>',
-                                        page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
-
-                                        onPageChange: function (num) {
-                                            if (if_firstime) {
-                                                if_firstime = false;
-                                            } else if (!if_firstime) {
-                                                changePage(num);
-                                            }
-
-                                        }
-                                    });
-                                }
-                                function changePage(num) {
-                                    /* var newhref = $(".on a")[0].href + "&" + $("#itemSearchForm").serialize() + "&pageNum=" + num;
-                                     window.location.href = newhref;*/
-                                    var status = $("#status").val();
-                                    location.href="/product/index?&status="+status+ "&pageNum=" + num;
-                                }
-                            </script>
                             <div class="pagination-layout">
                                 <div class="pagination">
                                     <ul class="pagination" total-items="pageInfo.totalRows" max-size="10" boundary-links="true">
@@ -158,6 +121,8 @@
                                     </ul>
                                 </div>
                             </div>
+                            <%--分页--%>
+
                         </div>
                     </div>
                 </div>
@@ -175,6 +140,41 @@
     <%-- 底部js开始 --%>
     <jsp:include page="/decorator/sellerBottom.jsp"/>
     <%-- 底部js结束 --%>
+        <script type="text/javascript">
+            var if_firstime = true;
+            window.onload = function () {
+                $('.pagination').jqPaginator({
+                    totalPages: ${pageInfo.pages},
+                    visiblePages: 10,
+                    currentPage: ${pageInfo.pageNum},
+
+                    first: '<li class="first"><a href="javascript:void(0);">第一页</a></li>',
+                    prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
+                    next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+                    last: '<li class="last"><a href="javascript:void(0);">最末页 </a></li>',
+                    page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
+
+                    onPageChange: function (num) {
+                        if (if_firstime) {
+                            if_firstime = false;
+                        } else if (!if_firstime) {
+                            changePage(num);
+                        }
+
+                    }
+                });
+            }
+            function changePage(num) {
+                var status = $("#status").val();
+                location.href="/product/index?&status="+status+ "&pageNum=" + num;
+            }
+            function changeNew(a,b) {
+                location.href="/product/updateHOTNEW?&id="+a+ "&isNew=" + b;
+            }
+            function changeHot(a,b) {
+                location.href="/product/updateHOTNEW?&id="+a+ "&isHot=" + b;
+            }
+        </script>
 
 </div>
 </body>

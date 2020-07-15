@@ -148,12 +148,9 @@
 .dropdown{
   display: none;
 }
-.dropdown .dropdownNav1{
+.dropdown .dropdownNav0{
   flex:1;
-}
-.dropdownNav2,.dropdownNav3{
-  flex:1;
-  display: none;
+  width: 960px;
 }
 
 

@@ -11,7 +11,7 @@
     <result column="IS_NEW" property="isNew" jdbcType="VARCHAR" />
     <result column="IS_HOT" property="isHot" jdbcType="VARCHAR" />
     <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="SORT" property="sort" jdbcType="VARCHAR" />
+    <result column="SORT" property="sort" jdbcType="INTEGER" />
     <result column="STATUS" property="status" jdbcType="INTEGER" />
   </resultMap>
 
@@ -25,8 +25,7 @@
     <result column="IS_NEW" property="isNew" jdbcType="VARCHAR" />
     <result column="IS_HOT" property="isHot" jdbcType="VARCHAR" />
     <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
-    <result column="SORT" property="sort" jdbcType="VARCHAR" />
-    <result column="BACKGROUND" property="background" jdbcType="VARCHAR" />
+    <result column="SORT" property="sort" jdbcType="INTEGER" />
     <result column="STATUS" property="status" jdbcType="INTEGER" />
     <association property="cProductDetails" column="ID"
                  select="com.censpeed.shop.mapper.CProductDetailsMapper.selectByPrimaryKey"
@@ -34,7 +33,7 @@
   </resultMap>
   <sql id="Base_Column_List" >
     ID, NAME, ICON, TAG, BRIEF_INTRODUCTION, VIDEO, IS_NEW, IS_HOT, CREATE_TIME, SORT,
-    STATUS,BACKGROUND
+    STATUS
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap2" parameterType="java.lang.Integer" >
     select 
@@ -52,12 +51,12 @@
   </select>
     <select id="selectProductByMenuId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
 
-      select c_product.ID, NAME, ICON, TAG, BRIEF_INTRODUCTION, VIDEO, IS_NEW, IS_HOT, CREATE_TIME, SORT, STATUS,BACKGROUND
+      select c_product.ID, NAME, ICON, TAG, BRIEF_INTRODUCTION, VIDEO, IS_NEW, IS_HOT, CREATE_TIME, SORT, STATUS
       from c_product
       LEFT JOIN c_product_menu_link
       ON c_product.id = c_product_menu_link.C_PRODUCT_ID
       WHERE c_product_menu_link.C_MENU_ID = #{id,jdbcType=INTEGER}
-      order by sort
+      order by c_product.sort
 
     </select>
     <select id="selectProductLike" resultMap="BaseResultMap">
@@ -68,6 +67,13 @@
       order by sort
 
     </select>
+    <select id="selectProductsByMenu" resultType="com.censpeed.shop.entity.CProduct">
+      select
+      <include refid="Base_Column_List" />
+      from c_product left join  c_product_menu_link pm on  id = pm.c_product_id
+      where pm.c_menu_id = #{menuId,jdbcType=INTEGER}
+      order by c_product.sort
+    </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_product
     where ID = #{id,jdbcType=INTEGER}
@@ -76,11 +82,11 @@
     insert into c_product (ID, NAME, ICON, 
       TAG, BRIEF_INTRODUCTION, VIDEO, 
       IS_NEW, IS_HOT, CREATE_TIME,
-      SORT, STATUS, BACKGROUND)
+      SORT, STATUS)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
       #{tag,jdbcType=VARCHAR}, #{briefIntroduction,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR}, 
       #{isNew,jdbcType=VARCHAR}, #{isHot,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{sort,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER},#{background,jdbcType=VARCHAR})
+      #{sort,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.censpeed.shop.entity.CProduct"  >
     insert into c_product
@@ -148,7 +154,7 @@
         #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="sort != null" >
-        #{sort,jdbcType=VARCHAR},
+        #{sort,jdbcType=INTEGER},
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
@@ -183,13 +189,10 @@
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="sort != null" >
-        SORT = #{sort,jdbcType=VARCHAR},
+        SORT = #{sort,jdbcType=INTEGER},
       </if>
       <if test="status != null" >
         STATUS = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="background != null" >
-        BACKGROUND = #{background,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
@@ -204,7 +207,7 @@
       IS_NEW = #{isNew,jdbcType=VARCHAR},
       IS_HOT = #{isHot,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      SORT = #{sort,jdbcType=VARCHAR},
+      SORT = #{sort,jdbcType=INTEGER},
       STATUS = #{status,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}
   </update>

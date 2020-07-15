@@ -5,6 +5,7 @@ import com.censpeed.shop.entity.*;
 import com.censpeed.shop.service.*;
 import com.censpeed.shop.utils.ShopResult;
 import com.github.pagehelper.PageInfo;
+import org.apache.poi.ss.formula.ptg.MemAreaPtg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -56,13 +57,21 @@ public class CHomeController {
     }
 
 @RequestMapping("list")
-public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
-    if (name==null){name="";}
+public String list(Map map){
+    Map map1 = cProductServiceI.selectProductsList();
+    map.put("map",map1);
+    return "home/list";
+}
+
+    @RequestMapping("lists")
+    public String getList(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
+        if (name==null){name="";}
     PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectProductLike(name,1, pageNum,homeProductSize);
     map.put("pageInfo",cProductPageInfo);
     map.put("searchParam",name);
-    return "home/list";
-}
+        return "home/list2";
+    }
+
 
 
     @RequestMapping("caseShow")
@@ -77,7 +86,6 @@ public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer
     @RequestMapping("menuIndex")
     @ResponseBody
     public ShopResult menuIndex(){
-
         Map map = new HashMap();
         List<CMenu> cMenus = cMenuServiceI.selectAllPMEnu();
         List<CMenu> result = cMenuServiceI.selectAllMenu(cMenus);
@@ -133,6 +141,7 @@ public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer
        map.put("details",cProductDetails);
       return "home/productDetail";
    }
+
     @RequestMapping("caseDetails")
     public  String caseDetails(Integer id,Map map){
         CItemDetails cItemDetails = cCaseServiceI.selectCaseDetailsByCaId(id);
@@ -149,7 +158,7 @@ public String list(String name,Map map,@RequestParam(defaultValue = "1") Integer
 
          @RequestMapping("searchParam")
          @ResponseBody
-     public ShopResult searchParam(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
+    public ShopResult searchParam(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
              PageInfo<CProduct> cProductPageInfo = cProductServiceI.selectProductLike(name,1, pageNum,homeProductSize);
              if (cProductPageInfo.getList().size()==0){
                  return  ShopResult.build(500,"查询为空");

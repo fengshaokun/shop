@@ -20,9 +20,8 @@
       </div>
       <input  id="searchParam" type="text"  value="${name}"  style="display: none;">
     </div>
-
+  <jsp:include page="homeBottom.jsp"/>
   <jsp:include page="footer.jsp"/>
-    <jsp:include page="homeBottom.jsp"/>
     <script>
       $(".mask").on("click", function () {
         var hasvideo = $(this).parents(".listli").has(".video");

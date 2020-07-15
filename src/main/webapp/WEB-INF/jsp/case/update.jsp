@@ -51,7 +51,7 @@
                                     <input type="hidden" id="txtIconurl" name="companyLogo" value="${item.companyLogo}" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()" style="margin-top: -100px;margin-right: 20px;"/>
                                     <img  id='icon' style='margin: 10px' src='${item.companyLogo}' width='100' height='100' >
-
+                                    <button id='dIcon' class='btn btn-primary ' onclick='deleteIcon()' >清除</button>
                                     <textarea id="uploadIconEditor" style="display: block;"></textarea>
 
                                 </div>
@@ -72,19 +72,27 @@
                                 <div class="col-sm-6" >
                                     <input type="hidden" id="txtImgurl" name="backgroundImage" value="${item.backgroundImage}" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()" style="margin-top: -100px;margin-right: 20px;"/>
-                                    <img  id='img' style='margin: 10px' src='${item.backgroundImage}' width='100' height='100' >
-
+                                    <img  id='backgorudImg' style='margin: 10px' src='${item.backgroundImage}' width='100' height='100' >
+                                    <button id='dImg' class='btn btn-primary ' onclick='deleteBackgorudImg()' >清除</button>
                                     <textarea id="uploadEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-2 control-label">案例名称：</label>
+                                <label class="col-sm-2 control-label">应用案例：</label>
                                 <div class="col-sm-6">
-                                    <input class="filter-input-filed form-control" id="name" placeholder="请输入案例名称"
+                                    <input class="filter-input-filed form-control" id="name" placeholder="请输入应用案例"
                                            type="text" name="name" value="${item.name}">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">排序：</label>
+                                <div class="col-sm-6">
+                                    <input class="filter-input-filed form-control" id="sort" placeholder="请输入排序"
+                                           type="text" name="sort" value="${item.sort}">
+                                </div>
+                            </div>
+
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">案例详情：</label>
@@ -119,11 +127,13 @@
                                     uploadEditor.addListener('beforeInsertImage', function(t, arg) {
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
-                                        $("#img").remove();
+                                        $("#backgorudImg").remove();
+                                        $("#dImg").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnImageUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnImageUpLoader").after("<img id='img' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnImageUpLoader").after("<img id='backgorudImg' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >" +
+                                                " <button id='dImg' class='btn btn-primary ' onclick='deleteBackgorudImg()' >清除</button>");
                                         }
                                         $("#txtImgurl").attr("value", res);
                                     });
@@ -137,10 +147,12 @@
                                         //因为可以上传多张,所以就用arg[0]
                                         var res = [];
                                         $("#icon").remove();
+                                        $("#dIcon").remove();
                                         for (var i = 0; i < arg.length; i++) {
                                             res.push(arg[i].src);
                                             $("#btnIconUpLoader").attr("style","margin-top: -100px;margin-right: 20px;");
-                                            $("#btnIconUpLoader").after("<img id='icon' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >");
+                                            $("#btnIconUpLoader").after("<img id='icon' style='margin: 10px' src='"+arg[i].src+"' width='100' height='100' >" +
+                                                " <button id='dIcon' class='btn btn-primary ' onclick='deleteIcon()' >清除</button> ");
                                         }
                                         $("#txtIconurl").attr("value", res);
                                     });
@@ -191,7 +203,18 @@
                                         toastr.success("修改案例成功")
                                     }
                                 }
-
+                                function deleteIcon() {
+                                    $("#txtIconurl").attr("value", '');
+                                    $("#icon").remove();
+                                    $("#dIcon").remove();
+                                    $("#btnIconUpLoader").attr("style", "margin-top: 0px; ");
+                                }
+                                function deleteBackgorudImg() {
+                                    $("#txtImgurl").attr("value", '');
+                                    $("#backgorudImg").remove();
+                                    $("#dImg").remove();
+                                    $("#btnImageUpLoader").attr("style", "margin-top: 0px; ");
+                                }
 
                             </script>
                         </form>

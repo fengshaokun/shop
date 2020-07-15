@@ -39,7 +39,8 @@
                                         <th>公司简介</th>
                                         <th>客户LOGO</th>
                                         <th>背景图</th>
-                                        <th>案例名称</th>
+                                        <th>应用案例</th>
+                                        <th>排序</th>
                                         <th>案例介绍</th>
                                         <th>操作</th>
                                     </tr>
@@ -58,6 +59,7 @@
                                                      style="float: left;">
                                             </td>
                                             <td class="text-center">${itemDto.name}</td>
+                                            <td class="text-center">${itemDto.sort}</td>
                                             <td class="text-center"> <a href="/case/detail?id=${itemDto.id}"
                                                                         class="delete-good"
                                                                         target="_blank" style="text-decoration:underline;">查看详情</a></td>
