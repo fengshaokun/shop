@@ -135,4 +135,9 @@ private CMenuMapper cMenuMapper;
         }
       return map;
     }
+
+    @Override
+    public void updateProductHOTNEWStatus(CProduct record) {
+        cProductMapper.updateByPrimaryKeySelective(record);
+    }
 }

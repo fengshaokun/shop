@@ -223,9 +223,10 @@
                             function upload() {
                                 $("#frm").attr("action", "/product/uploadGood");
                                 with ($("#frm").get(0)) {
-                                    if (checkForm())
+                                    if(checkForm()){
                                         submit();
-                                    toastr.success("创建产品成功")
+                                        toastr.success("创建产品成功")
+                                    }
                                 }
                             }
 

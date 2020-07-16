@@ -123,7 +123,7 @@ public class CProductController {
     //修改产品热门新品
     @RequestMapping("updateHOTNEW")
     public String updateHOTNEW(CProduct cProduct) {
-         cProductServiceI.updateByPrimaryKeySelective(cProduct);
+         cProductServiceI.updateProductHOTNEWStatus(cProduct);
         return "redirect:/product/index";
     }
 

@@ -239,9 +239,11 @@
                                 function upload() {
                                     $("#frm").attr("action","/product/updateGoods");
                                     with($("#frm").get(0)){
-                                        if(checkForm())
+                                        if(checkForm()){
                                             submit();
-                                        toastr.success("发布商品成功")
+                                            toastr.success("修改产品成功")
+                                        }
+
                                     }
                                 }
 

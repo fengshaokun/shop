@@ -30,5 +30,8 @@ public interface CProductServiceI {
     //查询所有产品通过菜单分类
     Map selectProductsList();
 
+    void updateProductHOTNEWStatus(CProduct record);
+
+
 
 }
