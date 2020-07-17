@@ -72,15 +72,18 @@
       <p>- CASE SHOW -</p>
     </div>
     <!-- 案例内容 -->
-    <div class="caseContent">
-      <c:forEach items="${cases}" var="itemDto">
-      <div class="item">
-        <img src="${itemDto.backgroundImage}" alt="">
-        <div class="itemText">
-          <h4>${itemDto.name}</h4>
-          <p>${itemDto.companyIntroduct}</p>
-          <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>
+    <div class="caseContent container">
+      <c:forEach items="${cases}" var="itemDto" >
+      <div class="col-xs-12 col-md-3 col-sm-4" >
+        <div class="item">
+          <img src="${itemDto.backgroundImage}" alt="">
+          <div class="itemText">
+            <h4>${itemDto.name}</h4>
+            <p>${itemDto.companyIntroduct}</p>
+            <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>
+          </div>
         </div>
+
       </div>
       </c:forEach>
     </div>
@@ -117,11 +120,13 @@
       },
       "mouseleave": function () {
         $(this).find('.itemText').stop(true).animate({
-          bottom: "-90px"
+          bottom: "-75px"
         }, 300)
       },
 
     })
+
+
   </script>
 
 

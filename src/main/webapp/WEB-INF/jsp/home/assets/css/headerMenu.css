@@ -1,0 +1,184 @@
+a {
+  text-decoration: none;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+.header {
+  width: 100%;
+  /* height: 60px; */
+  background: #000;
+  box-sizing: border-box;
+  margin-bottom: 0;
+}
+[v-cloak]{
+  display: none;
+}
+.form-group input {
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  outline: unset;
+  border: unset;
+  padding: 5px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  color: #282828;
+}
+.header li.headerli {
+  display: flex;
+  line-height: 60px;
+  padding: 0px 15px;
+    color: #fff;
+    cursor: pointer;
+  align-items: center;
+  /*justify-content: center;*/
+}
+.header li.headerli a span {
+  display: inline-block;
+  line-height: 30px;
+}
+.header li.headerli .arrow {
+  color: #fff;
+  line-height: 30px;
+  float: right;
+}
+.header li.headerli a {
+  color: #fff;
+  display: flex;
+  width: 100%;
+}
+.header li.headerli .navName {
+  flex: 2;
+  padding-right: 5px;
+}
+.header li.headerli a:hover {
+  color: #fff;
+}
+.header li.headerli a:active {
+  color: #fff;
+}
+.header li.headerli a:visited {
+  color: #fff;
+}
+.navbar-brand a {
+  display: block;
+}
+.formbox {
+  margin: 15px 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.formbox {
+  position: relative;
+  /* float: right !important;
+  width: 100%; */
+}
+.formbox input {
+  width: 100%;
+}
+.formbox .search-btn {
+  position: absolute;
+  right: 5px;
+  top: 8px;
+  color: #999;
+  cursor: pointer;
+}
+/* 下拉部分 */
+.dropdown {
+  width: 100%;
+  /* height: 300px; */
+  position: absolute;
+  top: 60px;
+  background: #eee;
+  color: #000;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
+}
+.dropdown > div {
+  /* width: 1200px; */
+  display: flex;
+  height: 100%;
+  margin: 0 auto;
+  /* display: inline-flex; */
+}
+/* 左边列表 */
+.dropdown > div ul.left_ul {
+  /* width: 240px; */
+  /* height: 100%; */
+  border-right: 1px solid #ccc;
+  flex: 2;
+  padding: 20px;
+  box-sizing: border-box;
+
+}
+.dropdown ul.left_ul li {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.right_li_hover {
+  border-bottom: 2px solid #ccc;
+  font-weight: 600;
+}
+
+/* 右边列表 */
+.dropdown ul.right_ul {
+  /* width: 100%;
+  height: 100%; */
+  /* display: inline-flex; */
+  padding: 30px;
+  /*border-left: 1px solid #ccc;*/
+  box-sizing: border-box;
+  align-items: center;
+   display: flex;
+}
+.dropdown ul.right_ul li {
+  /* width: 200px; */
+  /* height: 200px; */
+  /* display: inline-flex; */
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  /* width: 40%; */
+  display: inline-block;
+}
+.dropdown ul.right_ul li img {
+  width: 100%;
+  /* height: 135px; */
+}
+.dropdown ul.right_ul li p {
+  color: #000;
+  font-size: 16px;
+}
+.dropdown ul.right_ul li p:nth-of-type(2) {
+  font-size: 12px;
+}
+
+.dropdown .dropdownNav0 {
+  flex: 8;
+  /* width: 960px; */
+  position: relative;
+}
+.checkMoreClass{
+  position: absolute;
+  bottom: 10px;
+}
+.headerContainer{
+  /*height: 60px;*/
+}
+.header{
+  min-height: 60px;
+}
+/*.headerContainer>ul.nav {*/
+/*  height: 60px;*/
+/*}*/

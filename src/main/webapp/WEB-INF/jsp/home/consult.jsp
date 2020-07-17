@@ -146,6 +146,24 @@
                 alert("请完善信息");
             }
         });
+
+        $.ajax({
+            url: "/home/weChatCord",    //请求的url地址
+            dataType: "json",   //返回格式为json
+            async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+            data: {},    //参数值
+            type: "post",   //请求方式
+            success: function (req) {
+                console.log(req)
+                if (req.status == 200) {
+                    $('.qrCodeHidden img').attr('src', req.data.src);
+                }
+            },
+            error: function () {
+
+            }
+
+        });
     })
     function upLoad() {
         var name = $('.name').val();
