@@ -154,7 +154,6 @@
             data: {},    //参数值
             type: "post",   //请求方式
             success: function (req) {
-                console.log(req)
                 if (req.status == 200) {
                     $('.qrCodeHidden img').attr('src', req.data.src);
                 }

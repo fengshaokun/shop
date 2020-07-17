@@ -51,8 +51,8 @@ public class CHomeController {
               lists.add(cHomePages.get(i));
           }
         map.put("homepages",lists);
-        List list = cCaseServiceI.selectAll();
-        map.put("cases",list);
+        PageInfo<CCase> cCasePageInfo = cCaseServiceI.selectAllLimit(1, 8);
+        map.put("cases",cCasePageInfo.getList());
         return "home/index";
     }
 

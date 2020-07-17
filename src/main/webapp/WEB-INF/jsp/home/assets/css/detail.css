@@ -183,7 +183,12 @@ button {
   color: hsla(0, 0%, 40%, 0.5);
 }
 .component-specs-content__redmi-xai img{
-  width: 100%;
+  width: 100% !important;
+}
+@media screen and (min-width: 1200px) {
+  .component-specs-content__redmi-xai img{
+    width: 1200px !important;
+  }
 }
 .component-specs-content__redmi-xai .mj-specs .specs-items .items-notes {
   line-height: 30px;

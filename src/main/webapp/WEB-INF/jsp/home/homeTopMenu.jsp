@@ -11,51 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<!-- 顶部导航 -->
-<%--<div class="header">--%>
-
-<%--    <!-- 列表 -->--%>
-<%--    <ul>--%>
-<%--        <!-- logo -->--%>
-
-<%--        <li class="headerli">--%>
-<%--            <a href="/home/index"> <div class="logo">--%>
-<%--                <img src="" alt="">--%>
-<%--            </div></a>--%>
-
-<%--        </li>--%>
-<%--        <li class="headerli">--%>
-<%--            <span><a href="/home/index">首页</a></span>--%>
-<%--        </li>--%>
-
-<%--      &lt;%&ndash;  <li class="headerli">--%>
-<%--            <span><a href="/home/list">产品列表</a></span>--%>
-<%--        </li>&ndash;%&gt;--%>
-<%--        <li class="headerli">--%>
-<%--            <span><a href="/home/caseShow">案例</a></span>--%>
-<%--        </li>--%>
-
-<%--        <li class="headerli">--%>
-<%--            <input id="param" type="text" placeholder="搜索...">--%>
-<%--            <span onclick="searchProduct()"></span>--%>
-<%--        </li>--%>
-<%--    </ul>--%>
-<%--    <!-- 下拉 -->--%>
-<%--    <div class="dropdown case">--%>
-<%--        <div>--%>
-<%--            <ul class="left_ul">--%>
-<%--            </ul>--%>
-<%--            <div class="dropdownNav dropdownNav0">--%>
-<%--                <ul class="right_ul">--%>
-<%--                </ul>--%>
-<%--                <!-- 产看更多 -->--%>
-<%--                <a href="/home/list"  class="checkMoreClass">查看更多+</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
-<%--    </div>--%>
-<%--</div>--%>
-
 
 <nav    id="headerNav"
         class="navbar navbar-default header"
@@ -112,11 +67,6 @@
                     </a>
                         </span>
                 </li>
-                <!-- <li>
-                  <a href="www.baidu.com"
-                    ><span class="glyphicon glyphicon-user"></span>个人中心</a
-                  >
-                </li> -->
             </ul>
             <!-- 搜索框 -->
             <form class="navbar-left formbox" role="search">
@@ -138,17 +88,14 @@
             <div class="dropdownNav dropdownNav0">
                 <ul class="right_ul">
                     <li v-for="(item,index) in menuProducts">
-                        <!-- <a href="/home/productDetails?id=50" target="_self"
-                          > -->
+                        <div class="rightdiv"  @click="todetail(index)">
                         <img
-                                :src="item.icon"
+                                :src="item.icon == '' || item.icon == null ? 'assets/images/zanwu.png':item.icon"
                                 alt=""
                         />
-                        <p>item.name</p>
-                        <p>item.tag</p>
-                        <!-- </a
-                        > -->
-                        <!-- <a href="">采集控制</a> -->
+                        <p>{{item.name}}</p>
+                        <p>{{item.tag}}</p>
+                    </div>
                     </li>
 
                 </ul>

@@ -37,7 +37,7 @@
                   </c:if>
                 </div>
                 <div class="imgBox">
-                  <img src="${itemDto.icon}" alt="" />
+                  <img src="${itemDto.icon==null ||itemDto.icon =='' ? 'assets/images/zanwu.png':itemDto.icon}" alt="" />
                 </div>
                   <div class="listdetail">
                     <div class="detailtt">${itemDto.name}</div>

@@ -76,7 +76,7 @@
       <c:forEach items="${cases}" var="itemDto" >
       <div class="col-xs-12 col-md-3 col-sm-4" >
         <div class="item">
-          <img src="${itemDto.backgroundImage}" alt="">
+          <img src="${itemDto.backgroundImage==null||itemDto.backgroundImage=='' ?'assets/images/zanwu.png' :itemDto.backgroundImage  }" alt="">
           <div class="itemText">
             <h4>${itemDto.name}</h4>
             <p>${itemDto.companyIntroduct}</p>

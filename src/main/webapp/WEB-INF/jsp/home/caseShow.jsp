@@ -46,7 +46,7 @@
         <div class="itemGroup">
           <c:forEach items="${pageInfo.list}" var="itemDto">
           <div class="item">
-            <img src="${itemDto.backgroundImage}" alt="">
+            <img src="${itemDto.backgroundImage==null||itemDto.backgroundImage=='' ?'assets/images/zanwu.png' :itemDto.backgroundImage  }" alt="">
             <h4>${itemDto.name}</h4>
             <p>${itemDto.companyIntroduct}</p>
             <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>

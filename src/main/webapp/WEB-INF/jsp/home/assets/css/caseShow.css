@@ -246,7 +246,7 @@
 }
 
 .itemGroup .item img {
-  width: 100%;
+  width: 180px;
   height: 160px;
 }
 
@@ -254,6 +254,9 @@
   font-size: 18px;
   line-height: 30px;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .itemGroup .item p {
@@ -261,7 +264,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   margin-bottom: 10px;
 }

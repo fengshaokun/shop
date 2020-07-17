@@ -17,7 +17,6 @@ new Vue({
             data: {}, //参数值
             type: "post", //请求方式
             success: function (req) {
-                console.log(req)
                 _this.logoSrc = req.data.logo.src;
                 _this.menuData = req.data.menu;
             }
@@ -33,8 +32,9 @@ new Vue({
            }
           this.currentMenuData = Object.assign({},this.menuData[index]);
           this.currentMenuData.current = 0;
+          this.menuTo(0)
 
-           this.menuTo(0)
+
       },
       leaveDropdown(){//移出dropdown消失
           this.showdropdown = false;
@@ -42,7 +42,7 @@ new Vue({
       },
         menuTo(index){//移入二级菜单显示三级菜单
             var _this = this;
-            console.log(this.currentMenuData.childMenu)
+            if (this.currentMenuData.childMenu==null) return this.showdropdown = false;
             var id = this.currentMenuData.childMenu[index].id;
             this.currentMenuData.current = index;
             $.ajax({
@@ -52,10 +52,13 @@ new Vue({
                 data: {"id": id},    //参数值
                 type: "post",   //请求方式
                 success: function (req) {
-                    console.log(req)
                     _this.menuProducts = req.data;
                 }
             })
+        },
+        todetail(index){
+          var id = this.menuProducts[index].id;
+          window.location.href = "/home/productDetails?id="+id;
         }
     }
  })

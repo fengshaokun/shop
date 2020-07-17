@@ -40,6 +40,7 @@
     from c_case
     order by sort
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_case
     where ID = #{id,jdbcType=INTEGER}

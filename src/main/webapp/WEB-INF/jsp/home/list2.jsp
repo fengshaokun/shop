@@ -30,35 +30,13 @@
               </c:if>
             </div>
             <div class="imgBox">
-              <img src="${itemDto.icon}" alt="" />
+              <img src="${itemDto.icon==null ||itemDto.icon =='' ? 'assets/images/zanwu.png':itemDto.icon}" alt="" />
             </div>
-          <%--  <div class="mask">
-              <img class="play" src="/home/assets/images/play.png" alt="" />
-            </div>
-            <div class="video">
-              <div class="videodiv">
-                <span class="close"></span>
-                <video
-                  width="520"
-                  height="340"
-                  controls="controls"
-                  muted="muted"
-                  autoplay="autoplay"
-                  loop="loop"
-                >
-                  <source src="${itemDto.video}" type="video/mp4" />
-                </video>
-              </div>
-            </div>
---%>
               <div class="listdetail">
                 <div class="detailtt">${itemDto.name}</div>
                 <div class="detaillabel">
-                  <!-- <div class="labeltt">产品标签</div> -->
                   <ul>
                     <li>${itemDto.tag}</li>
-                <%--    <li>可配置的无线模式</li>
-                    <li>有电池</li>--%>
                   </ul>
                 </div>
                 <div class="detailinstruction">

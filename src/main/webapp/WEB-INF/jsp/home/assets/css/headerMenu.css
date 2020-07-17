@@ -13,6 +13,14 @@ ol {
   box-sizing: border-box;
   margin-bottom: 0;
 }
+.header .navbar-brand .logo {
+  width: 120px;
+  height: 40px;
+}
+.header .navbar-brand .logo img{
+  width: 100%;
+  height: 100%;
+}
 [v-cloak]{
   display: none;
 }
@@ -154,6 +162,8 @@ ol {
 }
 .dropdown ul.right_ul li img {
   width: 100%;
+  width: 135px;
+  height: 120px;
   /* height: 135px; */
 }
 .dropdown ul.right_ul li p {
@@ -168,6 +178,9 @@ ol {
   flex: 8;
   /* width: 960px; */
   position: relative;
+}
+.dropdown .dropdownNav0 .rightdiv{
+  cursor: pointer;
 }
 .checkMoreClass{
   position: absolute;

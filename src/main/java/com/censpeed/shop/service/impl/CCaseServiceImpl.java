@@ -69,4 +69,6 @@ public class CCaseServiceImpl implements CCaseServiceI {
     public CItemDetails selectCaseDetailsByCaId(Integer id) {
         return cItemDetailsMapper.selectByPrimaryKey(id);
     }
+
+
 }
