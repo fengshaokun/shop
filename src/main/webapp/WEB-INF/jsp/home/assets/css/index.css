@@ -153,7 +153,7 @@
 /* banner轮播 */
 .swiper-container {
 	height: 500px;
-	overflow: visible;
+	overflow: hidden;
 }
 .paginationB {
 	position: absolute;

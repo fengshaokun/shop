@@ -6,7 +6,9 @@ new Vue({
         // current: "",
         currentMenuData: [],
         showdropdown: false,
-        menuProducts: []
+        menuProducts: [],
+        menuShow: true,
+        current: ""
     },
     created: function () {
         var _this = this;
@@ -30,16 +32,38 @@ new Vue({
            } else{
                this.showdropdown = false;
            }
+           this.current = index;
           this.currentMenuData = Object.assign({},this.menuData[index]);
           this.currentMenuData.current = 0;
           this.menuTo(0)
-
-
+          var collapse = document.querySelector(".navbar-toggle");
+          var navbar = document.querySelector(".navbar-toggle");
+          navbar.removeAttribute("aria-expanded")
+          collapse.click();
       },
-      leaveDropdown(){//移出dropdown消失
-          this.showdropdown = false;
+        collapseDown(){
+          var navbar = document.querySelector(".navbar-toggle");
+          var dropdown = document.querySelector(".dropdown");
+          var isDrop = navbar.getAttribute("aria-expanded");
+          // console.log(navbar.classList.contains('collapsed'))
+          //   console.log(isDrop)
+            console.log(this.menuData)
+            console.log(this.current)
+            console.log(this.menuData[this.current])
+            // console.log(this.menuData[this.current].childMenu)
+            if(this.current != "" && this.menuData[this.current].childMenu !== null && !navbar.classList.contains('collapsed')){
+                console.log("没有展开")
+                dropdown.style.display = "block";
+            }else{
+                dropdown.style.display = "none";
+            }
 
-      },
+
+        },
+          leaveDropdown(){//移出dropdown消失
+              this.showdropdown = false;
+
+          },
         menuTo(index){//移入二级菜单显示三级菜单
             var _this = this;
             if (this.currentMenuData.childMenu==null) return this.showdropdown = false;

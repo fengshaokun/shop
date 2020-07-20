@@ -38,14 +38,14 @@
         </div>
       </div>
       <!-- 内容主体 -->
-      <div class="mainBodyContent">
+      <div class="container mainBodyContent">
         <div class="title">
           <h4>倍速世纪案例展示</h4>
           <p>-CASE SHOW-</p>
         </div>
         <div class="itemGroup">
           <c:forEach items="${pageInfo.list}" var="itemDto">
-          <div class="item">
+          <div class="item col-xs-12 col-md-2 col-sm-4">
             <img src="${itemDto.backgroundImage==null||itemDto.backgroundImage=='' ?'assets/images/zanwu.png' :itemDto.backgroundImage  }" alt="">
             <h4>${itemDto.name}</h4>
             <p>${itemDto.companyIntroduct}</p>
