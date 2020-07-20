@@ -99,7 +99,7 @@ public String list(Map map){
     @RequestMapping("menuProducts")
     @ResponseBody
     public ShopResult menuProducts(Integer id){
-        List<CProduct> cProducts = cProductServiceI.selectProductByMenuId(id);
+        List<CProduct> cProducts = cProductServiceI.selectProductByMenuIdFive(id);
         return ShopResult.ok(cProducts);
     }
 

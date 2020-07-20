@@ -22,6 +22,8 @@ public interface CProductMapper {
 
     //根据菜单Id 查询产品
     List<CProduct> selectProductByMenuId(Integer id);
+    //根据菜单Id 查询产品
+    List<CProduct> selectProductByMenuIdFive(Integer id);
 
     //搜索模糊查询
     List<CProduct> selectProductLike(@Param("name") String name,@Param("status") Integer status );

@@ -101,6 +101,11 @@ private CMenuMapper cMenuMapper;
     }
 
     @Override
+    public List<CProduct> selectProductByMenuIdFive(Integer id) {
+        return cProductMapper.selectProductByMenuIdFive(id);
+    }
+
+    @Override
     public PageInfo<CProduct> selectProductLike(String name,Integer status, Integer pageNum, Integer pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<CProduct> cProducts = cProductMapper.selectProductLike(name,status);
