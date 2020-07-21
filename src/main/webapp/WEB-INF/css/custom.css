@@ -1948,4 +1948,25 @@ a:hover {
     float:left;
     margin-left: 15px;
 }
+/*建议尺寸样式*/
+.tips{
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 5px;
+    cursor: pointer;
+    position: relative;
+}
+.tips .tooltipDiv{
+    position: absolute;
+    right: -150px;
+    top: -5px;
+    display: inline-block;
+    padding: 3px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+    display: none;
+}
 

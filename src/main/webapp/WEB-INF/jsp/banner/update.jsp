@@ -62,6 +62,7 @@
                                 <div class="col-sm-6" >
                                     <input type="hidden" id="txtIconurl" name="image" value="${banner.image}"/>
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()" style="margin-top: -100px; margin-right: 20px;"/>
+
                                     <img id='icon' style='margin: 10px' src='${banner.image}' width='100' height='100' >
                                     <textarea id="uploadIconEditor" style="display: block;"></textarea>
                                 </div>

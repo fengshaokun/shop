@@ -44,6 +44,9 @@
                                 <div class="col-sm-6" >
                                     <input type="hidden" id="txtImgurl" name="src" value="${homepage.src}" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnImageUpLoader" value="上传图片" onclick="upImage()" style="margin-right: 20px;"/>
+                                    <span class="glyphicon glyphicon-question-sign tips" >
+                                    <span class="tooltipDiv">建议尺寸：1528*600px</span>
+                                    </span>
                                     <img  id='img' style='margin: 10px' src='${homepage.src}' width='100' height='100' >
 
                                     <textarea id="uploadEditor" style="display: block;"></textarea>

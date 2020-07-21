@@ -50,6 +50,9 @@
                                 <div class="col-sm-6" >
                                     <input type="hidden" id="txtIconurl" name="companyLogo" value="${item.companyLogo}" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()" style="margin-top: -100px;margin-right: 20px;"/>
+                                    <span class="glyphicon glyphicon-question-sign tips" >
+                                    <span class="tooltipDiv">建议尺寸：180*160px</span>
+                                    </span>
                                     <img  id='icon' style='margin: 10px' src='${item.companyLogo}' width='100' height='100' >
                                     <button id='dIcon' class='btn btn-primary ' onclick='deleteIcon()' >清除</button>
                                     <textarea id="uploadIconEditor" style="display: block;"></textarea>

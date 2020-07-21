@@ -46,7 +46,13 @@
                                 <input type="hidden" id="txtIconurl" name="icon"/>
                                 <input type="button" class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片"
                                        onclick="upIcon()"/>
+
+                                <span class="glyphicon glyphicon-question-sign tips" >
+                                    <span class="tooltipDiv">建议尺寸：180*135px</span>
+                                </span>
+
                                 <textarea id="uploadIconEditor" style="display: block;"></textarea>
+
                             </div>
 
                         </div>
@@ -143,6 +149,7 @@
 
                         <script type="text/javascript" src="/js/fwb.js"></script>
                         <script type="text/javascript">
+
 
                             // 实例化编辑器，这里注意配置项隐藏编辑器并禁用默认的基础功能。
                             var uploadIconEditor = UE.getEditor("uploadIconEditor");

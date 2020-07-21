@@ -43,6 +43,9 @@
                                 <div class="col-sm-6" >
                                     <input type="hidden" id="txtIconurl" name="companyLogo" />
                                     <input type="button"  class="btn btn-primary btn-lg" id="btnIconUpLoader" value="上传图片" onclick="upIcon()"/>
+                                    <span class="glyphicon glyphicon-question-sign tips" >
+                                    <span class="tooltipDiv">建议尺寸：180*160px</span>
+                                    </span>
                                     <textarea id="uploadIconEditor" style="display: block;"></textarea>
                                 </div>
                             </div>
