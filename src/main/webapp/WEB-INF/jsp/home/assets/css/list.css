@@ -181,7 +181,8 @@ a:active {
 }
 
 .box-hd {
-  height: 60px;
+  /*height: 60px;*/
+  /*line-height: 40px;*/
   padding-top: 14px;
   padding-left: 20px;
   /* border-bottom: 1px solid #e0e0e0; */
@@ -195,7 +196,8 @@ a:active {
 }
 .box-hd .title {
   font-size: 18px;
-  color: #333;
+  line-height: 30px;
+  color: #0e4667;
   font-weight: 400;
   cursor: pointer;
 }

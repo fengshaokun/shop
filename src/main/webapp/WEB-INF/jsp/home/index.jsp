@@ -22,10 +22,10 @@
         <div class="inner">
           <div class="banner-text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s"
                swiper-animate-delay="0.5s">
-            <h3><em>设备图形及UI定制</em></h3>
-            <p>设备自适应，图形化控制、事件管理、能效管理、设施管理、策略日历、WEB应用</p>
+            <h3><em>${banner0.title}</em></h3>
+            <p>${banner0.subtitle}</p>
           </div>
-          <img src="assets/images/bg1.png" class="ani img2" swiper-animate-effect="fadeInDown"
+          <img src="${banner0.image}" class="ani img2" swiper-animate-effect="fadeInDown"
                swiper-animate-duration="2s" swiper-animate-delay="0.5s">
         </div>
       </div>
@@ -33,10 +33,10 @@
         <div class="inner">
           <div class="banner-text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s"
                swiper-animate-delay="0.5s">
-            <h3><em>能效管理</em></h3>
-            <p>设备自适应，图形化控制、事件管理、能效管理、设施管理、策略日历、WEB应用</p>
+            <h3><em>${banner0.title}</em></h3>
+            <p>${banner0.subtitle}</p>
           </div>
-          <img src="assets/images/bg2.png" class="ani img2" swiper-animate-effect="fadeInDown"
+          <img src="${banner1.image}" class="ani img2" swiper-animate-effect="fadeInDown"
                swiper-animate-duration="2s" swiper-animate-delay="0.5s">
         </div>
       </div>
@@ -44,10 +44,10 @@
         <div class="inner">
           <div class="banner-text ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="2s"
             swiper-animate-delay="0.5s">
-            <h3><em>系统集成解决方案</em></h3>
-            <p>软件集成了多种楼宇常用的协议标准，包括OBIX、OPC、BACNet、Lonworks、M-Bus、KNX等多种标准协议，以及多厂商楼宇自控系统的私有协议</p>
+            <h3><em>${banner2.title}</em></h3>
+            <p>${banner2.subtitle}</p>
           </div>
-          <img src="assets/images/bg3.png" class="ani img1" swiper-animate-effect="fadeInRight"
+          <img src="${banner2.image}" class="ani img1" swiper-animate-effect="fadeInRight"
             swiper-animate-duration="1s" swiper-animate-delay="0.5s">
         </div>
       </div>

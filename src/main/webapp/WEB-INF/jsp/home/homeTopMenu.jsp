@@ -71,7 +71,7 @@
             </ul>
             <!-- 搜索框 -->
             <form class="navbar-left formbox" role="search">
-                <input type="text" class="form-control" placeholder="搜索" />
+                <input id="param" type="text" class="form-control" placeholder="搜索" />
                 <span
                         class="glyphicon glyphicon-search search-btn"
                         onclick="searchProduct()"
@@ -112,7 +112,6 @@
 
 function  searchProduct() {
     var val = $('#param').val();
-    console.log("search======" +val)
     if (val!=null&&undefined!=val) {
         $.ajax({
             url: "/home/searchParam",    //请求的url地址

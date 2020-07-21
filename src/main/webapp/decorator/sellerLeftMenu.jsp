@@ -31,7 +31,11 @@
             </li>
             <li>
                 <a href="/homepage/index" >首页管理</a>
-            </li>    <li>
+            </li>
+            <li>
+                <a href="/banner/index" >轮播图</a>
+            </li>
+            <li>
                 <a href="/homepage/foot" >底部管理</a>
             </li>
         </ul>

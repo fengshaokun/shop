@@ -33,6 +33,8 @@ public class CHomeController {
     private CUserConsultServiceI cUserConsultServiceI;
     @Autowired
     private SendByEmailConfig send;
+    @Autowired
+    private CBannerSetviceI cBannerSetviceI;
 
 
 
@@ -53,6 +55,10 @@ public class CHomeController {
         map.put("homepages",lists);
         PageInfo<CCase> cCasePageInfo = cCaseServiceI.selectAllLimit(1, 8);
         map.put("cases",cCasePageInfo.getList());
+        List<CBanner> cBanners = cBannerSetviceI.selectAllBanner();
+        for (int i=0;i<cBanners.size();i++){
+            map.put("banner"+i,cBanners.get(i));
+        }
         return "home/index";
     }
 

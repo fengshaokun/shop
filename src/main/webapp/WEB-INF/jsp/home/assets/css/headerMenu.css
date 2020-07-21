@@ -214,9 +214,18 @@ ol {
   }
 }
 @media screen and (min-width: 1000px){
+  /*.dropdown > div{*/
+  /*  display: inline-block;*/
+  /*}*/
   .dropdown > div ul.left_ul{
-    width: 240px;
+    width: 150px;
     flex: initial;
+    display: inline-block;
+  }
+  .dropdown .dropdownNav0{
+    flex: initial;
+    width: 1000px;
+    display: inline-block;
   }
 }
 /*.headerContainer>ul.nav {*/

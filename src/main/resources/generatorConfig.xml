@@ -41,7 +41,7 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />-->
-        <table schema="censpeed_product" tableName="c_foot_text"
+        <table schema="censpeed_product" tableName="c_banner"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />
