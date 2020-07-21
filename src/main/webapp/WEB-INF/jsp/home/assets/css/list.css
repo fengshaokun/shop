@@ -31,7 +31,7 @@ a:active {
 }
 .list li.listli {
   margin: 10px;
-   width: 215px;
+   /*width: 215px;*/
   /* height: 300px; */
   position: relative;
   cursor: pointer;
@@ -81,6 +81,7 @@ a:active {
   /* height: 168px; */
   display: inline-block;
   width: 95%;
+  height: 185px;
 }
 .list li.listli .imgBox img {
   /* width: 180px; */

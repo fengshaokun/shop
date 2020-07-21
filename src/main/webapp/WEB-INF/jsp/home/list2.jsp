@@ -16,7 +16,7 @@
   <jsp:include page="homeTopMenu.jsp"/>
     <div class="main-container mainBody" >
 
-      <div class="list J_box-bd">
+      <div class="list J_box-bd container">
         <ul>
 <c:forEach items="${pageInfo.list}" var="itemDto">
           <li class="listli col-xs-12 col-md-2 col-sm-4">
