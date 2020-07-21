@@ -50,18 +50,18 @@
                     class="nav navbar-nav collapse navbar-collapse"
                     id="bs-example-navbar-collapse-1"
             >
-                <li class="headerli" @mouseover="enter()">
+                <li class="headerli" @mouseover="enter()" >
 
                         <span class="navName"><a href="/home/index">首页</a></span>
 
                 </li>
-                <li class="headerli header_case" :data-id="item.id" v-for="(item,index) in menuData" @mouseover="enter(index)" >
+                <li class="headerli header_case" :data-id="item.id" v-for="(item,index) in menuData" @mouseover="enter(index)" @click="enterclick()">
 <%--                    <a href="/home/list">--%>
                         <span class="navName">{{item.principal}}</span>
                         <span class="glyphicon glyphicon-menu-down arrow"></span>
 <%--                    </a>--%>
                 </li>
-                <li class="headerli" @mouseover="enter()">
+                <li class="headerli" @mouseover="enter()" >
                     <span class="navName">
                     <a href="/home/caseShow">
                         案例

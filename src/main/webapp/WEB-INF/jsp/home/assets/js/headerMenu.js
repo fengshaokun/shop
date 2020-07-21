@@ -8,7 +8,8 @@ new Vue({
         showdropdown: false,
         menuProducts: [],
         menuShow: true,
-        current: ""
+        current: "",
+        isUp: true
     },
     created: function () {
         var _this = this;
@@ -36,28 +37,16 @@ new Vue({
           this.currentMenuData = Object.assign({},this.menuData[index]);
           this.currentMenuData.current = 0;
           this.menuTo(0)
-          var collapse = document.querySelector(".navbar-toggle");
-          var navbar = document.querySelector(".navbar-toggle");
-          navbar.removeAttribute("aria-expanded")
-          collapse.click();
-      },
-        collapseDown(){
-          var navbar = document.querySelector(".navbar-toggle");
-          var dropdown = document.querySelector(".dropdown");
-          var isDrop = navbar.getAttribute("aria-expanded");
-          // console.log(navbar.classList.contains('collapsed'))
-          //   console.log(isDrop)
-            console.log(this.menuData)
-            console.log(this.current)
-            console.log(this.menuData[this.current])
-            // console.log(this.menuData[this.current].childMenu)
-            if(this.current != "" && this.menuData[this.current].childMenu !== null && !navbar.classList.contains('collapsed')){
-                console.log("没有展开")
-                dropdown.style.display = "block";
-            }else{
-                dropdown.style.display = "none";
-            }
 
+      },
+        enterclick(){
+            var collapse = document.querySelector(".navbar-toggle");
+            var navbar = document.querySelector("#headerNav");
+            // navbar.removeAttribute("aria-expanded")
+            collapse.click();
+
+        },
+        collapseDown(){//移动端点击右上角图标显示菜单
 
         },
           leaveDropdown(){//移出dropdown消失
@@ -83,6 +72,22 @@ new Vue({
         todetail(index){
           var id = this.menuProducts[index].id;
           window.location.href = "/home/productDetails?id="+id;
+        },
+        isVisible(el) {
+            var loopable = true,
+                visible = getComputedStyle(el).display != 'none' && getComputedStyle(el).visibility != 'hidden';
+
+            while(loopable && visible) {
+                el = el.parentNode;
+
+                if(el && el != document.body) {
+                    visible = getComputedStyle(el).display != 'none' && getComputedStyle(el).visibility != 'hidden';
+                }else {
+                    loopable = false;
+                }
+            }
+
+            return visible;
         }
     }
  })
