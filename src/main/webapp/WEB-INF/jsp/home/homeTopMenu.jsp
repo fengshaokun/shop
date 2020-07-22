@@ -26,7 +26,6 @@
                     data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1"
                     type="button"
-                    @click="collapseDown"
             >
                 <span class="sr-only navbar-left">切换导航</span>
                 <span class="icon-bar navbar-left"></span>

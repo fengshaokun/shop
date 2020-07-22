@@ -40,13 +40,14 @@ new Vue({
 
       },
         enterclick(){
-            var collapse = document.querySelector(".navbar-toggle");
-            var navbar = document.querySelector("#headerNav");
-            // navbar.removeAttribute("aria-expanded")
-            collapse.click();
 
-        },
-        collapseDown(){//移动端点击右上角图标显示菜单
+            var w = document.body.clientWidth;
+            console.log(w)
+            if(w<780){
+                var collapse = document.querySelector(".navbar-toggle");
+                collapse.click();
+            }
+
 
         },
           leaveDropdown(){//移出dropdown消失
