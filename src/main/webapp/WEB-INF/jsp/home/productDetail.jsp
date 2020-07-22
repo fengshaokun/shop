@@ -51,7 +51,6 @@
 </div>
 <jsp:include page="homeBottom.jsp"/>
 <jsp:include page="footer.jsp"/>
-<jsp:include page="consult.jsp"/>
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script>
       $(".playright").on("click", function () {
