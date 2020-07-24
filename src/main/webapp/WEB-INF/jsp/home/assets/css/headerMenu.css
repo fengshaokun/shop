@@ -201,6 +201,7 @@ ol {
 .checkMoreClass{
   position: absolute;
   bottom: 10px;
+  cursor: pointer;
 }
 .headerContainer{
   /*height: 60px;*/
