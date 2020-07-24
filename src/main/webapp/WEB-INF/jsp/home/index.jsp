@@ -78,7 +78,8 @@
         <div class="item">
           <img src="${itemDto.backgroundImage==null||itemDto.backgroundImage=='' ?'assets/images/zanwu.png' :itemDto.backgroundImage  }" alt="">
           <div class="itemText">
-            <h4>${itemDto.name}</h4>
+            <h4>某某设备有限公司</h4>
+            <h5>${itemDto.name}</h5>
             <p>${itemDto.companyIntroduct}</p>
             <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>
           </div>

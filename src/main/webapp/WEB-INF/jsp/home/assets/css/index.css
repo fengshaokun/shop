@@ -462,9 +462,9 @@
 
 .caseContent .item .itemText {
   width: 100%;
-  height: 120px;
+  height: 150px;
   position: absolute;
-  bottom: -75px;
+  bottom: -105px;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
     padding: 0 10px;
@@ -479,7 +479,12 @@
 text-overflow:ellipsis;
 white-space: nowrap;
 }
-
+.caseContent .item .itemText h5{
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .caseContent .item .itemText p {
   font-size: 13px;
   text-indent: 2em;
@@ -503,6 +508,7 @@ white-space: nowrap;
 }
 .caseContent .item .itemText a:hover{
   color:#f45353;
+    text-decoration: none;
 } 
 /* 查看更多 */
 .caseShow .checkMore {
