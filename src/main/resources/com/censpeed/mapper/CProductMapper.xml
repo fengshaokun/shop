@@ -81,7 +81,7 @@
       LEFT JOIN c_product_menu_link
       ON c_product.id = c_product_menu_link.C_PRODUCT_ID
       WHERE c_product_menu_link.C_MENU_ID = #{id,jdbcType=INTEGER}
-      order by c_product.sort limit 0,5
+      order by c_product.sort limit 0,4
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from c_product
