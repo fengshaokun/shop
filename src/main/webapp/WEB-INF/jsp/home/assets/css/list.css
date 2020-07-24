@@ -27,7 +27,7 @@ a:active {
   margin: 0 auto;
 }
 .list ul {
-  display: inline-block;
+  /*display: inline-block;*/
 }
 .list li.listli {
   margin: 10px;

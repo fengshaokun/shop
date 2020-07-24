@@ -29,7 +29,7 @@
     <div class="mainContent">
       <!-- 顶部 -->
       <div class="topNav">
-        <div>
+        <div class="container">
           <i></i>
           <span class="text">您当前的位置:</span>
           <a href="/home/index">首页</a>
@@ -45,12 +45,16 @@
         </div>
         <div class="itemGroup">
           <c:forEach items="${pageInfo.list}" var="itemDto">
-          <div class="item col-xs-12 col-md-2 col-sm-4">
-            <img src="${itemDto.backgroundImage==null||itemDto.backgroundImage=='' ?'assets/images/zanwu.png' :itemDto.backgroundImage  }" alt="">
-            <h4>${itemDto.name}</h4>
-            <p>${itemDto.companyIntroduct}</p>
-            <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>
-          </div>
+            <div class="col-xs-12 col-md-3 col-sm-4">
+              <div class="item">
+                <img src="${itemDto.backgroundImage==null||itemDto.backgroundImage=='' ?'assets/images/zanwu.png' :itemDto.backgroundImage  }" alt="">
+                <h4>某某设备有限公司</h4>
+                <h5>${itemDto.name}</h5>
+                <p>${itemDto.companyIntroduct}</p>
+                <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>
+              </div>
+            </div>
+
           </c:forEach>
         </div>
       </div>

@@ -194,6 +194,9 @@
   color: #282828;
   margin:0px 5px;
 }
+.mainContent .topNav>div a:hover{
+  text-decoration: none;
+}
 /* 内容主体 */
 .mainBodyContent .title{
   /*width: 1200px;*/
@@ -225,7 +228,7 @@
   /*width: 200px;*/
   /*height: 300px;*/
   display: inline-block;
-  margin:0px 18px;
+  margin:0px 25px;
   position: relative;
   overflow: hidden;
   padding:10px;
@@ -245,7 +248,9 @@
 .itemGroup .item:hover a{
   color:#00aeef;
 }
-
+.itemGroup .item:hover h5{
+  color:#00aeef;
+}
 .itemGroup .item img {
   width: 99%;
   height: 160px;
@@ -268,6 +273,7 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
   margin-bottom: 10px;
+  height: 38px;
 }
 
 .itemGroup .item a {
@@ -278,4 +284,5 @@
 }
 .itemGroup .item a:hover{
   color:#f45353;
+  text-decoration: none;
 } 

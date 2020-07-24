@@ -63,7 +63,7 @@
                 <li class="headerli" @mouseover="enter()" >
                     <span class="navName">
                     <a href="/home/caseShow">
-                        案例
+                        应用案例
                     </a>
                         </span>
                 </li>
@@ -87,7 +87,7 @@
             </ul>
             <div class="dropdownNav dropdownNav0">
                 <ul class="right_ul">
-                    <li v-for="(item,index) in menuProducts">
+                    <li v-for="(item,index) in menuProducts" class="col-xs-12 col-md-2 col-sm-4">
                         <div class="rightdiv"  @click="todetail(index)">
                         <img
                                 :src="item.icon == '' || item.icon == null ? 'assets/images/zanwu.png':item.icon"
