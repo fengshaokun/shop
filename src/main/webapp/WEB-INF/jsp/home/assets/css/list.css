@@ -91,14 +91,10 @@ a:active {
 }
 .list li.listli .imgBox {
   text-align: center;
-  /* height: 168px; */
-  display: inline-block;
-  width: 95%;
   min-height: 185px;
 }
 .list li.listli .imgBox img {
-  /* width: 180px; */
-  width: 100%;
+   width: 185px;
   /*height: 135px;*/
   margin-top: 50px;
   margin-bottom: 20px;
