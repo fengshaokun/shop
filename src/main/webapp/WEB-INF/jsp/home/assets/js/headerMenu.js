@@ -10,7 +10,6 @@ new Vue({
         menuShow: true,
         current: "",
         isUp: true,
-        url: ""
     },
     created: function () {
         var _this = this;
