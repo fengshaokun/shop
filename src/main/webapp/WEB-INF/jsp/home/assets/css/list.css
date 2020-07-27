@@ -89,6 +89,9 @@ a:active {
   top: 0;
   right: 0;
 }
+.list li.listli:hover{
+  box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.18);
+}
 .list li.listli .imgBox {
   text-align: center;
   min-height: 185px;
