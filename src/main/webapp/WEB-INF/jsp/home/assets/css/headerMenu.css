@@ -202,6 +202,10 @@ ol {
   position: absolute;
   bottom: 10px;
   cursor: pointer;
+
+}
+.checkMoreClass:hover{
+  text-decoration: none;
 }
 .headerContainer{
   /*height: 60px;*/
