@@ -78,7 +78,7 @@
         <div class="item">
           <img src="${itemDto.backgroundImage==null||itemDto.backgroundImage=='' ?'assets/images/zanwu.png' :itemDto.backgroundImage  }" alt="">
           <div class="itemText">
-            <h4>某某设备有限公司</h4>
+            <h4>${itemDto.companyName}</h4>
             <h5>${itemDto.name}</h5>
             <p>${itemDto.companyIntroduct}</p>
             <a href="/home/caseDetails?id=${itemDto.id}" target="_blank">MORE..</a>
@@ -121,7 +121,7 @@
       },
       "mouseleave": function () {
         $(this).find('.itemText').stop(true).animate({
-          bottom: "-75px"
+          bottom: "-85px"
         }, 300)
       },
 

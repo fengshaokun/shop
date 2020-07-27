@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" isELIgnored="false" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,11 +17,13 @@
   <jsp:include page="homeTopMenu.jsp"/>
     <div class="main-container mainBody" >
 
-      <c:forEach items="${map}" var="map">
+      <c:forEach items="${map}" var="map" >
+
       <div class="category-list container">
-        <div class="box-hd J_box-hd">
+        <div class="box-hd J_box-hd" id=" >
           <h2 class="title">
-            <i class="glyphicon glyphicon-menu-down"></i>${map.key}
+            <i class="glyphicon glyphicon-menu-down"></i>
+              ${map.key}
           </h2>
         </div>
         <div class="list J_box-bd">

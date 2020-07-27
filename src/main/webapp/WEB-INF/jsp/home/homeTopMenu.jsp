@@ -100,7 +100,7 @@
 
                 </ul>
                 <!-- 产看更多 -->
-                <a href="/home/list" class="checkMoreClass">查看更多+</a>
+                <a herf="/home/list" class="checkMoreClass">查看更多+</a>
             </div>
         </div>
     </div>
