@@ -29,7 +29,7 @@
         <div class="list J_box-bd">
           <ul>
             <c:forEach items="${map.value}" var="itemDto">
-              <li class="listli col-xs-12 col-md-2 col-sm-4">
+              <li class="listli">
                 <a href="/home/productDetails?id=${itemDto.id}" target="_blank">
                 <div class="tipimg">
                   <c:if test="${itemDto.isNew==0}">
