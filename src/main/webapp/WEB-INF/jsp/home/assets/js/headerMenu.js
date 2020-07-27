@@ -9,7 +9,8 @@ new Vue({
         menuProducts: [],
         menuShow: true,
         current: "",
-        isUp: true
+        isUp: true,
+        url: ""
     },
     created: function () {
         var _this = this;
