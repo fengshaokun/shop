@@ -16,10 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.beans.Transient;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class CProductServiceImpl implements CProductServiceI {
@@ -124,7 +121,7 @@ private CMenuMapper cMenuMapper;
         List<CMenu> PMenus = cMenuMapper.selectFootMenus(0);
         //查询所有2级菜单
 
-        Map map = new HashMap();
+        Map map = new LinkedHashMap();
         if (!PMenus.isEmpty()){
             for (CMenu c:PMenus){
                 List<CMenu> cMenus = cMenuMapper.selectFootMenus(c.getId());
