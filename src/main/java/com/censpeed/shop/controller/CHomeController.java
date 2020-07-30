@@ -45,6 +45,11 @@ public class CHomeController {
     @Value("${homeCaseSize}")
     private Integer homeCaseSize;
 
+    @RequestMapping("i")
+    public String i (){
+        return  "index";
+    }
+
     @RequestMapping("index")
     public String toMain(Map map){
         List<CHomePage>lists=new ArrayList<>();

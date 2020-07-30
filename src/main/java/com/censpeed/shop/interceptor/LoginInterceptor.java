@@ -23,7 +23,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         CUser cUser = (CUser)request.getSession().getAttribute("user");
         if (null == cUser ) {
             // 未登录，重定向到登录页
-            response.sendRedirect("/home/index");
+           // response.sendRedirect("/home/index");
+            response.sendRedirect("/home/i");
             return false;
         }
         return true;
