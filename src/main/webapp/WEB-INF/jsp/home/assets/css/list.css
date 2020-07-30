@@ -39,12 +39,13 @@ a:active {
   background: #fff;
   vertical-align: top;
 }
-/*@media screen and (max-width: 500px) {*/
-/*  list li.listli{*/
-/*    width: 90%;*/
-/*    margin: 10px;*/
-/*  }*/
-/*}*/
+.list li.listli:hover{
+  top: -3px;
+  -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+}
 .list li.listli .tipimg1 {
   width: 26px;
   height: 26px;
@@ -88,9 +89,6 @@ a:active {
   left: 0;
   top: 0;
   right: 0;
-}
-.list li.listli:hover{
-  box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.18);
 }
 .list li.listli .imgBox {
   text-align: center;
