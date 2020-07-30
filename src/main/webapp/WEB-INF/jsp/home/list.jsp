@@ -20,10 +20,10 @@
       <c:forEach items="${map}" var="map" >
 
       <div class="category-list container">
-        <div class="box-hd J_box-hd" id=" >
+        <div class="box-hd J_box-hd" >
           <h2 class="title">
             <i class="glyphicon glyphicon-menu-down"></i>
-              ${map.key}
+            <div class="mapkey">${map.key}</div>
           </h2>
         </div>
         <div class="list J_box-bd">
