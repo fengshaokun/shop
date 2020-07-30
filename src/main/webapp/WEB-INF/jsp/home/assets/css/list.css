@@ -22,6 +22,10 @@ a:active {
 .main-container {
   background: #eee;
 }
+.category-list .mapkey{
+  /*border: 1px solid #0e4667;*/
+  display: inline-block;
+}
 .list {
   /* width: 1200px; */
   margin: 0 auto;
