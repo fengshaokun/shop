@@ -38,13 +38,13 @@ a:active {
   display: inline-block;
   background: #fff;
   vertical-align: top;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.18);
 }
 .list li.listli:hover{
   top: -3px;
-  -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0 0 15px rgba(0,0,0,0.4);
-  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0 0 35px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 0 35px rgba(0,0,0,0.3);
+  box-shadow: 0 0 35px rgba(0,0,0,0.3);
 
 }
 .list li.listli .tipimg1 {
