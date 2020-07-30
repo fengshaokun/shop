@@ -32,7 +32,7 @@ a:active {
 .list li.listli {
   margin: 10px;
    width: 250px;
-  /* height: 300px; */
+   height: 320px;
   position: relative;
   cursor: pointer;
   display: inline-block;
