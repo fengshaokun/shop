@@ -88,6 +88,15 @@ ol {
 .header li.headerli:hover a{
   color: #0370ff;
 }
+.header li.headerli.active a{
+  color: #0370ff;
+}
+.header li.headerli.active .arrow{
+  color: #0370ff;
+}
+.header li.headerli.active span{
+  color: #0370ff;
+}
 .navbar-brand a {
   display: block;
 }
@@ -180,8 +189,6 @@ ol {
 }
 
     .dropdown ul.right_ul li {
-  /* width: 200px; */
-  /* height: 200px; */
    display: inline-flex;
   flex-direction: column;
   justify-content: space-around;
