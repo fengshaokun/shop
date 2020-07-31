@@ -122,10 +122,10 @@ ol {
   text-align: center;
   z-index: 10;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
-  animation:fadeIn .5s linear;
-  -moz-animation:fadeIn .5s linear; /* Firefox */
-  -webkit-animation:fadeIn .5s linear; /* Safari and Chrome */
-  -o-animation:fadeIn .5s linear; /* Opera */
+  animation:fadeIn 1s linear;
+  -moz-animation:fadeIn 1s linear; /* Firefox */
+  -webkit-animation:fadeIn 1s linear; /* Safari and Chrome */
+  -o-animation:fadeIn 1s linear; /* Opera */
 }
 @keyframes fadeIn{
   0%{
