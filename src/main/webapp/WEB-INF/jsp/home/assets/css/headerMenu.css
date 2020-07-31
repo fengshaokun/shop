@@ -81,9 +81,11 @@ ol {
 }
 .header li.headerli a:active {
   color: #fff;
+  text-decoration: none;
 }
 .header li.headerli a:visited {
   color: #fff;
+  text-decoration: none;
 }
 .header li.headerli:hover a{
   color: #0370ff;
