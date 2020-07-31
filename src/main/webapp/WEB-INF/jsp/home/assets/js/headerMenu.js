@@ -47,8 +47,6 @@ new Vue({
                 var collapse = document.querySelector(".navbar-toggle");
                 collapse.click();
             }
-
-
         },
           leaveDropdown(){//移出dropdown消失
               this.showdropdown = false;
@@ -93,3 +91,16 @@ new Vue({
     }
  })
 
+
+$(document).ready(function () {
+    var index = window.location.href.lastIndexOf("/");
+    var str = window.location.href.substring(index+1)
+
+    if(str == "index"){
+        $(".headerliindex").addClass("active");
+        $(".headerlicaseshow").removeClass("active");
+    }else if(str == "caseShow"){
+        $(".headerlicaseshow").addClass("active");
+        $(".headerliindex").removeClass("active");
+    }
+})
