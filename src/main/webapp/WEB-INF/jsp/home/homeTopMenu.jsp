@@ -35,7 +35,7 @@
             <!-- //代表导航栏左侧logo或者图标  -->
             <!-- <a class="navbar-brand" href="http://www.baidu.com">浏览器博物馆</a> -->
             <span class="navbar-brand">
-            <a href="/home/index">
+            <a href="/home/index" >
               <div class="logo">
                 <img :src="logoSrc" alt="" />
               </div>
@@ -49,7 +49,7 @@
                     class="nav navbar-nav collapse navbar-collapse"
                     id="bs-example-navbar-collapse-1"
             >
-                <li class="headerli" @mouseover="enter()" >
+                <li class="headerli headerliindex" @mouseover="enter()" >
 
                         <span class="navName"><a href="/home/index">首页</a></span>
 
@@ -60,9 +60,9 @@
                         <span class="glyphicon glyphicon-menu-down arrow"></span>
 <%--                    </a>--%>
                 </li>
-                <li class="headerli" @mouseover="enter()" >
+                <li class="headerli headerlicaseshow" @mouseover="enter()" >
                     <span class="navName">
-                    <a href="/home/caseShow">
+                    <a href="/home/caseShow" >
                         应用案例
                     </a>
                         </span>
@@ -100,7 +100,7 @@
 
                 </ul>
                 <!-- 产看更多 -->
-                <a herf="/home/list" class="checkMoreClass">查看更多+</a>
+                <a href="/home/list" class="checkMoreClass">查看更多+</a>
             </div>
         </div>
     </div>
