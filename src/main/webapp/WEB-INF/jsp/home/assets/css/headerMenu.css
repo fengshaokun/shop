@@ -42,7 +42,17 @@ ol {
     color: #fff;
     cursor: pointer;
   align-items: center;
+  color: #fff;
   /*justify-content: center;*/
+}
+.header li.headerli:hover{
+  color: #0370ff;
+}
+.header li.headerli:hover .navName a{
+  color: #0370ff;
+}
+.header li.headerli:hover .arrow{
+  color: #0370ff;
 }
 .header li.headerli a span {
   display: inline-block;
@@ -65,7 +75,8 @@ ol {
   flex: 2;
   padding-right: 5px;
 }
-.header li.headerli a:hover {
+
+.header li.headerli a:hover{
   color: #fff;
 }
 .header li.headerli a:active {
@@ -73,6 +84,9 @@ ol {
 }
 .header li.headerli a:visited {
   color: #fff;
+}
+.header li.headerli:hover a{
+  color: #0370ff;
 }
 .navbar-brand a {
   display: block;
@@ -102,13 +116,27 @@ ol {
   width: 100%;
   /* height: 300px; */
   position: absolute;
-  top: 60px;
+  top: 65px;
   background: #eee;
   color: #000;
   text-align: center;
   z-index: 10;
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.18);
+  animation:fadeIn .5s linear;
+  -moz-animation:fadeIn .5s linear; /* Firefox */
+  -webkit-animation:fadeIn .5s linear; /* Safari and Chrome */
+  -o-animation:fadeIn .5s linear; /* Opera */
 }
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+    display: block;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
 .dropdown > div {
   /* width: 1200px; */
   display: flex;
