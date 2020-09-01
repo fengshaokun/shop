@@ -20,11 +20,23 @@ public class CUserController {
 @Autowired
 private CUserServiceI cUserServiceI;
 
+
+    /**
+     * 用户登陆页面
+     * @return
+     */
     @RequestMapping("/index")
     public String index(){
         return "sso/login";
     }
 
+    /**
+     * 登陆接口
+     * @param name
+     * @param password
+     * @param request
+     * @return
+     */
     @RequestMapping("/login")
     @ResponseBody
     public ShopResult login(@Param("name") String name , @Param("password") String password, HttpServletRequest request) {

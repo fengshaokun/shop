@@ -24,6 +24,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (null == cUser ) {
             // 未登录，重定向到登录页
            // response.sendRedirect("/home/index");
+
+            // 现在系统不完整,跳转到的是 敬请期待...页面  正式部署 用上面这行
             response.sendRedirect("/home/i");
             return false;
         }

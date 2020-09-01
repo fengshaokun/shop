@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 
+
+/**
+ * 产品官网首页
+ */
 @RequestMapping("home")
 @Controller
 public class CHomeController {
@@ -45,11 +49,20 @@ public class CHomeController {
     @Value("${homeCaseSize}")
     private Integer homeCaseSize;
 
+    /**
+     *  页面初始化  敬请期待页面
+     * @return
+     */
     @RequestMapping("i")
     public String i (){
         return  "index";
     }
 
+    /**
+     * 首页内容
+     * @param map
+     * @return
+     */
     @RequestMapping("index")
     public String toMain(Map map){
         List<CHomePage>lists=new ArrayList<>();
@@ -67,13 +80,25 @@ public class CHomeController {
         return "home/index";
     }
 
-@RequestMapping("list")
+    /**
+     * 产品列表通过菜单分类
+     * @param map
+     * @return
+     */
+    @RequestMapping("list")
 public String list(Map map){
     Map map1 = cProductServiceI.selectProductsList();
     map.put("map",map1);
     return "home/list";
 }
 
+    /**
+     *模糊查询产品 带分页
+     * @param name
+     * @param map
+     * @param pageNum
+     * @return
+     */
     @RequestMapping("lists")
     public String getList(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){
         if (name==null){name="";}
@@ -84,7 +109,12 @@ public String list(Map map){
     }
 
 
-
+    /**
+     * 案例列表页
+     * @param map
+     * @param pageNum
+     * @return
+     */
     @RequestMapping("caseShow")
     public String caseShow(Map map,@RequestParam(defaultValue = "1") Integer pageNum){
         PageInfo<CCase> cCasePageInfo = cCaseServiceI.selectAllLimit(pageNum,homeCaseSize);
@@ -94,6 +124,11 @@ public String list(Map map){
         return "home/caseShow";
     }
 
+
+    /**
+     * 菜单接口
+     * @return
+     */
     @RequestMapping("menuIndex")
     @ResponseBody
     public ShopResult menuIndex(){
@@ -107,6 +142,11 @@ public String list(Map map){
     }
 
 
+    /**
+     * 通过菜单查询产品 首页头部
+     * @param id
+     * @return
+     */
     @RequestMapping("menuProducts")
     @ResponseBody
     public ShopResult menuProducts(Integer id){
@@ -114,6 +154,12 @@ public String list(Map map){
         return ShopResult.ok(cProducts);
     }
 
+    /**
+     * 查询为空的时候
+     * @param map
+     * @param name
+     * @return
+     */
     @RequestMapping("kong")
     public String kong(Map map,String name){
         if (name==null){name="";}
@@ -121,6 +167,10 @@ public String list(Map map){
         return "/home/kong";
     }
 
+    /**
+     * 首页底部
+     * @return
+     */
     @RequestMapping("footIndex")
     @ResponseBody
     public ShopResult footIndex(){
@@ -129,7 +179,11 @@ public String list(Map map){
     }
 
 
-
+    /**
+     * 添加咨询人
+     * @param cUserConsult
+     * @return
+     */
    @RequestMapping("addUserConsult")
     @ResponseBody
     public ShopResult addUserConsult(CUserConsult cUserConsult){
@@ -146,6 +200,12 @@ public String list(Map map){
    }
 
 
+    /**
+     * 产品详情
+     * @param id
+     * @param map
+     * @return
+     */
    @RequestMapping("productDetails")
     public  String productDetails(Integer id,Map map){
        CProduct cProductDetails = cProductServiceI.getCProductById(id);
@@ -153,6 +213,12 @@ public String list(Map map){
       return "home/productDetail";
    }
 
+    /**
+     * 案例详情
+     * @param id
+     * @param map
+     * @return
+     */
     @RequestMapping("caseDetails")
     public  String caseDetails(Integer id,Map map){
         CItemDetails cItemDetails = cCaseServiceI.selectCaseDetailsByCaId(id);
@@ -160,6 +226,10 @@ public String list(Map map){
         return "home/caseDetail";
     }
 
+    /**
+     * 微信公众号二维码
+     * @return
+     */
     @RequestMapping("weChatCord")
     @ResponseBody
     public ShopResult weChatCord(){
@@ -167,6 +237,14 @@ public String list(Map map){
         return ShopResult.ok(cHomePage);
     }
 
+
+    /**
+     * 搜索
+     * @param name
+     * @param map
+     * @param pageNum
+     * @return
+     */
          @RequestMapping("searchParam")
          @ResponseBody
     public ShopResult searchParam(String name,Map map,@RequestParam(defaultValue = "1") Integer pageNum){

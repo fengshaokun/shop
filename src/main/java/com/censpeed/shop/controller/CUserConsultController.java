@@ -25,6 +25,13 @@ public class CUserConsultController {
     @Autowired
     private CUserConsultServiceI cUserConsultServiceI;
 
+
+    /**
+     * 用户咨询列表管理
+     * @param map
+     * @param pageNum
+     * @return
+     */
     @RequestMapping("index")
     public String index(Map map,@RequestParam(defaultValue = "1") Integer pageNum){
         PageInfo<CUserConsult> cUserConsultPageInfo=cUserConsultServiceI.getAllUserConsult(pageNum);
@@ -33,6 +40,11 @@ public class CUserConsultController {
 
     }
 
+    /**
+     * 删除用户咨询
+     * @param id
+     * @return
+     */
     @RequestMapping("delete")
     public String delete(Integer id){
         cUserConsultServiceI.deleteUserConsultById(id);
@@ -41,6 +53,12 @@ public class CUserConsultController {
     }
 
 
+    /**
+     * 修改用户咨询回显
+     * @param id
+     * @param map
+     * @return
+     */
     @RequestMapping("update")
     public String update(Integer id,Map map){
         CUserConsult cUserConsult = cUserConsultServiceI.selectCUserConsultById(id);
@@ -48,6 +66,12 @@ public class CUserConsultController {
         return "/user/update";
     }
 
+
+    /**
+     * 确认修改用户咨询
+     * @param cUserConsult
+     * @return
+     */
     @RequestMapping("updateConsult")
     public String updateConsult(CUserConsult cUserConsult){
         cUserConsultServiceI.updateConsult(cUserConsult);
@@ -55,6 +79,11 @@ public class CUserConsultController {
     }
 
 
+    /**
+     * 导出用户咨询列表 poi
+     * @param response
+     * @throws IOException
+     */
     @RequestMapping(value = "/exportExcel", method = RequestMethod.GET)
     public void exportExcel(HttpServletResponse response)  throws IOException {
         List<CUserConsult> resultList = cUserConsultServiceI.getAll();
@@ -65,6 +94,10 @@ public class CUserConsultController {
     }
 
 
+    /**
+     * 导入
+     * @param file
+     */
     @RequestMapping(value = "/readExcel", method = RequestMethod.POST)
     public void readExcel(@RequestParam(value="uploadFile", required = false) MultipartFile file){
         long t1 = System.currentTimeMillis();

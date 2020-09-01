@@ -34,8 +34,14 @@ public class CProductController {
     private Integer productPageSize;
 
 
+    /**
+     * 创建产品
+     * @param map
+     * @return
+     */
     @RequestMapping("create")
     public String createProduct(Map map) {
+        //需绑定菜单
         List<CMenu> cMenus = cMenuServiceI.selectAll();
         map.put("menus",cMenus);
         return "product/create";

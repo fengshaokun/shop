@@ -26,6 +26,11 @@ public class CHomePageController {
     private CFootTextServiceI cFootTextServiceI;
 
 
+    /**
+     * 主页图列表
+     * @param map
+     * @return
+     */
     @RequestMapping("index")
     public String index(Map map){
         List<CHomePage> cHomePages = cHomePageServiceI.selectAllCHomePage();
@@ -33,6 +38,12 @@ public class CHomePageController {
         return "homepage/index";
     }
 
+    /**
+     * 修改页面详情
+     * @param map
+     * @param id
+     * @return
+     */
     @RequestMapping("update")
     public String update(Map map,Integer id){
         CHomePage cHomePage = cHomePageServiceI.selectCHomePageById(id);
@@ -40,6 +51,12 @@ public class CHomePageController {
         return "homepage/update";
     }
 
+    /**
+     * 确认修改
+     * @param map
+     * @param cHomePage
+     * @return
+     */
     @PostMapping("updateHomePage")
     public String updateHomePage(Map map,CHomePage cHomePage){
         cHomePageServiceI.updateCHomePage(cHomePage);
@@ -47,6 +64,11 @@ public class CHomePageController {
         return "redirect:/homepage/index";
     }
 
+    /**
+     * 底部管理
+     * @param map
+     * @return
+     */
     @RequestMapping("foot")
     public String foot(Map map){
         List<CFootTextWithBLOBs> cFootTexts = cFootTextServiceI.selectAllCFootText();
@@ -54,6 +76,12 @@ public class CHomePageController {
         return "homepage/foottextindex";
     }
 
+    /**
+     * 底部修改详情
+     * @param id
+     * @param map
+     * @return
+     */
     @RequestMapping(value = "/toFoot" ,method = RequestMethod.GET)
     public String toFoot(Integer id,Map map){
         CFootTextWithBLOBs cFootText = cFootTextServiceI.selectCFootTextById(id);
@@ -62,11 +90,11 @@ public class CHomePageController {
     }
 
 
-
-
-
-
-
+    /**
+     * 确认修改
+     * @param cFootText
+     * @return
+     */
     @RequestMapping("updateFoot")
     public String updateFoot(CFootTextWithBLOBs cFootText){
       cFootTextServiceI.updateFoot(cFootText);

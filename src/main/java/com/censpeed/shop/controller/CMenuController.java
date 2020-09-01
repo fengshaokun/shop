@@ -20,6 +20,11 @@ public class CMenuController {
 @Autowired
 private CMenuServiceI cMenuServiceI;
 
+    /**
+     * 菜单列表管理
+     * @param map
+     * @return
+     */
     @RequestMapping("index")
     public String index(Map map) {
         List<CMenu> cMenus = cMenuServiceI.selectAll();
@@ -28,7 +33,11 @@ private CMenuServiceI cMenuServiceI;
     }
 
 
-
+    /**
+     * 创建菜单绑定父级菜单的下拉框
+     * @param map
+     * @return
+     */
     @RequestMapping("create")
     public String create(Map map) {
         List<CMenu> cMenus = cMenuServiceI.selectAll();
@@ -36,6 +45,12 @@ private CMenuServiceI cMenuServiceI;
         return "/menu/create";
     }
 
+    /**
+     * 修改菜单
+     * @param id
+     * @param map
+     * @return
+     */
     @RequestMapping("update")
     public String update(Integer id,Map map) {
         CMenu cMenu = cMenuServiceI.selectByPrimaryKey(id);
@@ -46,7 +61,11 @@ private CMenuServiceI cMenuServiceI;
     }
 
 
-
+    /**
+     * 创建提交
+     * @param cMenu
+     * @return
+     */
     @RequestMapping("uploadGood")
     public String uploadGood(CMenu cMenu) {
         cMenuServiceI.insert(cMenu);
@@ -54,6 +73,11 @@ private CMenuServiceI cMenuServiceI;
     }
 
 
+    /**
+     * 修改提交
+     * @param cMenu
+     * @return
+     */
     @RequestMapping("updateMenu")
     public String updateMenu(CMenu cMenu) {
         cMenuServiceI.updateMenu(cMenu);
@@ -61,6 +85,11 @@ private CMenuServiceI cMenuServiceI;
     }
 
 
+    /**
+     * 判断菜单是否有关联
+     * @param id
+     * @return
+     */
     @RequestMapping("delete")
     @ResponseBody
     public ShopResult delete(Integer id) {
@@ -69,12 +98,21 @@ private CMenuServiceI cMenuServiceI;
 
     }
 
+    /**
+     * 删除菜单
+     * @param id
+     * @return
+     */
     @RequestMapping("toDelete")
     public  String toDelete(Integer id){
         cMenuServiceI.deleteMenuById(id);
         return "redirect:/menu/index";
     }
 
+    /**
+     * 菜单列表带排序
+     * @return
+     */
     @RequestMapping(value = "/menuIndex" ,method = RequestMethod.POST)
     @ResponseBody
     public  ShopResult menuIndex(){

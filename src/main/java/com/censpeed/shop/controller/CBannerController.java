@@ -11,12 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * banner图页面
+ */
 @Controller
 @RequestMapping("banner")
 public class CBannerController {
 
     @Autowired
     private CBannerSetviceI cBannerSetviceI;
+
+    /**
+     * 查询banner图 带到banner/index 页面
+     * @param map
+     * @return
+     */
     @RequestMapping("index")
     public String index(Map map){
         List<CBanner> cBanners = cBannerSetviceI.selectAllBanner();
@@ -24,6 +34,12 @@ public class CBannerController {
         return "banner/index";
     }
 
+    /**
+     * 修改Banner 详情
+     * @param map
+     * @param id
+     * @return
+     */
     @RequestMapping("update")
     public String update(Map map,Integer id){
         CBanner cBanner = cBannerSetviceI.selectBannerById(id);
@@ -31,6 +47,12 @@ public class CBannerController {
         return "banner/update";
     }
 
+    /**
+     * 确认修改
+     * @param map
+     * @param cHomePage
+     * @return
+     */
     @PostMapping("updateBanner")
     public String updateHomePage(Map map,CBanner cHomePage){
         cBannerSetviceI.updateBanner(cHomePage);

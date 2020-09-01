@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * 案例页面
+ */
 @Controller
 @RequestMapping("case")
 public class CCaseController {
@@ -25,7 +29,12 @@ public class CCaseController {
     private Integer caseSize;
 
 
-
+    /**
+     *  查询案例列表 初始化页面
+     * @param map
+     * @param pageNum
+     * @return
+     */
     @RequestMapping("index")
     public String index(Map map,@RequestParam(defaultValue = "1") Integer pageNum){
         PageInfo<CCase> cCasePageInfo = cCaseServiceI.selectAllLimit(pageNum,caseSize);
@@ -34,11 +43,21 @@ public class CCaseController {
     }
 
 
+    /**
+     * 跳转到创建页面
+     * @return
+     */
     @RequestMapping("create")
     public String update(){
         return "case/create";
     }
 
+    /**
+     * 修改案例页面详情回显
+     * @param id
+     * @param map
+     * @return
+     */
     //修改页面回显
     @RequestMapping("update")
     public String update(Integer id,Map map) {
@@ -48,24 +67,47 @@ public class CCaseController {
     }
 
 
+    /**
+     * 创建案例提交
+     * @param cCase
+     * @param caseContent
+     * @return
+     */
     @RequestMapping("upload")
     public String upload(CCase cCase,String caseContent){
         cCaseServiceI.insert(cCase,caseContent);
         return "redirect:/case/index";
     }
 
+    /**
+     * 修改案例提交
+     * @param cCase
+     * @param caseContent
+     * @return
+     */
     @RequestMapping("updateCase")
     public String updateCase(CCase cCase,String caseContent){
         cCaseServiceI.updateCaseItem(cCase,caseContent);
         return "redirect:/case/index";
     }
 
+    /**
+     * 删除案例
+     * @param id
+     * @return
+     */
     @RequestMapping("delete")
     public String delete(Integer id){
         cCaseServiceI.deleteCaseItem(id);
         return "redirect:/case/index";
     }
 
+    /**
+     * 查看案例详情
+     * @param id
+     * @param map
+     * @return
+     */
     @RequestMapping("detail")
     public String detail(Integer id,Map map){
         CItemDetails cItemDetails = cCaseServiceI.selectCaseDetailsByCaId(id);

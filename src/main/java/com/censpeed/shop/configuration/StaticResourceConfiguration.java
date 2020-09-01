@@ -10,7 +10,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
 
-
+    /**
+     * 静态资源
+     * @param registry
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/js/");
@@ -31,6 +34,11 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/menu/css/**").addResourceLocations("/WEB-INF/jsp/menu/css/");
         super.addResourceHandlers(registry);
     }
+
+    /**
+     * 拦截
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         InterceptorRegistration loginRegistry = registry.addInterceptor(new LoginInterceptor());
