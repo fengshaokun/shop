@@ -2,15 +2,18 @@ package com.censpeed.shop.entity;
 
 import java.util.List;
 
+/**
+ * 菜单
+ */
 public class CMenu {
     private Integer id;
-
+    //菜单名
     private String principal;
-
+    //排序
     private Integer sort;
-
+    //父级Id
     private Integer pid;
-
+    //父级菜单
     private CMenu cMenu;
 
 

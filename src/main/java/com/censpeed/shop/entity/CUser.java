@@ -1,5 +1,9 @@
 package com.censpeed.shop.entity;
 
+
+/**
+ * 用户表
+ */
 public class CUser {
     private Integer id;
 

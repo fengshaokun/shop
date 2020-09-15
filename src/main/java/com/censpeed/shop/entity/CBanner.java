@@ -1,12 +1,17 @@
 package com.censpeed.shop.entity;
 
+
+/**
+ * banner图
+ */
 public class CBanner {
+    //id
     private Integer id;
-
+    //标题
     private String title;
-
+    //副标题
     private String subtitle;
-
+    //图片url
     private String image;
 
     public Integer getId() {

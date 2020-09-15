@@ -1,8 +1,13 @@
 package com.censpeed.shop.entity;
 
-public class CFootTextWithBLOBs extends CFootText {
-    private String leftText;
+/**
+ * 底部文字
+ */
 
+public class CFootTextWithBLOBs extends CFootText {
+    //左边文字
+    private String leftText;
+    //右边文字
     private String rightText;
 
     public String getLeftText() {

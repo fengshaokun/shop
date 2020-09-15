@@ -1,8 +1,13 @@
 package com.censpeed.shop.entity;
 
-public class CItemDetails {
-    private Integer cCaseId;
 
+/**
+ * 案例详情
+ */
+public class CItemDetails {
+    //案例Id
+    private Integer cCaseId;
+    //内容
     private String content;
 
     public Integer getcCaseId() {

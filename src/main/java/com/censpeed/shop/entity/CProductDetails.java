@@ -1,8 +1,13 @@
 package com.censpeed.shop.entity;
 
+
+/**
+ * 产品详情
+ */
 public class CProductDetails {
     private Integer cProductId;
 
+    //内容
     private String productContent;
 
     public Integer getcProductId() {

@@ -49,7 +49,7 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
         loginRegistry.excludePathPatterns("/user/login");
         loginRegistry.excludePathPatterns("/user/index");
         loginRegistry.excludePathPatterns("/home/*");
-
+        loginRegistry.excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg", "/*.html", "/**/*.html","/swagger-resources/**","swagger-ui.html");
 
     }
 }

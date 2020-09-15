@@ -1,10 +1,14 @@
 package com.censpeed.shop.entity;
 
+/**
+ * 主页图
+ */
 public class CHomePage {
+    //id
     private Integer id;
-
+    //url
     private String src;
-
+    //名称
     private String style;
 
     public Integer getId() {

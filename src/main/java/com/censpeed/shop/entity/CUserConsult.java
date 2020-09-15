@@ -3,6 +3,9 @@ package com.censpeed.shop.entity;
 import java.util.Date;
 
 
+/**
+ * 咨询用户
+ */
 public class CUserConsult {
     @ExcelColumn(value = "id", col = 1)
     private Integer id;

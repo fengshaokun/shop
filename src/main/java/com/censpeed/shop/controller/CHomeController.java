@@ -9,6 +9,7 @@ import org.apache.poi.ss.formula.ptg.MemAreaPtg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -91,6 +92,13 @@ public String list(Map map){
     map.put("map",map1);
     return "home/list";
 }
+
+    @ResponseBody
+    @RequestMapping("listBody")
+    public Map listBody(){
+        Map map1 = cProductServiceI.selectProductsList();
+        return map1;
+    }
 
     /**
      *模糊查询产品 带分页

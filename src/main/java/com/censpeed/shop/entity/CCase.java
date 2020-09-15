@@ -1,20 +1,26 @@
 package com.censpeed.shop.entity;
 
+
+/**
+ *案例
+ */
 public class CCase {
+
+    //id
     private Integer id;
-
+    //公司名称
     private String companyName;
-
+    //公司简介
     private String companyIntroduct;
-
+    //公司Logo url
     private String companyLogo;
-
+    //公司背景图
     private String backgroundImage;
-
+    //项目名称
     private String name;
-
+    //排序
     private Integer sort;
-
+    //项目详情
     private CItemDetails cItemDetails;
 
     public CItemDetails getcItemDetails() {

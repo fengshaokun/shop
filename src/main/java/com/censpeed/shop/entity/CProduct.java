@@ -2,6 +2,9 @@ package com.censpeed.shop.entity;
 
 import java.util.Date;
 
+/**
+ * 产品
+ */
 public class CProduct {
 
     private Integer id;

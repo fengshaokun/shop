@@ -1,5 +1,9 @@
 package com.censpeed.shop.entity;
 
+
+/**
+ * 产品 菜单 关联
+ */
 public class CProductMenuLink {
     private Integer id;
 
