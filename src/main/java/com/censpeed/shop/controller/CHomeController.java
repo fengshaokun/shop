@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 import java.util.*;
 
 
@@ -40,6 +42,8 @@ public class CHomeController {
     private SendByEmailConfig send;
     @Autowired
     private CBannerSetviceI cBannerSetviceI;
+    @Resource
+    private DataSource dataSource;
 
 
 
@@ -49,6 +53,18 @@ public class CHomeController {
     private Integer homeProductSize;
     @Value("${homeCaseSize}")
     private Integer homeCaseSize;
+
+    /**
+     *  页面初始化  敬请期待页面
+     * @return
+     */
+    @RequestMapping("date")
+    @ResponseBody
+    public String date (){
+        System.out.println(this.dataSource.getClass());
+        return  "ok";
+    }
+
 
     /**
      *  页面初始化  敬请期待页面

@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+
+import javax.servlet.http.HttpServletRequest;
 
 import java.util.List;
 import java.util.Map;
@@ -58,5 +62,10 @@ public class CBannerController {
         cBannerSetviceI.updateBanner(cHomePage);
 
         return "redirect:/banner/index";
+    }
+
+    @PostMapping("multipartFile")
+    public void test(HttpServletRequest httpServletRequest, MultipartFile multipartFile){
+        System.out.println(multipartFile.getName());
     }
 }

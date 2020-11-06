@@ -4,7 +4,7 @@
 <generatorConfiguration>
     <!-- location填本地mysql-connector-java-5.1.40.jar的路径 -->
     <classPathEntry
-            location="D:/software/maven/maven-repository/mysql/mysql-connector-java/5.1.47/mysql-connector-java-5.1.47.jar" />
+            location="D:\maven\repository\mysql\mysql-connector-java\8.0.21\mysql-connector-java-8.0.21.jar" />
     <context id="context1" targetRuntime="MyBatis3">
         <!-- 去注释 -->
         <commentGenerator>
@@ -13,8 +13,8 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/censpeed_product" userId="root"
-                        password="1234" />
+                        connectionURL="jdbc:mysql://localhost:3306/yikun?serverTimezone=UTC" userId="root"
+                        password="root" />
 
         <!-- 实体层 -->
         <javaModelGenerator targetPackage="com.censpeed.shop.entity"
@@ -41,7 +41,7 @@
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />-->
-        <table schema="censpeed_product" tableName="c_banner"
+        <table schema="yikun" tableName="aaa"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false" />

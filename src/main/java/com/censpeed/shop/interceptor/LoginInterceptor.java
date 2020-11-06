@@ -21,14 +21,14 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 检查每个到来的请求对应的session域中是否有登录标识
         CUser cUser = (CUser)request.getSession().getAttribute("user");
-        if (null == cUser ) {
-            // 未登录，重定向到登录页
-           // response.sendRedirect("/home/index");
-
-            // 现在系统不完整,跳转到的是 敬请期待...页面  正式部署 用上面这行
-            response.sendRedirect("/home/i");
-            return false;
-        }
+//        if (null == cUser ) {
+//            // 未登录，重定向到登录页
+//           // response.sendRedirect("/home/index");
+//
+//            // 现在系统不完整,跳转到的是 敬请期待...页面  正式部署 用上面这行
+//            response.sendRedirect("/home/i");
+//            return false;
+//        }
         return true;
     }
 

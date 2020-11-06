@@ -48,6 +48,7 @@ public class StaticResourceConfiguration extends WebMvcConfigurerAdapter{
         // 排除路径
         loginRegistry.excludePathPatterns("/user/login");
         loginRegistry.excludePathPatterns("/user/index");
+        loginRegistry.excludePathPatterns("/druid/**");
         loginRegistry.excludePathPatterns("/home/*");
         loginRegistry.excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg", "/*.html", "/**/*.html","/swagger-resources/**","swagger-ui.html");
 
